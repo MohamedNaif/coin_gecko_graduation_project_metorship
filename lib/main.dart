@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRouter().generateRoute,
       theme: ThemeData(
         // This is the theme of your application.
         //

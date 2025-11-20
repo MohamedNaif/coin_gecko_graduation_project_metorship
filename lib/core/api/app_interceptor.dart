@@ -128,19 +128,19 @@ class AppInterceptors extends Interceptor {
           }
           // Refresh failed, logout
           await AppSharedPreferences.sharedPreferences.clear();
-          router.go(Routes.login);
+          // AppRouter().generateRoute(RouteSettings(name: Routes.splashScreen));
           return handler.reject(err);
         }
       } else {
         // log("No refresh token available");
         await AppSharedPreferences.sharedPreferences.clear();
-        router.go(Routes.login);
+        // router.go(Routes.login);
         return handler.reject(err);
       }
     } else if (err.response?.statusCode == StatusCode.forbidden) {
       // log("Forbidden - clearing preferences and redirecting to login");
       await AppSharedPreferences.sharedPreferences.clear();
-      router.go(Routes.login);
+      // router.go(Routes.login);
     }
 
     super.onError(err, handler);
