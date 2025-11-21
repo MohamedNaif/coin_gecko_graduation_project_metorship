@@ -1,55 +1,53 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  // Brand gradient
-  static const linear = LinearGradient(
-    colors: [Color(0xff913e35), Color(0xff743938)],
+  static const Color primaryDark = Color(0xFF1E1F4B);
+  static const Color primaryLight = Color(0xFF4766F9);
+  static const Color secondary = Color(0xFFF26666);
+
+  static const Color success = Color(0xFF00CB6A);
+  static const Color successLight = Color(0xFF69D895);
+
+  static const Color darkBackground = Color(0xFF000000);
+  static const Color darkSurface = Color(0xFF121212);
+  static const Color darkSurface2 = Color(0xFF222222);
+  static const Color darkElevatedSurface = Color(0xFF1E1E1E);
+
+  static const Color lightBackground = Color(0xFFFFFFFF);
+  static const Color lightSurface = Color(0xFFF7F7F7);
+  static const Color lightCardSurface = Color(0xFFEDF9F7);
+
+  static const Color darkTextPrimary = Color(0xFFFFFFFF);
+  static const Color darkTextSecondary = Color(0xFF979797);
+  static const Color darkTextMuted = Color(0xFF8C8C8C);
+
+  static const Color lightTextPrimary = Color(0xFF000000);
+  static const Color lightTextSecondary = Color(0xFF494D58);
+  static const Color lightTextMuted = Color(0xFF979797);
+
+  static const Color gray50 = Color(0xFFF7F7F7);
+  static const Color gray100 = Color(0xFFEDF9F7);
+  static const Color gray200 = Color(0xFFE0E0E0);
+  static const Color gray300 = Color(0xFF979797);
+  static const Color gray400 = Color(0xFF8C8C8C);
+  static const Color gray500 = Color(0xFF494D58);
+  static const Color gray600 = Color(0xFF222222);
+  static const Color gray700 = Color(0xFF121212);
+  static const Color gray800 = Color(0xFF1E1E1E);
+
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color transparent = Colors.transparent;
+
+  static const LinearGradient balanceCardDarkGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF1E1F4B), Color(0xFF2A2F6B)],
   );
 
-  // Primary brand (aliases preserved)
-  static const Color primary1 = Color(0xff9775FA);
-  static const Color primary2 = Color(0xff823C37);
-
-  // Primary scale and surfaces
-  static const Color primary50 = Color(0xffFCF4F4);
-  static const Color primary100 = Color(0xffF9E8E7);
-  static const Color primary200 = Color(0xffF5D4D3);
-  static const Color primary600 = Color(0xffBE4744);
-  static const Color primary700 = Color(0xffA13A37);
-  static const Color primary800 = Color(0xff843230);
-  static const Color primary900 = Color(0xff6F2F2D);
-
-  // Text colors
-  static const Color textMain = Color(0xff292929);
-  static const Color textSubtle = Color(0xff7C7C7C);
-
-  // Neutrals / grayscale
-  static const Color white = Color(0xffFFFFFF);
-  static const Color white50 = Color(0x80FFFFFF); // 50% overlay
-  static const Color black = Color(0xff000000);
-  static const Color neutral900 = Color(0xff1E1E1E);
-  static const Color neutral800 = Color(0xff464646);
-  static const Color neutral700 = Color(0xff525252);
-  static const Color neutral650 = Color(0xff575961);
-  static const Color neutral500 = Color(0xff989898);
-  static const Color neutral300 = Color(0xffD8D8D8);
-  static const Color neutral200 = Color(0xffDCDCDC);
-  static const Color neutral150 = Color(0xffEFEFEF);
-  static const Color neutral100 = Color(0xffF7F7F7);
-  static const Color background = Color(0xffF8F8F8);
-  static const Color statusInProgress = Color(0xffE1B400);
-
-  // Borders / surfaces
-  static const Color grayscaleBackground = Color(0xffFFFFFF);
-  static const Color grayscaleBorder = Color(0xffD0D5DD);
-  static const Color lightBorder = Color(0xffEFEFEF);
-
-  // Status colors
-  static const Color statesError = Color(0xffF04438);
-  static const Color statesInfo = Color(0xff2E90FA);
-  static const Color statesSuccess = Color(0xff12B76A);
-  static const Color red = Color(0xffF31616);
-  static const Color yellow = Color(0xffE0BB3A);
-
-  static const Color zinc700 = Color(0xff374151);
+  static const LinearGradient balanceCardLightGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color(0xFF1E1F4B), Color(0xFF4766F9)],
+  );
 }

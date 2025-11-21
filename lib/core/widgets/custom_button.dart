@@ -51,15 +51,15 @@ class CustomButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius ?? 8),
         color: (isDisabled ?? false)
-            ? (color ?? AppColors.primary1).withValues(alpha: 0.6)
-            : (color ?? AppColors.primary1),
+            ? (color ?? AppColors.primaryLight).withValues(alpha: 0.6)
+            : (color ?? AppColors.primaryLight),
       ),
       height: height ?? 40,
       width: width ?? double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: widthPadding ?? 16),
-          overlayColor: AppColors.primary1,
+          overlayColor: AppColors.primaryLight,
           elevation: 0,
           shadowColor: Colors.black12,
           backgroundColor: color ?? Colors.transparent,
@@ -67,7 +67,7 @@ class CustomButton extends StatelessWidget {
             side: !(haveBorder ?? false)
                 ? BorderSide.none
                 : BorderSide(
-                    color: borderColor ?? AppColors.primary700,
+                    // color: borderColor ?? AppColors.primary700,
                     width: 1.5,
                   ),
             borderRadius: BorderRadius.circular(borderRadius ?? 8).copyWith(),
@@ -98,7 +98,7 @@ class CustomButton extends StatelessWidget {
                       textStyle ??
                       (haveBorder == true
                           ? AppTextStyles.semiBold16.copyWith(
-                              color: AppColors.primary700,
+                              // color: AppColors.primary700,
                             )
                           : AppTextStyles.semiBold16.copyWith(
                               color: Colors.white,
