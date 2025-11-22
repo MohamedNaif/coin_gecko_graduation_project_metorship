@@ -32,7 +32,6 @@ jobs:
       - name: Run Fastlane distribute
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          FIREBASE_TESTERS_GROUP: ${{ secrets.FIREBASE_TESTERS_GROUP }}
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
         run: bundle exec fastlane distribute
         working-directory: android

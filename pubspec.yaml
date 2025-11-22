@@ -46,6 +46,7 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
   flutter_svg: ^2.2.2
+  firebase_core: ^4.2.1
 
 dev_dependencies:
   flutter_test:
