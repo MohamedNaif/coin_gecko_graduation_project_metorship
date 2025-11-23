@@ -67,7 +67,7 @@ class CustomButton extends StatelessWidget {
             side: !(haveBorder ?? false)
                 ? BorderSide.none
                 : BorderSide(
-                    // color: borderColor ?? AppColors.primary700,
+                    color: borderColor ?? AppColors.primaryLight,
                     width: 1.5,
                   ),
             borderRadius: BorderRadius.circular(borderRadius ?? 8).copyWith(),

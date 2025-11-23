@@ -1,4 +1,6 @@
 import 'package:cherry_toast/resources/arrays.dart';
+import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 
 import 'package:flutter/material.dart';
 import 'package:cherry_toast/cherry_toast.dart';
@@ -74,7 +76,7 @@ void showSnackBar({
       textAlign: TextAlign.center,
       message,
       maxLines: 3,
-      // style: AppTextStyles.medium16.copyWith(color: AppColors.grayscaleBorder),
+      style: AppTextStyles.medium14.copyWith(color: AppColors.gray400),
     ),
     type: notificationType,
     style: ToastificationStyle.flat,
