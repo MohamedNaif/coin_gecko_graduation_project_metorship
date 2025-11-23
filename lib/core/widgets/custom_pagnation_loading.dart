@@ -11,7 +11,7 @@ class CustomPagnationLoading extends StatelessWidget {
       child: Center(
         child: CupertinoActivityIndicator(
           radius: 15,
-          color: AppColors.primary600,
+          color: AppColors.primaryLight,
         ),
       ),
     );

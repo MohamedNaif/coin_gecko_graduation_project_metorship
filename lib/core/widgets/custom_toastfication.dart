@@ -21,7 +21,7 @@ class CustomToast {
 
     toastification.show(
       primaryColor: type == ToastificationType.success
-          ? AppColors.primary1
+          ? AppColors.primaryLight
           : null,
       context: context,
       dragToClose: true,
