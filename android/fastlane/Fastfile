@@ -1,0 +1,18 @@
+default_platform(:android)
+
+platform :android do
+  desc "Distribute app to Firebase App Distribution"
+  lane :firebase_distribution do
+
+    sh "flutter build apk --release"
+
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"],
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+      android_artifact_type: "APK",
+      apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
+      groups: "team-16-testers",
+      release_notes: "New version"
+    ) 
+  end
+end

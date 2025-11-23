@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDZ4L5Y9v9ZCLBJaRtYEBz_xg_SJyR5FhM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>691445068064</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.coinGeckoGraduationProjectMetorship</string>
+	<key>PROJECT_ID</key>
+	<string>coin-gecko-5528c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coin-gecko-5528c.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:691445068064:ios:4d8fd648518803060d2745</string>
+</dict>
+</plist>
