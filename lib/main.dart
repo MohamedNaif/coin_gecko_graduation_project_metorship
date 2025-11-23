@@ -1,7 +1,9 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  configureDependencies(); 
   runApp(const MyApp());
 }
 
