@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:coin_gecko_graduation_project_metorship/main.dart';
+import 'package:coin_gecko_graduation_project_metorship/main_production.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

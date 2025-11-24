@@ -39,6 +39,27 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    
+    //Flavors Configuration
+
+    flavorDimensions += "default"
+    productFlavors {
+        create("development") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Coin Gecko Development")
+            applicationIdSuffix = ".development"
+        }
+        create("production") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Coin Gecko")
+        }
+    }
 }
 
 flutter {
