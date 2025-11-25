@@ -1,7 +1,7 @@
-
 import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/api/end_points.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/dependency_injection.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -14,19 +14,21 @@ abstract class DioModule {
   }
 
   @Singleton()
-  Dio provideDio(LogInterceptor logInterceptor,) {
+  Dio provideDio(
+    LogInterceptor logInterceptor,
+  ) {
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 60),
-        baseUrl: "Constants.baseUrl",
+        baseUrl: EndPoints.baseUrl,
       ),
     );
-    dio.options.headers["Content-Type"]="multipart/form-data";
+    dio.options.headers["Content-Type"] = "multipart/form-data";
     // dio.options.contentType="multipart/form-data";
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          final token =  '';
+          final token = '';
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
@@ -34,7 +36,7 @@ abstract class DioModule {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");
           }
-    
+
           return handler.next(options);
         },
       ),
@@ -48,5 +50,4 @@ abstract class DioModule {
   ApiService provideApiService(Dio dio) {
     return ApiService(dio);
   }
-
 }

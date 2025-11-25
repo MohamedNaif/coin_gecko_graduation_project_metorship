@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,25 +29,42 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // TODO: Replace with actual logo asset
-            // Image.asset(
-            //   'assets/images/logo.png',
-            //   width: 150,
-            //   height: 150,
-            // ),
-            const Icon(
-              Icons.currency_bitcoin,
-              size: 100,
-              color: Colors.blue,
+      body: Stack(
+        children: [
+          // Background gradient circles
+          Positioned(
+            top: -100,
+            left: -100,
+            child: Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.grey[200],
+              ),
             ),
-            const SizedBox(height: 20),
-            const CircularProgressIndicator(),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: -150,
+            right: -150,
+            child: Container(
+              width: 400,
+              height: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.grey[100],
+              ),
+            ),
+          ),
+          // Main content
+          Center(
+            child: SvgPicture.asset(
+              AppAssets.iconApp,
+              width: 150,
+              height: 150,
+            ),
+          ),
+        ],
       ),
     );
   }

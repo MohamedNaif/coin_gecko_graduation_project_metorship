@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/data/models/onboarding_model.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/widgets/onboarding_page.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +17,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<OnboardingModel> _pages = [
     OnboardingModel(
-      image: 'assets/images/onboarding_1.png',
+      image: AppAssets.onboardingFirstPage,
       title: 'Welcome To Crypto X',
       description: '',
     ),
     OnboardingModel(
-      image: 'assets/images/onboarding_2.png',
+      image: AppAssets.onboardingSecondPage,
       title: 'Transaction Security',
       description: '',
     ),
     OnboardingModel(
-      image: 'assets/images/onboarding_3.png',
+      image: AppAssets.onboardingThirdPage,
       title: 'Fast And Reliable Market Updated',
       description: '',
     ),
     OnboardingModel(
-      image: 'assets/images/onboarding_4.png',
+      image: AppAssets.onboardingForthPage,
       title: 'Get Started Now!',
       description: '',
     ),
@@ -123,7 +124,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           if (_currentPage == _pages.length - 1)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
               child: Column(
                 children: [
                   SizedBox(
@@ -161,7 +163,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       child: const Text(
                         'Register',
-                        style: TextStyle(color: Color(0xFF1A1A1A), fontSize: 16),
+                        style:
+                            TextStyle(color: Color(0xFF1A1A1A), fontSize: 16),
                       ),
                     ),
                   ),

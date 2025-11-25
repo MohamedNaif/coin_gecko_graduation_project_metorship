@@ -13,24 +13,24 @@ class OnboardingPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // TODO: Replace with actual image asset
-          // Image.asset(
-          //   model.image,
-          //   height: 300,
-          // ),
-          Container(
+          // Image asset
+          Image.asset(
+            model.image,
             height: 300,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Icon(
-              Icons.image,
-              size: 100,
-              color: Colors.grey,
-            ),
           ),
+          // Container(
+          //   height: 300,
+          //   width: double.infinity,
+          //   decoration: BoxDecoration(
+          //     color: Colors.grey[200],
+          //     borderRadius: BorderRadius.circular(20),
+          //   ),
+          //   child: const Icon(
+          //     Icons.image,
+          //     size: 100,
+          //     color: Colors.grey,
+          //   ),
+          // ),
           const SizedBox(height: 40),
           Text(
             model.title,

@@ -1,4 +1,3 @@
-
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
@@ -11,7 +10,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
-     
+      case Routes.home:
+        return MaterialPageRoute(builder: (_) => const Scaffold());
       default:
         return null;
     }
