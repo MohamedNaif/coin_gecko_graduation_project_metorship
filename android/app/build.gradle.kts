@@ -58,6 +58,11 @@ android {
                 type = "string",
                 name = "app_name",
                 value = "Coin Gecko")
+                
+        // No applicationIdSuffix for production — keeps the main packageId for release builds
+
+
+
         }
     }
 }
