@@ -23,7 +23,6 @@ dependencies:
     sdk: flutter
   get_it: ^9.1.0
   go_router: ^17.0.0
-  google_fonts: ^6.3.2
   injectable: ^2.6.0
   intl: ^0.20.2
   pretty_dio_logger: ^1.4.0
@@ -59,3 +58,30 @@ flutter:
     - assets/icons/
     - assets/onboarding/
     - assets/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lato-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Lato-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Lato-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Lato-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Lato-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Lato-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/Lato-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Lato-ThinItalic.ttf
+          weight: 100
+          style: italic

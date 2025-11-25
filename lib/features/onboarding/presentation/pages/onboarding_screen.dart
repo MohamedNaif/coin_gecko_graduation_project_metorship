@@ -52,6 +52,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
+      leading: SizedBox.shrink(),
       backgroundColor: AppColors.white,
       elevation: 0,
       actions: [
