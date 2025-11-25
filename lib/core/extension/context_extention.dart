@@ -6,7 +6,9 @@ extension ContextExtension on BuildContext {
   double get height => MediaQuery.sizeOf(this).height;
   double get width => MediaQuery.sizeOf(this).width;
 }
-
+extension TextThemeHelper on BuildContext {
+  TextTheme get textTheme => Theme.of(this).textTheme;
+}
 class NavigationService {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
