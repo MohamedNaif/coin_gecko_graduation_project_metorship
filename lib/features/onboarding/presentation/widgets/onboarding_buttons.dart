@@ -27,7 +27,7 @@ class OnboardingButtons extends StatelessWidget {
               ),
               child: Text(
                 'Login',
-                style: AppTextStyles.medium14.copyWith(color: Colors.white),
+                style: AppTextStyles.semiBold16.copyWith(color: Colors.white),
               ),
             ),
           ),
@@ -42,12 +42,16 @@ class OnboardingButtons extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: AppColors.primaryDark),
                 shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    width: 2,
+                    color: AppColors.primaryDark,
+                  ),
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
               child: Text(
                 'Register',
-                style: AppTextStyles.medium14
+                style: AppTextStyles.semiBold16
                     .copyWith(color: AppColors.primaryDark),
               ),
             ),
