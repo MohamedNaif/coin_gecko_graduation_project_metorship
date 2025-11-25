@@ -1,4 +1,4 @@
-import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
+import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/data/models/onboarding_model.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/widgets/onboarding_body.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/widgets/onboarding_buttons.dart';
@@ -13,89 +13,107 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final PageController _pageController = PageController();
+  late final PageController _pageController;
   int _currentPage = 0;
 
-  final List<OnboardingModel> _pages = [
-    OnboardingModel(
-      image: AppAssets.onboardingFirstPage,
-      title: 'Welcome To Crypto X',
-      description: '',
-    ),
-    OnboardingModel(
-      image: AppAssets.onboardingSecondPage,
-      title: 'Transaction Security',
-      description: '',
-    ),
-    OnboardingModel(
-      image: AppAssets.onboardingThirdPage,
-      title: 'Fast And Reliable Market Updated',
-      description: '',
-    ),
-    OnboardingModel(
-      image: AppAssets.onboardingForthPage,
-      title: 'Get Started Now!',
-      description: '',
-    ),
-  ];
+  // Constants
+  static const _pageDuration = Duration(milliseconds: 300);
+  static const _pageCurve = Curves.easeInOut;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          if (_currentPage != _pages.length - 1)
-            TextButton(
-              onPressed: () {
-                _pageController.jumpToPage(_pages.length - 1);
-              },
-              child: const Text(
-                'Skip',
-                style: TextStyle(
-                  color: Color(0xFF1A1A1A),
-                  fontSize: 16,
-                ),
-              ),
-            ),
-        ],
-      ),
+      backgroundColor: AppColors.white,
+      appBar: _buildAppBar(),
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: _pages.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return OnboardingBody(model: _pages[index]);
-                },
-              ),
+              child: _buildPageView(),
             ),
-            if (_currentPage != _pages.length - 1)
-              OnboardingNavigation(
-                pageController: _pageController,
-                pageCount: _pages.length,
-                currentPage: _currentPage,
-                onNext: () {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-              )
-            else
-              const OnboardingButtons(),
+            _buildBottomSection(),
           ],
         ),
       ),
     );
   }
+
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(
+      backgroundColor: AppColors.white,
+      elevation: 0,
+      actions: [
+        if (_isNotLastPage) _buildSkipButton(),
+      ],
+    );
+  }
+
+  Widget _buildPageView() {
+    return PageView.builder(
+      controller: _pageController,
+      itemCount: OnboardingModel.pages.length,
+      onPageChanged: _onPageChanged,
+      itemBuilder: (context, index) {
+        return OnboardingBody(model: OnboardingModel.pages[index]);
+      },
+    );
+  }
+
+  Widget _buildBottomSection() {
+    if (_isNotLastPage) {
+      return OnboardingNavigation(
+        pageController: _pageController,
+        pageCount: OnboardingModel.pages.length,
+        currentPage: _currentPage,
+        onNext: _navigateToNextPage,
+      );
+    }
+    return const OnboardingButtons();
+  }
+
+  Widget _buildSkipButton() {
+    return TextButton(
+      onPressed: _skipToLastPage,
+      child: const Text(
+        'Skip',
+        style: TextStyle(
+          color: AppColors.gray800,
+          fontSize: 16,
+        ),
+      ),
+    );
+  }
+
+  // Helper methods
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
+
+  void _navigateToNextPage() {
+    _pageController.nextPage(
+      duration: _pageDuration,
+      curve: _pageCurve,
+    );
+  }
+
+  void _skipToLastPage() {
+    _pageController.jumpToPage(OnboardingModel.pages.length - 1);
+  }
+
+  // Computed properties
+  bool get _isNotLastPage => _currentPage != OnboardingModel.pages.length - 1;
 }
