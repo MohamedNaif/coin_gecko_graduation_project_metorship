@@ -12,17 +12,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  // Constants
+  static const Duration _splashDuration = Duration(seconds: 3);
+  static const double _logoSize = 150.0;
+  static const double _topCircleSize = 300.0;
+  static const double _bottomCircleSize = 400.0;
+
+  Timer? _navigationTimer;
+
   @override
   void initState() {
     super.initState();
-    _navigateToOnboarding();
+    _scheduleNavigation();
   }
 
-  _navigateToOnboarding() async {
-    await Future.delayed(const Duration(seconds: 3), () {});
-    if (mounted) {
-      Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
-    }
+  @override
+  void dispose() {
+    _navigationTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -31,41 +38,73 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background gradient circles
-          Positioned(
-            top: -100,
-            left: -100,
-            child: Container(
-              width: 300,
-              height: 300,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey[200],
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: -150,
-            right: -150,
-            child: Container(
-              width: 400,
-              height: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey[100],
-              ),
-            ),
-          ),
-          // Main content
-          Center(
-            child: SvgPicture.asset(
-              AppAssets.iconApp,
-              width: 150,
-              height: 150,
-            ),
-          ),
+          _buildBackgroundCircles(),
+          _buildLogo(),
         ],
       ),
     );
+  }
+
+  Widget _buildBackgroundCircles() {
+    return Stack(
+      children: [
+        _buildTopCircle(),
+        _buildBottomCircle(),
+      ],
+    );
+  }
+
+  Widget _buildTopCircle() {
+    return Positioned(
+      top: -100,
+      left: -100,
+      child: _buildCircle(
+        size: _topCircleSize,
+        color: Colors.grey[200],
+      ),
+    );
+  }
+
+  Widget _buildBottomCircle() {
+    return Positioned(
+      bottom: -150,
+      right: -150,
+      child: _buildCircle(
+        size: _bottomCircleSize,
+        color: Colors.grey[100],
+      ),
+    );
+  }
+
+  Widget _buildCircle({required double size, required Color? color}) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
+      ),
+    );
+  }
+
+  Widget _buildLogo() {
+    return Center(
+      child: SvgPicture.asset(
+        AppAssets.iconApp,
+        width: _logoSize,
+        height: _logoSize,
+      ),
+    );
+  }
+
+  // Navigation logic
+  void _scheduleNavigation() {
+    _navigationTimer = Timer(_splashDuration, _navigateToOnboarding);
+  }
+
+  void _navigateToOnboarding() {
+    if (!mounted) return;
+    
+    Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
   }
 }
