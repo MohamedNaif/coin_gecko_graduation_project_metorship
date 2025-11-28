@@ -1,4 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/distribution_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/month_filter_bar.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/portfolio_summary_card.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,10 @@ class PortfolioBody extends StatelessWidget {
                   ),
                   const SizedBox(height: 33),
                   const PortfolioSummaryCard(),
+                  const SizedBox(height: 27),
+                  const MonthFilterBar(),
+                  const SizedBox(height: 27),
+                  const DistributionCard()
                 ],
               ),
             ),

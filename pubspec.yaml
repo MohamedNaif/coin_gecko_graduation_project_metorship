@@ -47,6 +47,7 @@ dependencies:
   shimmer: ^3.0.0
   firebase_core: ^4.2.1
   toastification: ^3.0.3
+  fl_chart: ^1.1.1
 
 dev_dependencies:
   retrofit_generator: ^10.0.1
