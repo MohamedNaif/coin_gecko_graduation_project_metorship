@@ -3,6 +3,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widge
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_section.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/tab_bar/month_filter_bar.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/tranaction_section.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioBody extends StatelessWidget {
@@ -42,7 +43,27 @@ class PortfolioBody extends StatelessWidget {
               ),
             ),
           ),
-          const HoldingsSection(),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: const HoldingsSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: context.heightScale(10)),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                'Recent Transactions',
+                style: context.textTheme.headlineLarge
+                    ?.copyWith(fontSize: 23, fontWeight: FontWeight.w700),
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+            sliver: TransactionsSection(),
+          ),
         ],
       ),
     );

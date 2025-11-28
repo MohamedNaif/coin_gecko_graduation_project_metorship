@@ -24,17 +24,14 @@ class HoldingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      sliver: SliverList.separated(
-        itemBuilder: (context, index) {
-          return HoldingTile(
-            holding: _holdings,
-          );
-        },
-        separatorBuilder: (_, __) => const SizedBox(height: 10),
-        itemCount: 3,
-      ),
+    return SliverList.separated(
+      itemBuilder: (context, index) {
+        return HoldingTile(
+          holding: _holdings,
+        );
+      },
+      separatorBuilder: (_, __) => const SizedBox(height: 10),
+      itemCount: 3,
     );
   }
 }

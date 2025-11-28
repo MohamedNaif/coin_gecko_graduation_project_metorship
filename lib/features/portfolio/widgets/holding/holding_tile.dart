@@ -22,10 +22,9 @@ class HoldingTile extends StatelessWidget {
           children: [
             Icon(Icons.currency_bitcoin),
             const SizedBox(width: 16),
-            HoldingInfo(holding: holding),
-            const Spacer(),
+            Expanded(child: HoldingInfo(holding: holding)),
             const SizedBox(width: 16),
-            HoldingDetails(holding: holding),
+            Expanded(flex: 2, child: HoldingDetails(holding: holding)),
           ],
         ),
       ),
