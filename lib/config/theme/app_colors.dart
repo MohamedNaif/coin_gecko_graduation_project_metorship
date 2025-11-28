@@ -39,6 +39,9 @@ abstract class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color transparent = Colors.transparent;
 
+  static const Color cardSummary = Color(0xff1D3A70);
+  static const Color lightGrayishBlue = Color(0xffF5F8FE);
+
   static const LinearGradient balanceCardDarkGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
