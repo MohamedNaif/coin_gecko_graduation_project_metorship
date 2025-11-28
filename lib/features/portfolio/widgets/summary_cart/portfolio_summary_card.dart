@@ -1,6 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/portfolio_background.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/portfolio_summary_content.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_background.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_content.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioSummaryCard extends StatelessWidget {
