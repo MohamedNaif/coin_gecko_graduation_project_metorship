@@ -8,6 +8,10 @@ import 'package:coin_gecko_graduation_project_metorship/features/home/presentati
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/market_overview_shimmer.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/top_gainers_list_shimmer.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/trending_list_shimmer.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
 
@@ -16,7 +20,21 @@ class HomeScreenBody extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         if (state is HomeLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const SingleChildScrollView(
+            child: Column(
+              children: [
+                HomeHeader(),
+                BalanceCard(),
+                SizedBox(height: 16),
+                MarketOverviewShimmer(),
+                SizedBox(height: 24),
+                TrendingListShimmer(),
+                SizedBox(height: 24),
+                TopGainersListShimmer(),
+                SizedBox(height: 24),
+              ],
+            ),
+          );
         } else if (state is HomeError) {
           return Center(child: Text(state.message));
         } else if (state is HomeSuccess) {
