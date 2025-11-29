@@ -2,8 +2,12 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
 
+import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/global_data_model.dart';
+
 class MarketOverview extends StatelessWidget {
-  const MarketOverview({super.key});
+  final GlobalDataModel? data;
+
+  const MarketOverview({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,10 @@ class MarketOverview extends StatelessWidget {
               Expanded(
                 child: _MarketItem(
                   title: 'Market Cap',
-                  value: '\$2.1T',
-                  change: '2,35%',
+                  value: data != null
+                      ? '\$${(data!.totalMarketCap / 1e12).toStringAsFixed(2)}T'
+                      : 'Loading...',
+                  // change: '2,35%', // API doesn't provide change for global market cap in this endpoint easily without history
                   isPositive: true,
                 ),
               ),
@@ -33,8 +39,10 @@ class MarketOverview extends StatelessWidget {
               Expanded(
                 child: _MarketItem(
                   title: '24h Volume',
-                  value: '\$85.5B',
-                  change: '2,35%',
+                  value: data != null
+                      ? '\$${(data!.totalVolume / 1e9).toStringAsFixed(2)}B'
+                      : 'Loading...',
+                  // change: '2,35%',
                   isPositive: true,
                 ),
               ),
@@ -46,14 +54,18 @@ class MarketOverview extends StatelessWidget {
               Expanded(
                 child: _MarketItem(
                   title: 'BTC Dominance',
-                  value: '48.5%',
+                  value: data != null
+                      ? '${data!.btcDominance.toStringAsFixed(1)}%'
+                      : 'Loading...',
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: _MarketItem(
                   title: 'Active Coins',
-                  value: '19.417',
+                  value: data != null
+                      ? data!.activeCryptocurrencies.toString()
+                      : 'Loading...',
                 ),
               ),
             ],

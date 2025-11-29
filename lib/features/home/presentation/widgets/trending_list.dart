@@ -2,8 +2,12 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
 
+import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/trending_coin_model.dart';
+
 class TrendingList extends StatelessWidget {
-  const TrendingList({super.key});
+  final TrendingData? data;
+
+  const TrendingList({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +36,18 @@ class TrendingList extends StatelessWidget {
         const SizedBox(height: 16),
         SizedBox(
           height: 140,
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            scrollDirection: Axis.horizontal,
-            itemCount: 3,
-            separatorBuilder: (context, index) => const SizedBox(width: 16),
-            itemBuilder: (context, index) {
-              return const _TrendingCard();
-            },
-          ),
+          child: data == null
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: data!.coins.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 16),
+                  itemBuilder: (context, index) {
+                    return _TrendingCard(coin: data!.coins[index]);
+                  },
+                ),
         ),
       ],
     );
@@ -48,7 +55,9 @@ class TrendingList extends StatelessWidget {
 }
 
 class _TrendingCard extends StatelessWidget {
-  const _TrendingCard();
+  final TrendingCoinModel coin;
+
+  const _TrendingCard({required this.coin});
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +85,8 @@ class _TrendingCard extends StatelessWidget {
                 height: 32,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.orange, // Placeholder for Bitcoin icon
                 ),
-                child: const Icon(Icons.currency_bitcoin,
-                    color: Colors.white, size: 20),
+                child: Image.network(coin.thumb),
               ),
               const Spacer(),
               // Placeholder for mini chart
@@ -87,13 +94,15 @@ class _TrendingCard extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            'Bitcoin',
+            coin.name,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: AppTextStyles.semiBold14.copyWith(
               color: AppColors.primaryDark,
             ),
           ),
           Text(
-            'BTC',
+            coin.symbol,
             style: AppTextStyles.regular12.copyWith(
               color: AppColors.gray400,
             ),
@@ -103,22 +112,28 @@ class _TrendingCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '1,132,151',
+                '\$${coin.price.toStringAsFixed(2)}', // Note: API might return price in BTC for trending, need to check. But assuming USD for now based on model.
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Row(
                 children: [
-                  const Icon(
-                    Icons.arrow_drop_up,
-                    color: AppColors.primaryLight,
+                  Icon(
+                    coin.priceChangePercentage24h >= 0
+                        ? Icons.arrow_drop_up
+                        : Icons.arrow_drop_down,
+                    color: coin.priceChangePercentage24h >= 0
+                        ? AppColors.primaryLight
+                        : AppColors.secondary,
                     size: 16,
                   ),
                   Text(
-                    '2,35%',
+                    '${coin.priceChangePercentage24h.toStringAsFixed(2)}%',
                     style: AppTextStyles.bold10.copyWith(
-                      color: AppColors.primaryLight,
+                      color: coin.priceChangePercentage24h >= 0
+                          ? AppColors.primaryLight
+                          : AppColors.secondary,
                     ),
                   ),
                 ],

@@ -39,6 +39,8 @@ class AppInterceptors extends Interceptor {
       // log("err.response?.statusCode ${err.response?.statusCode}");
     }
 
+    // Token refresh logic commented out as it's not currently supported/needed for CoinGecko public API
+    /*
     if (err.response?.statusCode == StatusCode.unauthorized) {
       String? refreshToken = AppSharedPreferences.getString(
         key: AppStrings.refreshToken,
@@ -142,6 +144,7 @@ class AppInterceptors extends Interceptor {
       await AppSharedPreferences.sharedPreferences.clear();
       // router.go(Routes.login);
     }
+    */
 
     super.onError(err, handler);
   }

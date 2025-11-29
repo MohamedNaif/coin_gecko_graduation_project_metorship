@@ -2,8 +2,12 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
 
+import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/market_coin_model.dart';
+
 class TopGainersList extends StatelessWidget {
-  const TopGainersList({super.key});
+  final List<MarketCoinModel>? data;
+
+  const TopGainersList({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +23,18 @@ class TopGainersList extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3,
-            separatorBuilder: (context, index) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              return const _GainerTile();
-            },
-          ),
+          data == null
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: data!.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12),
+                  itemBuilder: (context, index) {
+                    return _GainerTile(coin: data![index]);
+                  },
+                ),
         ],
       ),
     );
@@ -35,7 +42,9 @@ class TopGainersList extends StatelessWidget {
 }
 
 class _GainerTile extends StatelessWidget {
-  const _GainerTile();
+  final MarketCoinModel coin;
+
+  const _GainerTile({required this.coin});
 
   @override
   Widget build(BuildContext context) {
@@ -59,22 +68,22 @@ class _GainerTile extends StatelessWidget {
             height: 40,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.grey[200], // Placeholder
+              color: Colors.grey[200],
             ),
-            child: const Icon(Icons.token, color: Colors.grey),
+            child: Image.network(coin.image),
           ),
           const SizedBox(width: 12),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Ethereum',
+                coin.name,
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Text(
-                'ETH',
+                coin.symbol.toUpperCase(),
                 style: AppTextStyles.regular12.copyWith(
                   color: AppColors.gray400,
                 ),
@@ -86,15 +95,17 @@ class _GainerTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '\$20,788',
+                '\$${coin.currentPrice.toStringAsFixed(2)}',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Text(
-                '+0.25%',
+                '${coin.priceChangePercentage24h >= 0 ? '+' : ''}${coin.priceChangePercentage24h.toStringAsFixed(2)}%',
                 style: AppTextStyles.regular12.copyWith(
-                  color: AppColors.success,
+                  color: coin.priceChangePercentage24h >= 0
+                      ? AppColors.success
+                      : AppColors.secondary,
                 ),
               ),
             ],
