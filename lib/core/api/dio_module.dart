@@ -1,8 +1,6 @@
 import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.dart';
-import 'package:coin_gecko_graduation_project_metorship/core/api/end_points.dart';
-import 'package:coin_gecko_graduation_project_metorship/core/di/dependency_injection.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,7 +18,7 @@ abstract class DioModule {
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 60),
-        baseUrl: EndPoints.baseUrl,
+        baseUrl: "https://api.coingecko.com/api/v3",
       ),
     );
     dio.options.headers["Content-Type"] = "multipart/form-data";
@@ -32,7 +30,7 @@ abstract class DioModule {
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
-          if (token != null && token.isNotEmpty) {
+          if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");
           }
