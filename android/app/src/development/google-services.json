@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "691445068064",
+    "project_id": "coin-gecko-5528c",
+    "storage_bucket": "coin-gecko-5528c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691445068064:android:7523965a5d66fa0f0d2745",
+        "android_client_info": {
+          "package_name": "com.example.coin_gecko_graduation_project_metorship"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnHXgKGbzXY0BQmTHqZ0Ek1lXYFIoysqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691445068064:android:bedbc8f25629d28d0d2745",
+        "android_client_info": {
+          "package_name": "com.example.coin_gecko_graduation_project_metorship.development"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnHXgKGbzXY0BQmTHqZ0Ek1lXYFIoysqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+{
+    // To Specify the flavor and target
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Run Development flavor with the development entry point
+            
+            "name": "Coin Gecko (development mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_development.dart",
+            "flutterMode": "debug",
+            "args": ["--flavor", "development", "--target", "lib/main_development.dart"]
+        },
+        {
+            // Run Production flavor with the production entry point
+
+            "name": "Coin Gecko (production mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_production.dart",
+            "flutterMode": "debug",
+            "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+        }
+    ]
+}
