@@ -1,5 +1,8 @@
+import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:flutter/material.dart';
+
+import 'config/routing/app_router.dart';
 
 void main() {
   configureDependencies();
@@ -11,8 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Coin Gecko Production'))),
+    return MaterialApp(
+       initialRoute: Routes.splash,
+      onGenerateRoute: AppRouter().generateRoute,
+      home: const Scaffold(body: Center(child: Text('Coin Gecko Production'))),
     );
   }
 }
