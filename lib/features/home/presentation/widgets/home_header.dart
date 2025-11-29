@@ -14,13 +14,11 @@ class HomeHeader extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 20,
-            backgroundImage: NetworkImage(
-              'https://i.pravatar.cc/150?img=11', // Placeholder image
-            ),
+            child: Icon(Icons.person),
           ),
           const SizedBox(width: 12),
           Text(
-            'Hi, Ahmed 👋🏽',
+            'Hi, Naif 👋🏽',
             style: AppTextStyles.semiBold16.copyWith(
               color: Colors.black, // Adjust for dark mode if needed
             ),

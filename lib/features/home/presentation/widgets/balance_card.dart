@@ -11,11 +11,11 @@ class BalanceCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       height: 160,
       decoration: BoxDecoration(
-        gradient: AppColors.balanceCardLightGradient,
+        gradient: AppColors.balanceCardDarkGradient,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryLight.withValues(alpha: 0.3),
+            color: AppColors.primaryDark.withValues(alpha: 0.3),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),

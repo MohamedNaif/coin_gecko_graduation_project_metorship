@@ -108,7 +108,7 @@ class _NavItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color color =
-        isSelected ? AppColors.primaryLight : const Color(0xFF9CA3AF);
+        isSelected ? AppColors.primaryDark : const Color(0xFF9CA3AF);
 
     return RepaintBoundary(
       child: SizedBox(
