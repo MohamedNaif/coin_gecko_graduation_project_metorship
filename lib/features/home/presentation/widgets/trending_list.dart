@@ -62,7 +62,7 @@ class _TrendingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: 180,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -80,6 +80,15 @@ class _TrendingCard extends StatelessWidget {
         children: [
           Row(
             children: [
+              Text(
+                coin.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTextStyles.semiBold14.copyWith(
+                  color: AppColors.primaryDark,
+                ),
+              ),
+              const Spacer(),
               Container(
                 width: 32,
                 height: 32,
@@ -88,18 +97,8 @@ class _TrendingCard extends StatelessWidget {
                 ),
                 child: Image.network(coin.thumb),
               ),
-              const Spacer(),
               // Placeholder for mini chart
             ],
-          ),
-          const SizedBox(height: 12),
-          Text(
-            coin.name,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.semiBold14.copyWith(
-              color: AppColors.primaryDark,
-            ),
           ),
           Text(
             coin.symbol,
