@@ -1,8 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/distibution/distribution_card.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/tab_bar/month_filter_bar.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/portfolio_header_section.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/tranaction_section.dart';
 import 'package:flutter/material.dart';
 
@@ -15,56 +13,50 @@ class PortfolioBody extends StatelessWidget {
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          SliverPadding(
-            padding: const EdgeInsets.only(right: 22, left: 22, top: 20),
-            sliver: SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Portfolio',
-                    style: context.textTheme.headlineLarge
-                        ?.copyWith(fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 33),
-                  const PortfolioSummaryCard(),
-                  const SizedBox(height: 27),
-                  const MonthFilterBar(),
-                  const SizedBox(height: 27),
-                  const DistributionCard(),
-                  const SizedBox(height: 27),
-                  Text(
-                    'My Holdings',
-                    style: context.textTheme.headlineLarge
-                        ?.copyWith(fontSize: 23, fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 10),
-                ],
-              ),
-            ),
+          const PortfolioHeaderSection(),
+          const SliverPadding(
+            padding: EdgeInsets.fromLTRB(18, 10, 18, 10),
+            sliver: HoldingsSection(),
           ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            sliver: const HoldingsSection(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(height: context.heightScale(10)),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            sliver: SliverToBoxAdapter(
-              child: Text(
-                'Recent Transactions',
-                style: context.textTheme.headlineLarge
-                    ?.copyWith(fontSize: 23, fontWeight: FontWeight.w700),
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-            sliver: TransactionsSection(),
-          ),
+          _buildSpacing(context),
+          _buildRecentTransactionsSection(),
         ],
+      ),
+    );
+  }
+
+  Widget _buildSpacing(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: SizedBox(height: context.heightScale(10)),
+    );
+  }
+
+  Widget _buildRecentTransactionsSection() {
+    return SliverMainAxisGroup(
+      slivers: [
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          sliver: SliverToBoxAdapter(
+            child: Builder(
+              builder: (context) =>
+                  _buildSectionTitle(context, 'Recent Transactions'),
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.fromLTRB(18, 10, 18, 10),
+          sliver: TransactionsSection(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSectionTitle(BuildContext context, String text) {
+    return Text(
+      text,
+      style: context.textTheme.headlineLarge?.copyWith(
+        fontSize: 23,
+        fontWeight: FontWeight.w700,
       ),
     );
   }
