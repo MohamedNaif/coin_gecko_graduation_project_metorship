@@ -6,9 +6,11 @@ extension ContextExtension on BuildContext {
   double get height => MediaQuery.sizeOf(this).height;
   double get width => MediaQuery.sizeOf(this).width;
 }
+
 extension TextThemeHelper on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 }
+
 class NavigationService {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
@@ -60,7 +62,32 @@ extension ResponsiveAppExtensions on BuildContext {
 
 extension ResponsiveDouble on double {
   double get responsive => ResponsiveFontSize.getResponsiveFontSize(
-    NavigationService.navigatorKey.currentContext!,
-    this,
-  );
+        NavigationService.navigatorKey.currentContext!,
+        this,
+      );
+}
+
+extension ResponsiveContext on BuildContext {
+  double get realScreenWidth => isLandscape
+      ? MediaQuery.of(this).size.height
+      : MediaQuery.of(this).size.width;
+
+  double get realScreenHeight => isLandscape
+      ? MediaQuery.of(this).size.width
+      : MediaQuery.of(this).size.height;
+}
+
+/// Converts design-based width/height to responsive (device-scaled) values.
+extension ResponsiveSize on BuildContext {
+  double widthScale(double designWidth) {
+    final deviceWidth = MediaQuery.sizeOf(this).width;
+    const designScreenWidth = 375;
+    return designWidth * (deviceWidth / designScreenWidth);
+  }
+
+  double heightScale(double designHeight) {
+    final deviceHeight = MediaQuery.sizeOf(this).height;
+    const designScreenHeight = 827;
+    return designHeight * (deviceHeight / designScreenHeight);
+  }
 }

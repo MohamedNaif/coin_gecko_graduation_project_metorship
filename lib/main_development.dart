@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/page/portfolio_page.dart';
 
 void main() {
   configureDependencies();
@@ -11,10 +12,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Coin Gecko Development'))),
+      home: const PortfolioPage(),
     );
   }
 }

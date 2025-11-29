@@ -1,0 +1,33 @@
+import 'package:coin_gecko_graduation_project_metorship/features/data/model/holding_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_details.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_info.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_app_card.dart';
+import 'package:flutter/material.dart';
+
+class HoldingTile extends StatelessWidget {
+  const HoldingTile({
+    super.key,
+    required this.holding,
+  });
+
+  final PortfolioHolding holding;
+
+  @override
+  Widget build(BuildContext context) {
+    return HoldingAppCard(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 12),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(Icons.currency_bitcoin),
+            const SizedBox(width: 16),
+            Expanded(child: HoldingInfo(holding: holding)),
+            const SizedBox(width: 16),
+            Expanded(flex: 2, child: HoldingDetails(holding: holding)),
+          ],
+        ),
+      ),
+    );
+  }
+}
