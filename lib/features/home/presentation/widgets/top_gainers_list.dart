@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,11 @@ class _GainerTile extends StatelessWidget {
               shape: BoxShape.circle,
               color: Colors.grey[200],
             ),
-            child: Image.network(coin.image),
+            child: CachedNetworkImage(
+              imageUrl: coin.image,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
           const SizedBox(width: 12),
           Column(

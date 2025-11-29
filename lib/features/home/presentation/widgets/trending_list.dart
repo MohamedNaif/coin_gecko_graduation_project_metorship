@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +96,12 @@ class _TrendingCard extends StatelessWidget {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: Image.network(coin.thumb),
+                child: CachedNetworkImage(
+                  imageUrl: coin.thumb,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
               // Placeholder for mini chart
             ],
