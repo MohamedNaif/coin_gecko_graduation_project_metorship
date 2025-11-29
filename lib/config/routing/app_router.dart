@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Scaffold());
       case Routes.signup:
         return MaterialPageRoute(builder: (_) => const Scaffold());
+
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return null;
     }

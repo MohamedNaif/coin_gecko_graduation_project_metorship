@@ -2,6 +2,7 @@ class Routes {
   // ============== Auth routes ========================================
   static const String login = '/login';
   static const String signup = '/signup';
+  static const String homeScreen = '/home_screen';
   static const String petDetailScreen = '/pet_detail_screen';
   static const String products = '/products';
   static const String categories = '/categories';
