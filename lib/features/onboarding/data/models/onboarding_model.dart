@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class OnboardingModel {
   final String image;
@@ -14,22 +15,22 @@ class OnboardingModel {
   static List<OnboardingModel> get pages => [
         OnboardingModel(
           image: AppAssets.onboardingFirstPage,
-          title: 'Welcome To Crypto X',
+          title: AppStrings.welcomeToCryptoX,
           description: '',
         ),
         OnboardingModel(
           image: AppAssets.onboardingSecondPage,
-          title: 'Transaction Security',
+          title: AppStrings.transactionSecurity,
           description: '',
         ),
         OnboardingModel(
           image: AppAssets.onboardingThirdPage,
-          title: 'Fast And Reliable Market Updated',
+          title: AppStrings.fastAndReliableMarketUpdated,
           description: '',
         ),
         OnboardingModel(
           image: AppAssets.onboardingForthPage,
-          title: 'Get Started Now!',
+          title: AppStrings.getStartedNow,
           description: '',
         ),
       ];

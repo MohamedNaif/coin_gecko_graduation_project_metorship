@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/data/models/onboarding_model.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/widgets/onboarding_body.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/widgets/onboarding_buttons.dart';
@@ -88,7 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return TextButton(
       onPressed: _skipToLastPage,
       child: const Text(
-        'Skip',
+        AppStrings.skip,
         style: TextStyle(
           color: AppColors.gray800,
           fontSize: 16,

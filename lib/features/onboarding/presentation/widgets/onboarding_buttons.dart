@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class OnboardingButtons extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Login',
+                AppStrings.login,
                 style: AppTextStyles.semiBold16.copyWith(color: Colors.white),
               ),
             ),
@@ -50,7 +51,7 @@ class OnboardingButtons extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Register',
+                AppStrings.register,
                 style: AppTextStyles.semiBold16
                     .copyWith(color: AppColors.primaryDark),
               ),
