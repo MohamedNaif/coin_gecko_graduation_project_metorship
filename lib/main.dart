@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter().generateRoute,
-      initialRoute: Routes.register,
+      initialRoute: Routes.login,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
     );

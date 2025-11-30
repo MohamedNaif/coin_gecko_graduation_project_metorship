@@ -50,4 +50,6 @@ class AppAssets {
   static const String twitterIcon = 'assets/images/twitter_icon.svg';
   static const String personIcon ="assets/icons/person.svg";
   static const String phoneIcon = "assets/icons/phone_icon.svg";
+  static const String fingerPrintIcon = "assets/icons/fingerprint_icon.svg";
+  static const String faceId ='assets/icons/face_id_icon.svg';
 }

@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_register_form.dart';
@@ -7,7 +8,7 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/custom_background.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/already_have_account_widget.dart';
+import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/switch_auth_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterScreenBody extends StatelessWidget {
@@ -24,7 +25,10 @@ class RegisterScreenBody extends StatelessWidget {
               SizedBox(
                 height: 100,
               ),
-              CustomAuthTitle(title: 'Create Your Account',subTitle:  "Sign up to enjoy the best managing \nexperience!",),
+              CustomAuthTitle(
+                title: 'Create Your Account',
+                subTitle: "Sign up to enjoy the best managing \nexperience!",
+              ),
               SizedBox(
                 height: 50,
               ),
@@ -40,7 +44,8 @@ class RegisterScreenBody extends StatelessWidget {
                   }
                 },
                 child: CustomButton(
-                  isLoading: context.read<RegisterCubit>().state is RegisterLoading,
+                  isLoading:
+                      context.read<RegisterCubit>().state is RegisterLoading,
                   borderRadius: 30,
                   widthPadding: 16,
                   height: 50,
@@ -56,7 +61,13 @@ class RegisterScreenBody extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              AlreadyHaveAccountWidget()
+              SwitchAuthText(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.login);
+                },
+                questionText: 'Already have an account? ',
+                actionText: 'Login',
+              )
             ],
           ),
         ),

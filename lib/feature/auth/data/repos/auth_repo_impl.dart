@@ -28,10 +28,8 @@ class AuthRepoImpl implements AuthRepo {
           phoneNumber: phoneNumber);
       await remoteDataSource.saveUserData(userModel: userModel);
       return Success<UserModel>(userModel);
-    }on FirebaseAuthException catch (e) {
-  return FailureResult(
-    FirebaseFailure.fromFirebaseException(code: e.code)
-  );
-}
+    } on FirebaseAuthException catch (e) {
+      return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
+    }
   }
 }
