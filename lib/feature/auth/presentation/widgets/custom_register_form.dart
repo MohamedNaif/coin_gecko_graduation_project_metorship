@@ -68,7 +68,7 @@ class CustomRegisterForm extends StatelessWidget {
             
               controller:context.read<RegisterCubit>(). passwordController,
               validator: (password) => Validator.validatePassword(password),
-              obscureText: false,
+              obscureText: true,
               hintText: 'Password',
               prefixIcon: Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 10.0),
@@ -85,7 +85,7 @@ class CustomRegisterForm extends StatelessWidget {
               controller:context.read<RegisterCubit>(). confirmPasswordController,
               validator: (confirmPassword) => Validator.validateConfirmPassword(
                   confirmPassword,context.read<RegisterCubit>(). passwordController.text),
-              obscureText: false,
+              obscureText: true,
               hintText: 'Confirm Password',
               prefixIcon: Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 10.0),
