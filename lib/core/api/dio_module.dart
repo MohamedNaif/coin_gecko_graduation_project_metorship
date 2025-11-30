@@ -39,6 +39,7 @@ abstract class DioModule {
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
+          options.headers['x-cg-demo-api-key'] = 'CG-mQ1pYapiF5CVFiAHWraCVy7C';
           if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");
