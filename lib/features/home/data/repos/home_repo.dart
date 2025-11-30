@@ -12,7 +12,8 @@ class HomeRepo {
   HomeRepo(this._homeRemoteDataSource);
 
   Future<GlobalDataModel> getGlobalData() async {
-    return await _homeRemoteDataSource.getGlobalData();
+    final response = await _homeRemoteDataSource.getGlobalData();
+    return response.data!;
   }
 
   Future<TrendingData> getTrendingCoins() async {

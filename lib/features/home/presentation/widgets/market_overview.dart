@@ -29,10 +29,9 @@ class MarketOverview extends StatelessWidget {
                 child: _MarketItem(
                   title: 'Market Cap',
                   value: data != null
-                      ? '\$${(data!.totalMarketCap / 1e12).toStringAsFixed(2)}T'
+                      ? '\$${((data?.totalMarketCap?['usd'] ?? 0) / 1e12).toStringAsFixed(2)}T'
                       : 'Loading...',
                   // change: '2,35%', // API doesn't provide change for global market cap in this endpoint easily without history
-                  isPositive: true,
                 ),
               ),
               const SizedBox(width: 12),
@@ -40,10 +39,9 @@ class MarketOverview extends StatelessWidget {
                 child: _MarketItem(
                   title: '24h Volume',
                   value: data != null
-                      ? '\$${(data!.totalVolume / 1e9).toStringAsFixed(2)}B'
+                      ? '\$${((data?.totalVolume?['usd'] ?? 0) / 1e9).toStringAsFixed(2)}B'
                       : 'Loading...',
                   // change: '2,35%',
-                  isPositive: true,
                 ),
               ),
             ],
@@ -55,7 +53,7 @@ class MarketOverview extends StatelessWidget {
                 child: _MarketItem(
                   title: 'BTC Dominance',
                   value: data != null
-                      ? '${data!.btcDominance.toStringAsFixed(1)}%'
+                      ? '${(data?.btcDominance ?? 0).toStringAsFixed(1)}%'
                       : 'Loading...',
                 ),
               ),
@@ -64,7 +62,7 @@ class MarketOverview extends StatelessWidget {
                 child: _MarketItem(
                   title: 'Active Coins',
                   value: data != null
-                      ? data!.activeCryptocurrencies.toString()
+                      ? (data?.activeCryptocurrencies ?? 0).toString()
                       : 'Loading...',
                 ),
               ),
@@ -79,14 +77,10 @@ class MarketOverview extends StatelessWidget {
 class _MarketItem extends StatelessWidget {
   final String title;
   final String value;
-  final String? change;
-  final bool isPositive;
 
   const _MarketItem({
     required this.title,
     required this.value,
-    this.change,
-    this.isPositive = true,
   });
 
   @override
@@ -120,27 +114,6 @@ class _MarketItem extends StatelessWidget {
               color: AppColors.primaryDark,
             ),
           ),
-          if (change != null) ...[
-            const SizedBox(height: 4),
-            Row(
-              children: [
-                Icon(
-                  isPositive ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                  color:
-                      isPositive ? AppColors.primaryLight : AppColors.secondary,
-                  size: 16,
-                ),
-                Text(
-                  change!,
-                  style: AppTextStyles.bold10.copyWith(
-                    color: isPositive
-                        ? AppColors.primaryLight
-                        : AppColors.secondary,
-                  ),
-                ),
-              ],
-            ),
-          ],
         ],
       ),
     );

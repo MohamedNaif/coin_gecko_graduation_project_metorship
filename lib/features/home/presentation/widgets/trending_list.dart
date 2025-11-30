@@ -42,11 +42,11 @@ class TrendingList extends StatelessWidget {
               : ListView.separated(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   scrollDirection: Axis.horizontal,
-                  itemCount: data!.coins.length,
+                  itemCount: data?.coins?.length ?? 0,
                   separatorBuilder: (context, index) =>
                       const SizedBox(width: 16),
                   itemBuilder: (context, index) {
-                    return _TrendingCard(coin: data!.coins[index]);
+                    return _TrendingCard(coin: data!.coins![index]);
                   },
                 ),
         ),
@@ -82,7 +82,7 @@ class _TrendingCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                coin.name,
+                coin.name ?? '',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: AppTextStyles.semiBold14.copyWith(
@@ -97,7 +97,7 @@ class _TrendingCard extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: CachedNetworkImage(
-                  imageUrl: coin.thumb,
+                  imageUrl: coin.thumb ?? '',
                   placeholder: (context, url) =>
                       const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -107,7 +107,7 @@ class _TrendingCard extends StatelessWidget {
             ],
           ),
           Text(
-            coin.symbol,
+            coin.symbol ?? '',
             style: AppTextStyles.regular12.copyWith(
               color: AppColors.gray400,
             ),
@@ -117,7 +117,7 @@ class _TrendingCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '\$${coin.price.toStringAsFixed(2)}', // Note: API might return price in BTC for trending, need to check. But assuming USD for now based on model.
+                '\$${(coin.price ?? 0).toStringAsFixed(2)}', // Note: API might return price in BTC for trending, need to check. But assuming USD for now based on model.
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
@@ -125,18 +125,18 @@ class _TrendingCard extends StatelessWidget {
               Row(
                 children: [
                   Icon(
-                    coin.priceChangePercentage24h >= 0
+                    (coin.priceChangePercentage24h ?? 0) >= 0
                         ? Icons.arrow_drop_up
                         : Icons.arrow_drop_down,
-                    color: coin.priceChangePercentage24h >= 0
+                    color: (coin.priceChangePercentage24h ?? 0) >= 0
                         ? AppColors.primaryLight
                         : AppColors.secondary,
                     size: 16,
                   ),
                   Text(
-                    '${coin.priceChangePercentage24h.toStringAsFixed(2)}%',
+                    '${(coin.priceChangePercentage24h ?? 0).toStringAsFixed(2)}%',
                     style: AppTextStyles.bold10.copyWith(
-                      color: coin.priceChangePercentage24h >= 0
+                      color: (coin.priceChangePercentage24h ?? 0) >= 0
                           ? AppColors.primaryLight
                           : AppColors.secondary,
                     ),

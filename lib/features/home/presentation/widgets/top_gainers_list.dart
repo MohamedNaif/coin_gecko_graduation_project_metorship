@@ -29,7 +29,7 @@ class TopGainersList extends StatelessWidget {
               : ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: data!.length,
+                  itemCount: data?.length ?? 0,
                   separatorBuilder: (context, index) =>
                       const SizedBox(height: 12),
                   itemBuilder: (context, index) {
@@ -72,7 +72,7 @@ class _GainerTile extends StatelessWidget {
               color: Colors.grey[200],
             ),
             child: CachedNetworkImage(
-              imageUrl: coin.image,
+              imageUrl: coin.image ?? '',
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
@@ -82,13 +82,13 @@ class _GainerTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                coin.name,
+                coin.name ?? '',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Text(
-                coin.symbol.toUpperCase(),
+                (coin.symbol ?? '').toUpperCase(),
                 style: AppTextStyles.regular12.copyWith(
                   color: AppColors.gray400,
                 ),
@@ -100,15 +100,15 @@ class _GainerTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '\$${coin.currentPrice.toStringAsFixed(2)}',
+                '\$${(coin.currentPrice ?? 0).toStringAsFixed(2)}',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Text(
-                '${coin.priceChangePercentage24h >= 0 ? '+' : ''}${coin.priceChangePercentage24h.toStringAsFixed(2)}%',
+                '${(coin.priceChangePercentage24h ?? 0) >= 0 ? '+' : ''}${(coin.priceChangePercentage24h ?? 0).toStringAsFixed(2)}%',
                 style: AppTextStyles.regular12.copyWith(
-                  color: coin.priceChangePercentage24h >= 0
+                  color: (coin.priceChangePercentage24h ?? 0) >= 0
                       ? AppColors.success
                       : AppColors.secondary,
                 ),

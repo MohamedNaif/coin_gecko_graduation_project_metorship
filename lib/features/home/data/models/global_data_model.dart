@@ -1,26 +1,43 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'global_data_model.g.dart';
+
+@JsonSerializable()
+class GlobalDataResponse {
+  final GlobalDataModel? data;
+
+  GlobalDataResponse({this.data});
+
+  factory GlobalDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$GlobalDataResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GlobalDataResponseToJson(this);
+}
+
+@JsonSerializable()
 class GlobalDataModel {
-  final int activeCryptocurrencies;
-  final int markets;
-  final double totalMarketCap;
-  final double totalVolume;
-  final double btcDominance;
+  @JsonKey(name: 'active_cryptocurrencies')
+  final int? activeCryptocurrencies;
+  final int? markets;
+  @JsonKey(name: 'total_market_cap')
+  final Map<String, double>? totalMarketCap;
+  @JsonKey(name: 'total_volume')
+  final Map<String, double>? totalVolume;
+  @JsonKey(name: 'market_cap_percentage')
+  final Map<String, double>? marketCapPercentage;
 
   GlobalDataModel({
-    required this.activeCryptocurrencies,
-    required this.markets,
-    required this.totalMarketCap,
-    required this.totalVolume,
-    required this.btcDominance,
+    this.activeCryptocurrencies,
+    this.markets,
+    this.totalMarketCap,
+    this.totalVolume,
+    this.marketCapPercentage,
   });
 
-  factory GlobalDataModel.fromJson(Map<String, dynamic> json) {
-    final data = json['data'];
-    return GlobalDataModel(
-      activeCryptocurrencies: data['active_cryptocurrencies'] ?? 0,
-      markets: data['markets'] ?? 0,
-      totalMarketCap: (data['total_market_cap']['usd'] ?? 0).toDouble(),
-      totalVolume: (data['total_volume']['usd'] ?? 0).toDouble(),
-      btcDominance: (data['market_cap_percentage']['btc'] ?? 0).toDouble(),
-    );
-  }
+  factory GlobalDataModel.fromJson(Map<String, dynamic> json) =>
+      _$GlobalDataModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GlobalDataModelToJson(this);
+
+  double get btcDominance => marketCapPercentage?['btc'] ?? 0.0;
 }

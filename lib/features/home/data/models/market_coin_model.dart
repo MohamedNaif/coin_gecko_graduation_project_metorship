@@ -1,29 +1,29 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'market_coin_model.g.dart';
+
+@JsonSerializable()
 class MarketCoinModel {
-  final String id;
-  final String name;
-  final String symbol;
-  final String image;
-  final double currentPrice;
-  final double priceChangePercentage24h;
+  final String? id;
+  final String? name;
+  final String? symbol;
+  final String? image;
+  @JsonKey(name: 'current_price')
+  final double? currentPrice;
+  @JsonKey(name: 'price_change_percentage_24h')
+  final double? priceChangePercentage24h;
 
   MarketCoinModel({
-    required this.id,
-    required this.name,
-    required this.symbol,
-    required this.image,
-    required this.currentPrice,
-    required this.priceChangePercentage24h,
+    this.id,
+    this.name,
+    this.symbol,
+    this.image,
+    this.currentPrice,
+    this.priceChangePercentage24h,
   });
 
-  factory MarketCoinModel.fromJson(Map<String, dynamic> json) {
-    return MarketCoinModel(
-      id: json['id'] ?? '',
-      name: json['name'] ?? '',
-      symbol: json['symbol'] ?? '',
-      image: json['image'] ?? '',
-      currentPrice: (json['current_price'] ?? 0).toDouble(),
-      priceChangePercentage24h:
-          (json['price_change_percentage_24h'] ?? 0).toDouble(),
-    );
-  }
+  factory MarketCoinModel.fromJson(Map<String, dynamic> json) =>
+      _$MarketCoinModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MarketCoinModelToJson(this);
 }
