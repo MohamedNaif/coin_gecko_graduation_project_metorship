@@ -36,6 +36,7 @@ class PortfolioHeaderSection extends StatelessWidget {
       text,
       style: context.textTheme.headlineLarge?.copyWith(
         fontWeight: FontWeight.w700,
+        color: context.theme.colorScheme.onSurface,
       ),
     );
   }
@@ -46,6 +47,7 @@ class PortfolioHeaderSection extends StatelessWidget {
       style: context.textTheme.headlineLarge?.copyWith(
         fontSize: 23,
         fontWeight: FontWeight.w700,
+        color: context.theme.colorScheme.onSurface,
       ),
     );
   }

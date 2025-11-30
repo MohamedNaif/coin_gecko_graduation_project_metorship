@@ -69,11 +69,11 @@ extension ResponsiveDouble on double {
 
 extension ResponsiveContext on BuildContext {
   double get realScreenWidth => isLandscape
-      ? MediaQuery.of(this).size.height
+      ? MediaQuery.of(this).size.width
       : MediaQuery.of(this).size.width;
 
   double get realScreenHeight => isLandscape
-      ? MediaQuery.of(this).size.width
+      ? MediaQuery.of(this).size.height
       : MediaQuery.of(this).size.height;
 }
 
@@ -90,4 +90,9 @@ extension ResponsiveSize on BuildContext {
     const designScreenHeight = 827;
     return designHeight * (deviceHeight / designScreenHeight);
   }
+}
+
+// to get Theme Data
+extension ThemeGetter on BuildContext {
+  ThemeData get theme => Theme.of(this);
 }

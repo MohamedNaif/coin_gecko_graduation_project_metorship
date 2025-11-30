@@ -15,13 +15,14 @@ class TransactionValue extends StatelessWidget {
         Text(
           transaction.valueLabel,
           style: context.textTheme.bodyMedium?.copyWith(
-              color: AppColors.lightTextPrimary, fontWeight: FontWeight.w500),
+              color: context.theme.colorScheme.onSurface,
+              fontWeight: FontWeight.w500),
         ),
         const SizedBox(height: 4),
         Text(
           transaction.amountLabel,
           style: context.textTheme.bodyMedium?.copyWith(
-            color: AppColors.successLight,
+            color: context.theme.colorScheme.tertiary,
             fontWeight: FontWeight.w600,
           ),
         ),

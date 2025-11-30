@@ -39,11 +39,16 @@ abstract class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color transparent = Colors.transparent;
 
-  static const Color cardSummary = Color(0xff1D3A70);
+  static const Color deepBlue = Color(0xff1D3A70);
   static const Color lightGrayishBlue = Color(0xffF5F8FE);
   static const Color mediumPurple = Color(0XFF8979FF);
   static const Color lightGreen = Color(0xff3CC3DF);
   static const Color lightRed = Color(0xffFF928A);
+  static const Color smokyBlack = Color(0xff0D0D0D);
+
+// used in container shadow
+  static const Color lightShadowColor = Color(0x14344BC1);
+  static const Color darkShadowColor = Color(0x14FFFFFF);
 
   static const LinearGradient balanceCardDarkGradient = LinearGradient(
     begin: Alignment.topLeft,

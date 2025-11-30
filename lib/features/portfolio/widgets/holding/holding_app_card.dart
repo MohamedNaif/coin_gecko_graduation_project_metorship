@@ -1,4 +1,3 @@
-import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HoldingAppCard extends StatelessWidget {
@@ -9,13 +8,13 @@ class HoldingAppCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: Theme.of(context).canvasColor,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Color(0x14344BC1),
+            color: Theme.of(context).shadowColor,
             blurRadius: 40,
-            offset: Offset(0, 10),
+            offset: const Offset(0, 10),
           ),
         ],
       ),

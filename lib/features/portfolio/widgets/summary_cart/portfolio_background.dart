@@ -13,9 +13,8 @@ class PortfolioBubbleBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned.fill(
       child: Stack(
-        clipBehavior: Clip.none,
         children: [
-          _bubble(
+          _bubble(context,
               top: isTopRight
                   ? context.heightScale(-20)
                   : context.heightScale(80),
@@ -24,7 +23,7 @@ class PortfolioBubbleBackground extends StatelessWidget {
                   : -context.widthScale(20),
               size: context.heightScale(80),
               opacity: 0.10),
-          _bubble(
+          _bubble(context,
               top: isTopRight
                   ? context.heightScale(-40)
                   : context.heightScale(60),
@@ -33,7 +32,7 @@ class PortfolioBubbleBackground extends StatelessWidget {
                   : -context.widthScale(40),
               size: context.heightScale(120),
               opacity: 0.09),
-          _bubble(
+          _bubble(context,
               top: isTopRight
                   ? context.heightScale(-60)
                   : context.heightScale(45),
@@ -47,7 +46,8 @@ class PortfolioBubbleBackground extends StatelessWidget {
     );
   }
 
-  Widget _bubble({
+  Widget _bubble(
+    BuildContext context, {
     required double top,
     required double sideOffset,
     required double size,
@@ -62,7 +62,7 @@ class PortfolioBubbleBackground extends StatelessWidget {
         height: size,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white.withValues(alpha: opacity),
+          color: context.theme.colorScheme.surface.withValues(alpha: opacity),
         ),
       ),
     );

@@ -17,6 +17,7 @@ class HoldingInfo extends StatelessWidget {
           holding.name,
           style: context.textTheme.bodyLarge?.copyWith(
             fontWeight: FontWeight.w700,
+            color: context.theme.colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 4),
@@ -26,6 +27,7 @@ class HoldingInfo extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w500,
               color: AppColors.gray300),
+          // this color is static because it does not change based on the theme
         ),
       ],
     );

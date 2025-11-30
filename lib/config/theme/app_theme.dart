@@ -46,6 +46,7 @@ class AppTheme {
         scaffoldBackgroundColor: AppColors.lightBackground,
         canvasColor: AppColors.lightBackground,
         primaryColor: AppColors.primaryLight,
+        shadowColor: AppColors.lightShadowColor,
         colorScheme: ColorScheme.light(
           primary: AppColors.primaryLight,
           secondary: AppColors.secondary,
@@ -53,6 +54,10 @@ class AppTheme {
           onPrimary: AppColors.white,
           onSecondary: AppColors.white,
           onSurface: AppColors.lightTextPrimary,
+          tertiary: AppColors.successLight,
+          secondaryContainer: AppColors.lightBackground,
+          onSecondaryContainer: AppColors.gray500,
+          tertiaryFixed: AppColors.primaryLight,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
@@ -123,11 +128,16 @@ class AppTheme {
         scaffoldBackgroundColor: AppColors.darkBackground,
         canvasColor: AppColors.darkBackground,
         primaryColor: AppColors.primaryDark,
+        shadowColor: AppColors.darkShadowColor,
         colorScheme: ColorScheme.dark(
           primary: AppColors.primaryDark,
           surface: AppColors.darkSurface,
           onPrimary: AppColors.white,
           onSurface: AppColors.darkTextPrimary,
+          tertiary: AppColors.success,
+          secondaryContainer: AppColors.smokyBlack,
+          onSecondaryContainer: AppColors.lightTextSecondary,
+          tertiaryFixed: AppColors.white,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,

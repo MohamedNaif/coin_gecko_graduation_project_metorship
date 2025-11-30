@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-class _ChartData {
+class ChartData {
   final Color color;
   final double value;
   final String label;
 
-  const _ChartData(this.color, this.value, this.label);
+  ChartData(this.color, this.value, this.label);
 }

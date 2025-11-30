@@ -8,6 +8,7 @@ class HoldingsSection extends StatelessWidget {
     super.key,
   });
 
+// this is static data for the holding section
   final PortfolioHolding _holdings = const PortfolioHolding(
     name: 'Bitcoin',
     symbol: 'BTC',

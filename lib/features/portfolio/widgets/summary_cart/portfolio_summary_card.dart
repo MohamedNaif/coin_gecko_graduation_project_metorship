@@ -11,20 +11,23 @@ class PortfolioSummaryCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: _decoration(),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          const PortfolioBubbleBackground(
-            isTopRight: false,
-          ),
-          const PortfolioBubbleBackground(
-            isTopRight: true,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 44, vertical: 17),
-            child: PortfolioSummaryContent(),
-          ),
-        ],
+      child: ClipRRect(
+        // Clip the bubbles so they don’t overflow outside the card
+        borderRadius: BorderRadius.circular(24),
+        child: Stack(
+          children: [
+            const PortfolioBubbleBackground(
+              isTopRight: false,
+            ),
+            const PortfolioBubbleBackground(
+              isTopRight: true,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 44, vertical: 17),
+              child: PortfolioSummaryContent(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -32,7 +35,7 @@ class PortfolioSummaryCard extends StatelessWidget {
   BoxDecoration _decoration() {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(24),
-      color: AppColors.cardSummary,
+      color: AppColors.deepBlue,
     );
   }
 }

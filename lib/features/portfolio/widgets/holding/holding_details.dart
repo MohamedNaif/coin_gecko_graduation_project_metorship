@@ -1,4 +1,3 @@
-import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/data/model/holding_model.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +14,10 @@ class HoldingDetails extends StatelessWidget {
       children: [
         Text(
           '${holding.allocationPercent.toStringAsFixed(0)}%',
-          style: const TextStyle(
+          style: context.textTheme.bodyMedium?.copyWith(
             fontWeight: FontWeight.w700,
             fontSize: 20,
-            color: AppColors.primaryDark,
+            color: context.theme.colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 24),
@@ -26,7 +25,7 @@ class HoldingDetails extends StatelessWidget {
           holding.fiatValueLabel,
           style: context.textTheme.bodyMedium?.copyWith(
             overflow: TextOverflow.ellipsis,
-            color: AppColors.successLight,
+            color: context.theme.colorScheme.tertiary,
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
@@ -36,7 +35,7 @@ class HoldingDetails extends StatelessWidget {
           '${holding.dailyChangeLabel} (${holding.dailyChangePercent})',
           style: context.textTheme.bodyMedium?.copyWith(
             overflow: TextOverflow.ellipsis,
-            color: AppColors.successLight,
+            color: context.theme.colorScheme.tertiary,
             fontSize: 12,
           ),
         ),

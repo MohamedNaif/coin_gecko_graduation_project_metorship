@@ -14,21 +14,25 @@ class PortfolioSummaryContent extends StatelessWidget {
       children: [
         Text(
           'Total Value',
-          style: context.textTheme.labelLarge
-              ?.copyWith(color: AppColors.lightGrayishBlue),
+          style: context.textTheme.labelLarge?.copyWith(
+            color: AppColors.white,
+            //color doesn't change
+          ),
         ),
         SizedBox(height: 10),
         Text(
           '\$143,421.20',
           style: context.textTheme.headlineLarge?.copyWith(
-            color: Colors.white,
+            color: AppColors.white,
+            //color doesn't change
           ),
         ),
         SizedBox(height: 14),
         Text(
           '+2.5% (\$305.20) Today',
-          style: context.textTheme.bodyMedium
-              ?.copyWith(color: AppColors.successLight),
+          style: context.textTheme.bodyMedium?.copyWith(
+            color: context.theme.colorScheme.tertiary,
+          ),
         ),
       ],
     );
