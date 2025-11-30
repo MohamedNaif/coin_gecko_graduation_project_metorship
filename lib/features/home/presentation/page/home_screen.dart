@@ -4,6 +4,8 @@ import 'package:coin_gecko_graduation_project_metorship/features/home/presentati
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/home_screen_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => getIt<HomeCubit>()..getAllData(),
           child: const HomeScreenBody(),
         ),
-        const Center(child: Text('Market Screen Body')),
-        const Center(child: Text('Portfolio Screen Body')),
-        const Center(child: Text('Settings Screen Body')),
+        Center(child: Text(AppStrings.marketScreenBody.tr())),
+        Center(child: Text(AppStrings.portfolioScreenBody.tr())),
+        Center(child: Text(AppStrings.settingsScreenBody.tr())),
       ];
 
   @override

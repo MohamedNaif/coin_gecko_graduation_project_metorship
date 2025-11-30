@@ -3,6 +3,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.d
 import 'package:flutter/material.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/global_data_model.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class MarketOverview extends StatelessWidget {
   final GlobalDataModel? data;
@@ -17,7 +19,7 @@ class MarketOverview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Market Overview',
+            AppStrings.marketOverview.tr(),
             style: AppTextStyles.bold20.copyWith(
               color: AppColors.primaryDark,
             ),
@@ -27,20 +29,20 @@ class MarketOverview extends StatelessWidget {
             children: [
               Expanded(
                 child: _MarketItem(
-                  title: 'Market Cap',
+                  title: AppStrings.marketCap.tr(),
                   value: data != null
                       ? '\$${((data?.totalMarketCap?['usd'] ?? 0) / 1e12).toStringAsFixed(2)}T'
-                      : 'Loading...',
+                      : AppStrings.loading.tr(),
                   // change: '2,35%', // API doesn't provide change for global market cap in this endpoint easily without history
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: _MarketItem(
-                  title: '24h Volume',
+                  title: AppStrings.volume24h.tr(),
                   value: data != null
                       ? '\$${((data?.totalVolume?['usd'] ?? 0) / 1e9).toStringAsFixed(2)}B'
-                      : 'Loading...',
+                      : AppStrings.loading.tr(),
                   // change: '2,35%',
                 ),
               ),
@@ -51,19 +53,19 @@ class MarketOverview extends StatelessWidget {
             children: [
               Expanded(
                 child: _MarketItem(
-                  title: 'BTC Dominance',
+                  title: AppStrings.btcDominance.tr(),
                   value: data != null
                       ? '${(data?.btcDominance ?? 0).toStringAsFixed(1)}%'
-                      : 'Loading...',
+                      : AppStrings.loading.tr(),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: _MarketItem(
-                  title: 'Active Coins',
+                  title: AppStrings.activeCoins.tr(),
                   value: data != null
                       ? (data?.activeCryptocurrencies ?? 0).toString()
-                      : 'Loading...',
+                      : AppStrings.loading.tr(),
                 ),
               ),
             ],

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/market_coin_model.dart';
@@ -18,7 +20,7 @@ class TopGainersList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Top Gainers',
+            AppStrings.topGainers.tr(),
             style: AppTextStyles.bold20.copyWith(
               color: AppColors.primaryDark,
             ),

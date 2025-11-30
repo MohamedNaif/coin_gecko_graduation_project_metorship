@@ -4,6 +4,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.d
 import 'package:flutter/material.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/trending_coin_model.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class TrendingList extends StatelessWidget {
   final TrendingData? data;
@@ -20,13 +22,13 @@ class TrendingList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Trending Now',
+                AppStrings.trendingNow.tr(),
                 style: AppTextStyles.bold20.copyWith(
                   color: AppColors.primaryDark,
                 ),
               ),
               Text(
-                'View all',
+                AppStrings.viewAll.tr(),
                 style: AppTextStyles.regular12.copyWith(
                   color: AppColors.primaryLight,
                 ),

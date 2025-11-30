@@ -1,0 +1,21 @@
+{
+  "home": "الرئيسية",
+  "market": "السوق",
+  "portfolio": "المحفظة",
+  "settings": "الإعدادات",
+  "marketScreenBody": "محتوى شاشة السوق",
+  "portfolioScreenBody": "محتوى شاشة المحفظة",
+  "settingsScreenBody": "محتوى شاشة الإعدادات",
+  "hi": "مرحبا، ",
+  "marketOverview": "نظرة عامة على السوق",
+  "marketCap": "القيمة السوقية",
+  "loading": "جاري التحميل...",
+  "volume24h": "حجم التداول 24 ساعة",
+  "btcDominance": "هيمنة البيتكوين",
+  "activeCoins": "العملات النشطة",
+  "trendingNow": "شائع الآن",
+  "viewAll": "عرض الكل",
+  "topGainers": "الأكثر شيوعا",
+  "currentBalance": "الرصيد الحالي",
+  "weeklyProfit": "الربح الأسبوعي"
+}

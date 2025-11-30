@@ -3,6 +3,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.d
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int selectedIndex;
@@ -19,10 +21,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
 
   List<_NavItem> get _items {
     return [
-      const _NavItem(icon: AppAssets.iconHome, label: 'Home'),
-      const _NavItem(icon: AppAssets.iconMarket, label: 'Market'),
-      const _NavItem(icon: AppAssets.iconPortfolio, label: 'Portfolio'),
-      const _NavItem(icon: AppAssets.iconSetting, label: 'Settings'),
+      _NavItem(icon: AppAssets.iconHome, label: AppStrings.home.tr()),
+      _NavItem(icon: AppAssets.iconMarket, label: AppStrings.market.tr()),
+      _NavItem(icon: AppAssets.iconPortfolio, label: AppStrings.portfolio.tr()),
+      _NavItem(icon: AppAssets.iconSetting, label: AppStrings.settings.tr()),
     ];
   }
 

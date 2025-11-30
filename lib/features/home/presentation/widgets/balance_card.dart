@@ -1,5 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class BalanceCard extends StatelessWidget {
@@ -54,7 +56,7 @@ class BalanceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Current Balance',
+                  AppStrings.currentBalance.tr(),
                   style: AppTextStyles.regular14.copyWith(
                     color: Colors.white.withValues(alpha: 0.7),
                   ),
@@ -78,7 +80,7 @@ class BalanceCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Weekly Profit',
+                        AppStrings.weeklyProfit.tr(),
                         style: AppTextStyles.regular12.copyWith(
                           color: Colors.white,
                         ),

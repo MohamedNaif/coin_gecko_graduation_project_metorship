@@ -2,6 +2,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.d
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -18,7 +20,7 @@ class HomeHeader extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           Text(
-            'Hi, Naif 👋🏽',
+            '${AppStrings.hi.tr()}Naif 👋🏽',
             style: AppTextStyles.semiBold16.copyWith(
               color: Colors.black, // Adjust for dark mode if needed
             ),
