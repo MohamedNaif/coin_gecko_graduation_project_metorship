@@ -3,6 +3,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/errors/failures.dar
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/data_source/remote/auth_remote_data_source.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepo)
@@ -27,8 +28,10 @@ class AuthRepoImpl implements AuthRepo {
           phoneNumber: phoneNumber);
       await remoteDataSource.saveUserData(userModel: userModel);
       return Success<UserModel>(userModel);
-    } catch (e) {
-      return FailureResult(FirebaseFailure(errMessage: e.toString()));
-    }
+    }on FirebaseAuthException catch (e) {
+  return FailureResult(
+    FirebaseFailure.fromFirebaseException(code: e.code)
+  );
+}
   }
 }
