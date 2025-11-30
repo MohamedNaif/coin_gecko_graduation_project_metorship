@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/chart_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -9,16 +10,17 @@ class GradientRingChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.widthScale(170),
-      height: context.heightScale(141),
+      width: context.widthScale(ChartDimensions.chartWidth),
+      height: context.heightScale(ChartDimensions.chartHeight),
       child: Stack(
         alignment: Alignment.center,
         children: [
           PieChart(
             PieChartData(
               sectionsSpace: 0,
-              centerSpaceRadius: context.heightScale(60),
-              startDegreeOffset: -90,
+              centerSpaceRadius:
+                  context.heightScale(ChartDimensions.centerSpaceRadius),
+              startDegreeOffset: ChartDimensions.startDegreeOffset,
               sections: [
                 _buildLegendItem(context, AppColors.mediumPurple),
                 _buildLegendItem(context, AppColors.lightGreen),
@@ -44,7 +46,7 @@ class GradientRingChart extends StatelessWidget {
       color: color,
       value: 25,
       title: '',
-      radius: context.heightScale(15),
+      radius: context.heightScale(ChartDimensions.legendRadius),
       showTitle: false,
     );
   }
