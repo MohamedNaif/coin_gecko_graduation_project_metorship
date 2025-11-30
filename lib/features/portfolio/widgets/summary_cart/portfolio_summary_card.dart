@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_background.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_content.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,9 @@ class PortfolioSummaryCard extends StatelessWidget {
               isTopRight: true,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 44, vertical: 17),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppDimensions.summaryContentHorizontalPadding,
+                  vertical: AppDimensions.summaryContentVerticalPadding),
               child: PortfolioSummaryContent(),
             ),
           ],
@@ -34,7 +37,7 @@ class PortfolioSummaryCard extends StatelessWidget {
 
   BoxDecoration _decoration() {
     return BoxDecoration(
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(AppDimensions.summaryCardRadius),
       color: AppColors.deepBlue,
     );
   }

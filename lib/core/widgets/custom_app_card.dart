@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppCard extends StatelessWidget {
@@ -8,10 +9,10 @@ class CustomAppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(AppDimensions.appCardPadding),
       decoration: BoxDecoration(
         color: Theme.of(context).canvasColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppDimensions.appCardRadius),
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).shadowColor,

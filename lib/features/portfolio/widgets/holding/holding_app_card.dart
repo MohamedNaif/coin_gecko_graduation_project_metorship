@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class HoldingAppCard extends StatelessWidget {
@@ -9,7 +10,7 @@ class HoldingAppCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).canvasColor,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppDimensions.holdingAppCardRadius),
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).shadowColor,

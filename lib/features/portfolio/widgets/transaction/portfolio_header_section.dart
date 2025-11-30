@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/distibution/distribution_card.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_card.dart';
@@ -10,7 +11,8 @@ class PortfolioHeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: const EdgeInsets.all(22).copyWith(top: 20),
+      padding: const EdgeInsets.all(AppDimensions.portfolioHeaderSectionPadding)
+          .copyWith(top: AppDimensions.portfolioHeaderSectionTopPadding),
       sliver: SliverToBoxAdapter(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

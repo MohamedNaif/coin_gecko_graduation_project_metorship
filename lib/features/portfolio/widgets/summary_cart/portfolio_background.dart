@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/constants/portfolio_bubble_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:flutter/material.dart';
 
@@ -15,32 +16,32 @@ class PortfolioBubbleBackground extends StatelessWidget {
       child: Stack(
         children: [
           _bubble(context,
-              top: isTopRight
-                  ? context.heightScale(-20)
-                  : context.heightScale(80),
-              sideOffset: isTopRight
-                  ? -context.widthScale(35)
-                  : -context.widthScale(20),
-              size: context.heightScale(80),
-              opacity: 0.10),
+              top: context.heightScale(isTopRight
+                  ? PortfolioBubbleDimensions.topRight1
+                  : PortfolioBubbleDimensions.topLeft1),
+              sideOffset: context.widthScale(isTopRight
+                  ? PortfolioBubbleDimensions.sideRight1
+                  : PortfolioBubbleDimensions.sideLeft1),
+              size: context.heightScale(PortfolioBubbleDimensions.sizeSmall),
+              opacity: PortfolioBubbleDimensions.opacityHigh),
           _bubble(context,
-              top: isTopRight
-                  ? context.heightScale(-40)
-                  : context.heightScale(60),
-              sideOffset: isTopRight
-                  ? -context.widthScale(60)
-                  : -context.widthScale(40),
-              size: context.heightScale(120),
-              opacity: 0.09),
+              top: context.heightScale(isTopRight
+                  ? PortfolioBubbleDimensions.topRight2
+                  : PortfolioBubbleDimensions.topLeft2),
+              sideOffset: context.widthScale(isTopRight
+                  ? PortfolioBubbleDimensions.sideRight2
+                  : PortfolioBubbleDimensions.sideLeft2),
+              size: context.heightScale(PortfolioBubbleDimensions.sizeMedium),
+              opacity: PortfolioBubbleDimensions.opacityMedium),
           _bubble(context,
-              top: isTopRight
-                  ? context.heightScale(-60)
-                  : context.heightScale(45),
-              sideOffset: isTopRight
-                  ? -context.widthScale(80)
-                  : -context.widthScale(60),
-              size: context.heightScale(157),
-              opacity: 0.06),
+              top: context.heightScale(isTopRight
+                  ? PortfolioBubbleDimensions.topRight3
+                  : PortfolioBubbleDimensions.topLeft3),
+              sideOffset: context.widthScale(isTopRight
+                  ? PortfolioBubbleDimensions.sideRight3
+                  : PortfolioBubbleDimensions.sideLeft3),
+              size: context.heightScale(PortfolioBubbleDimensions.sizeLarge),
+              opacity: PortfolioBubbleDimensions.opacityLow),
         ],
       ),
     );

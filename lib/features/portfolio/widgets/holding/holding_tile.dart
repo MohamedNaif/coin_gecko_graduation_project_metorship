@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/data/model/holding_model.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_details.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_info.dart';
@@ -16,7 +17,10 @@ class HoldingTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return HoldingAppCard(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 12),
+        padding: const EdgeInsets.symmetric(
+          vertical: AppDimensions.holdingTileVerticalPadding,
+          horizontal: AppDimensions.holdingTileHorizontalPadding,
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
