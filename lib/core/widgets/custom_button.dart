@@ -48,6 +48,8 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 16),
+      
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius ?? 8),
         color: (isDisabled ?? false)
@@ -58,7 +60,8 @@ class CustomButton extends StatelessWidget {
       width: width ?? double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: widthPadding ?? 16),
+          
+          padding: EdgeInsets.symmetric(horizontal: widthPadding ?? 16 , ),
           overlayColor: AppColors.primaryLight,
           elevation: 0,
           shadowColor: Colors.black12,

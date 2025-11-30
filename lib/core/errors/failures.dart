@@ -5,7 +5,29 @@ abstract class Failures {
 
   Failures({required this.errMessage});
 }
-
+class FirebaseFailure extends Failures {
+  FirebaseFailure({required super.errMessage});
+  factory FirebaseFailure.fromFirebaseException(
+      {required String code}) {
+    switch (code) {
+      case 'weak-password':
+        return FirebaseFailure(
+            errMessage: 'The password provided is too weak.');
+      case 'email-already-in-use':
+        return FirebaseFailure(
+            errMessage: 'The account already exists for that email.');
+      case 'user-not-found':
+        return FirebaseFailure(
+            errMessage: 'No user found for that email.');
+      case 'wrong-password':
+        return FirebaseFailure(
+            errMessage: 'Wrong password provided for that user.');
+      default:
+        return FirebaseFailure(
+            errMessage: 'An undefined Error happened.');
+    }
+  }
+}
 class ServerFailure extends Failures {
   ServerFailure({required super.errMessage});
 

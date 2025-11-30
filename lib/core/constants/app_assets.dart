@@ -16,7 +16,7 @@ class AppAssets {
   static const String rightArrowIcon = 'assets/images/right_arrow_icon.svg';
   static const String logoutIcon = 'assets/images/logout_icon.svg';
   static const String callIcon = 'assets/images/call_icon.svg';
-  static const String passwordIcon = 'assets/images/password_icon.svg';
+  static const String passwordIcon = 'assets/icons/password_icon.svg';
   static const String obsecureIcon = 'assets/images/obsecure_icon.svg';
   static const String unObsecureIcon = 'assets/images/un_obsecure_icon.svg';
   static const String technicalIcon = 'assets/images/technical.svg';
@@ -44,8 +44,10 @@ class AppAssets {
       'assets/images/transaction_point.svg';
   static const String orderIcon = 'assets/images/order_icon.svg';
   static const String storeIcon = 'assets/images/store-icon.svg';
-  static const String emailIcon = 'assets/images/email_icon.svg';
+  static const String emailIcon = 'assets/icons/email_icon.svg';
   static const String instagramIcon = 'assets/images/instagram_icon.svg';
   static const String facebookIcon = 'assets/images/facebook_icon.svg';
   static const String twitterIcon = 'assets/images/twitter_icon.svg';
+  static const String personIcon ="assets/icons/person.svg";
+  static const String phoneIcon = "assets/icons/phone_icon.svg";
 }
