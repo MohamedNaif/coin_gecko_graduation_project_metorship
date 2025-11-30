@@ -32,4 +32,19 @@ class AuthRepoImpl implements AuthRepo {
       return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
     }
   }
+
+  @override
+  Future<Result<String>> signIn(
+      {required String email, required String password}) async {
+    try {
+      final userCredential = await remoteDataSource.signIn(
+        email: email,
+        password: password,
+      );
+
+      return Success<String>(userCredential);
+    } on FirebaseAuthException catch (e) {
+      return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
+    }
+  }
 }

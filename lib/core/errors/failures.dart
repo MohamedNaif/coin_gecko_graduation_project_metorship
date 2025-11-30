@@ -60,6 +60,10 @@ factory FirebaseFailure.fromFirebaseException({required String code}) {
       return FirebaseFailure(
         errMessage: 'Network error. Please check your connection.',
       );
+      case 'invalid-credential':
+      return FirebaseFailure(
+        errMessage: 'Inncorrect email or password.',
+      );
       
     default:
       return FirebaseFailure(
