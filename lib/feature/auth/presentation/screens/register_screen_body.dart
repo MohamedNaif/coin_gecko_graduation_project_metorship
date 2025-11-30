@@ -1,7 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_register_form.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/register_title.dart';
+import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_auth_title.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
@@ -24,7 +24,7 @@ class RegisterScreenBody extends StatelessWidget {
               SizedBox(
                 height: 100,
               ),
-              RegisterTitle(),
+              CustomAuthTitle(title: 'Create Your Account',subTitle:  "Sign up to enjoy the best managing \nexperience!",),
               SizedBox(
                 height: 50,
               ),
