@@ -1,13 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
+ 
 class UserModel {
   final String? _uesrId;
   final String? _firstName;
   final String? _lastName;
   final String? _email;
   final String? _phoneNumber;
-
+  
+  String? get firstName => _firstName;
+  String? get lastName => _lastName;
   String? get uesrId => _uesrId;
   String? get name => _firstName;
   String? get email => _email;

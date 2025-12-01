@@ -62,7 +62,7 @@ factory FirebaseFailure.fromFirebaseException({required String code}) {
       );
       case 'invalid-credential':
       return FirebaseFailure(
-        errMessage: 'Inncorrect email or password.',
+        errMessage: 'Incorrect email or password.',
       );
       
     default:

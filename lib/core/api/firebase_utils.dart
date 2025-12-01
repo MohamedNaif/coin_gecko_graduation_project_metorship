@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/core/errors/failures.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,10 +40,12 @@ class FirebaseUtils {
       return userId;
     } on FirebaseAuthException catch (e) {
       log('FirebaseAuthException: ${e.code} - ${e.message}');
-      rethrow;
-    } on Exception catch (e) {
+      throw FirebaseFailure.fromFirebaseException(code: e.code);
+    } on FirebaseFailure catch (e) {
       log('Exception during createUserWithEmailAndPassword: $e');
-      rethrow;
+      throw FirebaseFailure(
+        errMessage: 'Failed to create user: ${e.errMessage}',
+      );
     }
   }
 
@@ -55,9 +58,11 @@ class FirebaseUtils {
         log('Failed to add user data: $error');
         throw Exception('Failed to add user data: $error');
       });
-    } catch (e) {
+    } on FirebaseFailure catch (e) {
       log('Exception during saveUserData: $e');
-      rethrow;
+      throw FirebaseFailure(
+        errMessage: 'Failed to save user data: ${e.errMessage}',
+      );
     }
   }
 
@@ -69,10 +74,15 @@ class FirebaseUtils {
         password: password,
       );
       final userId = credential.user?.uid;
-      return userId!;
+      if (userId == null) {
+        throw Exception('User sign-in failed: no UID returned');
+      }
+
+      log('User signed in successfully with ID: $userId');
+      return userId;
     } on FirebaseAuthException catch (e) {
       log('FirebaseAuthException during signIn: ${e.code} - ${e.message}');
-      rethrow;
+      throw FirebaseFailure.fromFirebaseException(code: e.code);
     }
   }
 }
