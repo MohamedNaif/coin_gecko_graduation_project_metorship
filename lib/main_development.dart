@@ -1,6 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/config/lang_manager.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 
@@ -34,7 +35,9 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: AppRouter().generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(body: Center(child: Text('Coin Gecko Development'))),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
     );
   }
 }

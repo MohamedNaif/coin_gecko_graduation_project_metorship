@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'app_style.dart';
 
-class _CustomThumbShape extends SliderComponentShape {
+class CustomThumbShape extends SliderComponentShape {
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
     return const Size(24, 24);
@@ -49,11 +49,13 @@ class AppTheme {
           primary: AppColors.primaryLight,
           secondary: AppColors.secondary,
           surface: AppColors.lightSurface,
-          background: AppColors.lightBackground,
           onPrimary: AppColors.white,
           onSecondary: AppColors.white,
           onSurface: AppColors.lightTextPrimary,
-          onBackground: AppColors.lightTextPrimary,
+          tertiary: AppColors.successLight,
+          secondaryContainer: AppColors.lightBackground,
+          onSecondaryContainer: AppColors.gray500,
+          tertiaryFixed: AppColors.primaryLight,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
@@ -114,7 +116,7 @@ class AppTheme {
             color: AppColors.primaryLight,
           ),
         ),
-        dividerColor: AppColors.gray200.withOpacity(0.5),
+        dividerColor: AppColors.gray200.withValues(alpha: 0.5),
       );
 
   static ThemeData get darkTheme => ThemeData(
@@ -124,13 +126,16 @@ class AppTheme {
         scaffoldBackgroundColor: AppColors.darkBackground,
         canvasColor: AppColors.darkBackground,
         primaryColor: AppColors.primaryDark,
+        
         colorScheme: ColorScheme.dark(
           primary: AppColors.primaryDark,
           surface: AppColors.darkSurface,
-          background: AppColors.darkBackground,
           onPrimary: AppColors.white,
           onSurface: AppColors.darkTextPrimary,
-          onBackground: AppColors.darkTextPrimary,
+          tertiary: AppColors.success,
+          secondaryContainer: AppColors.smokyBlack,
+          onSecondaryContainer: AppColors.lightTextSecondary,
+          tertiaryFixed: AppColors.white,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
@@ -150,7 +155,7 @@ class AppTheme {
           elevation: 20,
         ),
         textTheme: _buildTextTheme(),
-        dividerColor: AppColors.gray600.withOpacity(0.3),
+        dividerColor: AppColors.gray600.withValues(alpha: 0.3),
       );
 
   static TextTheme _buildTextTheme() {
