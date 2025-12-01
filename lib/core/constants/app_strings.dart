@@ -40,8 +40,8 @@ class AppStrings {
   static const String loginFailed = 'Login Failed';
   static const String accessToken = 'accessToken';
   static const String refreshToken = 'refreshToken';
-}
-abstract class AppStrings {
+
+
   //**************** App Info ****************//
   static const String appName = 'Call-Center-App';
   //**************** Login page ****************//
@@ -49,9 +49,7 @@ abstract class AppStrings {
   static const String checkPhoneValid = 'Enter Your Phone number Correctly';
   static const String checkPasswordValid = 'Please Enter your password';
 
-  //**************** APIs Strings ****************//
-  static const String accessToken = 'access_token';
-  static const String refreshToken = 'refresh_token';
+  
   static const String role = 'role';
   static const String phone = 'phone';
   static const String name = 'name';

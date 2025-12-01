@@ -4,6 +4,7 @@ class Routes {
   static const String register = '/register';
   static const String fingerprintScreen = '/fingerprint_screen';
   static const String splash = '/splash';
-  
+  static const String home = '/home';
+  static const String onboardingScreen = '/onboarding';
 
 }
