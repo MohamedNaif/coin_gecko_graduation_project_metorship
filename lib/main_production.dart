@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       initialRoute: Routes.splash,
+      initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
       home: const Scaffold(body: Center(child: Text('Coin Gecko Production'))),
     );
