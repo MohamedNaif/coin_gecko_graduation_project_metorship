@@ -1,9 +1,10 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/market_coin_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_error_widget.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/market_coin_item.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/top_gainers_list_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/manager/home_cubit.dart';
@@ -35,13 +36,15 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
   @override
   void initState() {
     super.initState();
-    // Initial load is handled by HomeCubit, but we can trigger it if needed or rely on previous state
-    // If we want to ensure fresh data or if it wasn't loaded:
+    _loadData();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _loadData() {
     final cubit = context.read<HomeCubit>();
     if (cubit.state.marketData.isEmpty) {
       cubit.getMarkets();
     }
-    _scrollController.addListener(_onScroll);
   }
 
   @override
@@ -55,6 +58,10 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
         _scrollController.position.maxScrollExtent * 0.8) {
       context.read<HomeCubit>().getMarkets(loadMore: true);
     }
+  }
+
+  Future<void> _onRefresh() async {
+    await context.read<HomeCubit>().getMarkets();
   }
 
   @override
@@ -89,138 +96,41 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
         builder: (context, state) {
           if (state.marketDataStatus == HomeDataStatus.loading &&
               state.marketData.isEmpty) {
-            return const Center(child: CircularProgressIndicator());
+            return const TopGainersListShimmer();
           }
 
           if (state.marketData.isEmpty &&
               state.marketDataStatus == HomeDataStatus.failure) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(state.errorMessage ?? 'Error loading data'),
-                  const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () => context.read<HomeCubit>().getMarkets(),
-                    child: const Text('Retry'),
-                  ),
-                ],
-              ),
+            return CustomErrorWidget(
+              errorMessage: state.errorMessage ?? 'Error loading data',
+              onRetry: () => context.read<HomeCubit>().getMarkets(),
             );
           }
 
-          return ListView.separated(
-            controller: _scrollController,
-            padding: const EdgeInsets.all(16),
-            itemCount: state.marketData.length + (state.hasMoreMarkets ? 1 : 0),
-            separatorBuilder: (context, index) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              if (index >= state.marketData.length) {
-                return const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
+          return RefreshIndicator(
+            onRefresh: _onRefresh,
+            child: ListView.separated(
+              controller: _scrollController,
+              padding: const EdgeInsets.all(16),
+              itemCount:
+                  state.marketData.length + (state.hasMoreMarkets ? 1 : 0),
+              separatorBuilder: (context, index) => const SizedBox(height: 12),
+              itemBuilder: (context, index) {
+                if (index >= state.marketData.length) {
+                  return const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
 
-              final coin = state.marketData[index];
-              return _CoinCard(coin: coin);
-            },
+                final coin = state.marketData[index];
+                return MarketCoinItem(coin: coin);
+              },
+            ),
           );
         },
-      ),
-    );
-  }
-}
-
-class _CoinCard extends StatelessWidget {
-  final MarketCoinModel coin;
-
-  const _CoinCard({required this.coin});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 48,
-            height: 48,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: CachedNetworkImage(
-              imageUrl: coin.image ?? '',
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  coin.name ?? '',
-                  style: AppTextStyles.semiBold16.copyWith(
-                    color: AppColors.primaryDark,
-                  ),
-                ),
-                Text(
-                  coin.symbol?.toUpperCase() ?? '',
-                  style: AppTextStyles.regular12.copyWith(
-                    color: AppColors.gray400,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                '\$${coin.currentPrice?.toStringAsFixed(2) ?? '0.00'}',
-                style: AppTextStyles.semiBold16.copyWith(
-                  color: AppColors.primaryDark,
-                ),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    (coin.priceChangePercentage24h ?? 0) >= 0
-                        ? Icons.arrow_drop_up
-                        : Icons.arrow_drop_down,
-                    color: (coin.priceChangePercentage24h ?? 0) >= 0
-                        ? AppColors.primaryLight
-                        : AppColors.secondary,
-                    size: 20,
-                  ),
-                  Text(
-                    '${(coin.priceChangePercentage24h ?? 0).toStringAsFixed(2)}%',
-                    style: AppTextStyles.bold12.copyWith(
-                      color: (coin.priceChangePercentage24h ?? 0) >= 0
-                          ? AppColors.primaryLight
-                          : AppColors.secondary,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }
