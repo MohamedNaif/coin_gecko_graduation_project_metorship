@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_app_extensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/market_coin_model.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,12 @@ class MarketCoinItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = context.withFormFactor(
+      onMobile: 48.0,
+      onTablet: 52.0,
+      onDesktop: 56.0,
+    );
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -27,8 +34,8 @@ class MarketCoinItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: iconSize,
+            height: iconSize,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
@@ -47,12 +54,14 @@ class MarketCoinItem extends StatelessWidget {
                   coin.name ?? '',
                   style: AppTextStyles.semiBold16.copyWith(
                     color: AppColors.primaryDark,
+                    
                   ),
                 ),
                 Text(
                   coin.symbol?.toUpperCase() ?? '',
                   style: AppTextStyles.regular12.copyWith(
                     color: AppColors.gray400,
+                    
                   ),
                 ),
               ],
@@ -65,6 +74,7 @@ class MarketCoinItem extends StatelessWidget {
                 '\$${coin.currentPrice?.toStringAsFixed(2) ?? '0.00'}',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
+                  
                 ),
               ),
               Row(
@@ -84,6 +94,7 @@ class MarketCoinItem extends StatelessWidget {
                       color: (coin.priceChangePercentage24h ?? 0) >= 0
                           ? AppColors.primaryLight
                           : AppColors.secondary,
+                      
                     ),
                   ),
                 ],

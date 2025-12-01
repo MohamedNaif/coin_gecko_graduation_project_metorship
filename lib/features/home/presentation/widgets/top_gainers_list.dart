@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_app_extensions.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_font_size.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +16,14 @@ class TopGainersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final horizontalPadding = context.withFormFactor(
+      onMobile: 16.0,
+      onTablet: 24.0,
+      onDesktop: 32.0,
+    );
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,6 +31,7 @@ class TopGainersList extends StatelessWidget {
             AppStrings.topGainers.tr(),
             style: AppTextStyles.bold20.copyWith(
               color: AppColors.primaryDark,
+              fontSize: ResponsiveFontSize.getResponsiveFontSize(context, 20),
             ),
           ),
           const SizedBox(height: 16),
@@ -51,6 +60,12 @@ class _GainerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = context.withFormFactor(
+      onMobile: 40.0,
+      onTablet: 48.0,
+      onDesktop: 52.0,
+    );
+
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -67,8 +82,8 @@ class _GainerTile extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: iconSize,
+            height: iconSize,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.grey[200],
@@ -80,28 +95,31 @@ class _GainerTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                coin.name != null
-                    ? coin.name!.length > 20
-                        ? '${coin.name!.substring(0, 20)}...'
-                        : coin.name!
-                    : '',
-                style: AppTextStyles.semiBold16.copyWith(
-                  color: AppColors.primaryDark,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  coin.name != null
+                      ? coin.name!.length > 20
+                          ? '${coin.name!.substring(0, 20)}...'
+                          : coin.name!
+                      : '',
+                  style: AppTextStyles.semiBold16.copyWith(
+                    color: AppColors.primaryDark,
+                    
+                  ),
                 ),
-              ),
-              Text(
-                (coin.symbol ?? '').toUpperCase(),
-                style: AppTextStyles.regular12.copyWith(
-                  color: AppColors.gray400,
+                Text(
+                  (coin.symbol ?? '').toUpperCase(),
+                  style: AppTextStyles.regular12.copyWith(
+                    color: AppColors.gray400,
+                    
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          const Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -109,6 +127,7 @@ class _GainerTile extends StatelessWidget {
                 '\$${(coin.currentPrice ?? 0).toStringAsFixed(2)}',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
+                  
                 ),
               ),
               Text(
@@ -117,6 +136,7 @@ class _GainerTile extends StatelessWidget {
                   color: (coin.priceChangePercentage24h ?? 0) >= 0
                       ? AppColors.success
                       : AppColors.secondary,
+                  
                 ),
               ),
             ],

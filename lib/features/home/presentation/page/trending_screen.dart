@@ -1,5 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_app_extensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_error_widget.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/market_coin_item.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/widgets/top_gainers_list_shimmer.dart';
@@ -66,12 +67,19 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
 
   @override
   Widget build(BuildContext context) {
+    final horizontalPadding = context.withFormFactor(
+      onMobile: 16.0,
+      onTablet: 24.0,
+      onDesktop: 32.0,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
           AppStrings.trendingNow.tr(),
           style: AppTextStyles.bold20.copyWith(
             color: AppColors.primaryDark,
+            
           ),
         ),
         backgroundColor: Colors.white,
@@ -111,7 +119,7 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
             onRefresh: _onRefresh,
             child: ListView.separated(
               controller: _scrollController,
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(horizontalPadding),
               itemCount:
                   state.marketData.length + (state.hasMoreMarkets ? 1 : 0),
               separatorBuilder: (context, index) => const SizedBox(height: 12),

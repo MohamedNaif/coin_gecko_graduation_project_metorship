@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_app_extensions.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/features/home/data/models/trending_coin_model.dart';
@@ -15,10 +16,22 @@ class TrendingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final horizontalPadding = context.withFormFactor(
+      onMobile: 16.0,
+      onTablet: 24.0,
+      onDesktop: 32.0,
+    );
+
+    final cardHeight = context.withFormFactor(
+      onMobile: 140.0,
+      onTablet: 160.0,
+      onDesktop: 180.0,
+    );
+
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -44,11 +57,11 @@ class TrendingList extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 140,
+          height: cardHeight,
           child: data == null
               ? const Center(child: CircularProgressIndicator())
               : ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
                   scrollDirection: Axis.horizontal,
                   itemCount: data?.coins?.length ?? 0,
                   separatorBuilder: (context, index) =>
@@ -70,8 +83,14 @@ class _TrendingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardWidth = context.withFormFactor(
+      onMobile: 180.0,
+      onTablet: 200.0,
+      onDesktop: 220.0,
+    );
+
     return Container(
-      width: 180,
+      width: cardWidth,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -89,15 +108,17 @@ class _TrendingCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                coin.name ?? '',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.semiBold14.copyWith(
-                  color: AppColors.primaryDark,
+              Expanded(
+                child: Text(
+                  coin.name ?? '',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyles.semiBold14.copyWith(
+                    color: AppColors.primaryDark,
+                  ),
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 width: 32,
                 height: 32,
@@ -111,7 +132,6 @@ class _TrendingCard extends StatelessWidget {
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
-              // Placeholder for mini chart
             ],
           ),
           Text(
@@ -125,7 +145,7 @@ class _TrendingCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '\$${(coin.price ?? 0).toStringAsFixed(2)}', // Note: API might return price in BTC for trending, need to check. But assuming USD for now based on model.
+                '\$${(coin.price ?? 0).toStringAsFixed(2)}',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),

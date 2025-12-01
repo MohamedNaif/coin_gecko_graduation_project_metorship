@@ -1,6 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/responsive_helper/responsive_app_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,22 @@ class BalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardHeight = context.withFormFactor(
+      onMobile: 160.0,
+      onTablet: 180.0,
+      onDesktop: 200.0,
+    );
+
+    final horizontalMargin = context.withFormFactor(
+      onMobile: 16.0,
+      onTablet: 24.0,
+      onDesktop: 32.0,
+    );
+
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      height: 160,
+      margin:
+          EdgeInsets.symmetric(horizontal: horizontalMargin, vertical: 12.0),
+      height: cardHeight,
       decoration: BoxDecoration(
         gradient: AppColors.balanceCardDarkGradient,
         borderRadius: BorderRadius.circular(24),
@@ -59,6 +73,7 @@ class BalanceCard extends StatelessWidget {
                   AppStrings.currentBalance.tr(),
                   style: AppTextStyles.regular14.copyWith(
                     color: Colors.white.withValues(alpha: 0.7),
+                  
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -66,6 +81,7 @@ class BalanceCard extends StatelessWidget {
                   '\$143,421.20',
                   style: AppTextStyles.bold32.copyWith(
                     color: Colors.white,
+                  
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -104,6 +120,7 @@ class BalanceCard extends StatelessWidget {
                               '2,35%',
                               style: AppTextStyles.bold10.copyWith(
                                 color: Colors.white,
+                              
                               ),
                             ),
                           ],
