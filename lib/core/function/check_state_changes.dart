@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:injectable/injectable.dart';
+@injectable
+class AuthStateChangesChecker {
+StreamSubscription<User?>? _authSubscription;
 void checkStateChanges() {
-   StreamSubscription<User?>? _authSubscription;
+   
   _authSubscription = FirebaseAuth.instance
     .authStateChanges()
     .listen((user) {
@@ -12,7 +15,10 @@ void checkStateChanges() {
         log('User signed out', name: 'Auth');
       } else {
         log('User signed in', name: 'Auth');
-        _authSubscription?.cancel();
       }
     });
+}
+dispose(){
+  _authSubscription?.cancel();
+}
 }

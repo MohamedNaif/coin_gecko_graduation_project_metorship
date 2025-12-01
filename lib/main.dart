@@ -18,15 +18,32 @@ Future<void> main() async {
   );
 
   configureDependencies();
-  checkStateChanges();
+  
   Bloc.observer = MyBlocObserver();
 
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+   final authStateService = getIt<AuthStateChangesChecker>();
+
+  @override
+  void initState() {
+    authStateService.checkStateChanges();
+    super.initState();
+  }
+  @override
+  void dispose() {
+    authStateService.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

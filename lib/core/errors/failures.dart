@@ -5,6 +5,15 @@ abstract class Failures {
 
   Failures({required this.errMessage});
 }
+class GeneralFailure extends Failures {
+  GeneralFailure({required super.errMessage});
+  
+  factory GeneralFailure.fromException(Exception exception) {
+    return GeneralFailure(
+      errMessage: 'An unexpected error occurred: ${exception.toString()}',
+    );
+  }
+}
 class FirebaseFailure extends Failures {
   FirebaseFailure({required super.errMessage});
 factory FirebaseFailure.fromFirebaseException({required String code}) {

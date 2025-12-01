@@ -34,8 +34,8 @@ class AuthRepoImpl implements AuthRepo {
       );
     } on ServerFailure catch (e) {
       return FailureResult(e);
-    } catch (e) {
-      throw Exception('Unexpected error: $e');
+    }on Exception catch (e) {
+      return FailureResult(GeneralFailure.fromException(e));
     }
   }
 
@@ -53,8 +53,8 @@ class AuthRepoImpl implements AuthRepo {
       return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
     } on ServerFailure catch (e) {
       return FailureResult(e);
-    } catch (e) {
-      throw Exception('Unexpected error: $e');
+    } on Exception catch (e) {
+      return FailureResult(GeneralFailure.fromException(e));
     }
   }
 }
