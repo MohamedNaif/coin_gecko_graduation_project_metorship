@@ -32,13 +32,10 @@ class TrendingList extends StatelessWidget {
                 onTap: () {
                   Navigator.pushNamed(context, Routes.trendingScreen);
                 },
-                child: Container(
-                  color: AppColors.primaryDark,
-                  child: Text(
-                    AppStrings.viewAll.tr(),
-                    style: AppTextStyles.regular12.copyWith(
-                      color: AppColors.primaryLight,
-                    ),
+                child: Text(
+                  AppStrings.viewAll.tr(),
+                  style: AppTextStyles.regular12.copyWith(
+                    color: AppColors.primaryLight,
                   ),
                 ),
               ),

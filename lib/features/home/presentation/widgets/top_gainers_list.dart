@@ -84,7 +84,11 @@ class _GainerTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                coin.name ?? '',
+                coin.name != null
+                    ? coin.name!.length > 20
+                        ? '${coin.name!.substring(0, 20)}...'
+                        : coin.name!
+                    : '',
                 style: AppTextStyles.semiBold16.copyWith(
                   color: AppColors.primaryDark,
                 ),
