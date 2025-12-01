@@ -1,5 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/trending_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class AppRouter {
 
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.trendingScreen:
+        return MaterialPageRoute(builder: (_) => const TrendingScreen());
       default:
         return null;
     }

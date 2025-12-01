@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +28,18 @@ class TrendingList extends StatelessWidget {
                   color: AppColors.primaryDark,
                 ),
               ),
-              Text(
-                AppStrings.viewAll.tr(),
-                style: AppTextStyles.regular12.copyWith(
-                  color: AppColors.primaryLight,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.trendingScreen);
+                },
+                child: Container(
+                  color: AppColors.primaryDark,
+                  child: Text(
+                    AppStrings.viewAll.tr(),
+                    style: AppTextStyles.regular12.copyWith(
+                      color: AppColors.primaryLight,
+                    ),
+                  ),
                 ),
               ),
             ],
