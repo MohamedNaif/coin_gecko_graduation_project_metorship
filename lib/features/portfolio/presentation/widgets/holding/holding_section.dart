@@ -1,6 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/data/model/holding_model.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_tile.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/ui_model/holding_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/holding/holding_tile.dart';
 import 'package:flutter/material.dart';
 
 class HoldingsSection extends StatelessWidget {

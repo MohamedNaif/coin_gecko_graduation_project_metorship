@@ -1,7 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/portfolio_header_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/tranaction_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/holding/holding_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/transaction/portfolio_header_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/transaction/tranaction_section.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioBody extends StatelessWidget {

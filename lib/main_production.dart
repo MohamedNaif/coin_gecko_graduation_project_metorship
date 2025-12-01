@@ -1,6 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/page/portfolio_page.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 
 void main() {
   configureDependencies();

@@ -1,5 +1,5 @@
-import 'package:coin_gecko_graduation_project_metorship/features/data/model/transaction_model.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/transaction/transaction_tile.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/ui_model/transaction_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/transaction/transaction_tile.dart';
 import 'package:flutter/material.dart';
 
 class TransactionsSection extends StatelessWidget {

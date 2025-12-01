@@ -1,8 +1,8 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/distibution/distribution_card.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/summary_cart/portfolio_summary_card.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/tab_bar/month_filter_bar.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/distibution/distribution_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/summary_cart/portfolio_summary_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/tab_bar/month_filter_bar.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioHeaderSection extends StatelessWidget {

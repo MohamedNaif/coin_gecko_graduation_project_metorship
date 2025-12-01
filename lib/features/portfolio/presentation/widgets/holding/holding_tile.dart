@@ -1,8 +1,8 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/data/model/holding_model.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_details.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_info.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/holding/holding_app_card.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/ui_model/holding_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/holding/holding_details.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/holding/holding_info.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/holding/holding_app_card.dart';
 import 'package:flutter/material.dart';
 
 class HoldingTile extends StatelessWidget {
