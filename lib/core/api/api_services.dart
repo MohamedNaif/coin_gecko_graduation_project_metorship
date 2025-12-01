@@ -5,7 +5,7 @@ import 'package:retrofit/http.dart';
 
 part 'api_services.g.dart';
 
-@RestApi(baseUrl: "Constants.baseUrl")
+@RestApi(baseUrl: "https://api.coingecko.com/api/v3")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 }

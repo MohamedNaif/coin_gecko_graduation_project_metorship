@@ -18,7 +18,7 @@ abstract class DioModule {
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 60),
-        baseUrl: "Constants.baseUrl",
+        baseUrl: "https://api.coingecko.com/api/v3",
       ),
     );
     dio.options.headers["Content-Type"]="multipart/form-data";

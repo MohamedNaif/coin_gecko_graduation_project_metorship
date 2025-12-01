@@ -24,6 +24,7 @@ import '../../feature/auth/data/repos/auth_repo_impl.dart' as _i703;
 import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 import '../api/firebase_utils.dart' as _i726;
+import '../function/check_state_changes.dart' as _i977;
 import 'di.dart' as _i913;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -39,6 +40,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final dioModule = _$DioModule();
     final firebaseModule = _$FirebaseModule();
+    gh.factory<_i977.AuthStateChangesChecker>(
+        () => _i977.AuthStateChangesChecker());
     gh.lazySingleton<_i361.LogInterceptor>(() => dioModule.provideLogger());
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(
