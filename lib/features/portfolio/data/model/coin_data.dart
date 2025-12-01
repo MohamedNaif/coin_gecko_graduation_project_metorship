@@ -1,10 +1,10 @@
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_constant.dart';
 
 class CoinData {
-  final double usd;
-  final double usd24hChange;
+  final double? usd;
+  final double? usd24hChange;
 
-  CoinData({required this.usd, required this.usd24hChange});
+  CoinData({this.usd, this.usd24hChange});
 
   factory CoinData.fromJson(Map<String, dynamic> json) {
     return CoinData(

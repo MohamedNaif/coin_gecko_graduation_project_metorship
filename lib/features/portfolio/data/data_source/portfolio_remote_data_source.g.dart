@@ -39,7 +39,7 @@ class _PortfolioRemoteDataSource implements PortfolioRemoteDataSource {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/simple/price',
+            'price',
             queryParameters: queryParameters,
             data: _data,
           )

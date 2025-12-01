@@ -27,7 +27,7 @@ abstract class EndPoints {
   static const String categoriesV1 = '/v1/categories';
   static const String breedsV1 = '/v1/breeds';
   //! =======Portfolio Endpoints========
-  static const String portfolio = '/simple/price';
+  static const String portfolio = 'price';
 }
 
 // add all changes without pagination
