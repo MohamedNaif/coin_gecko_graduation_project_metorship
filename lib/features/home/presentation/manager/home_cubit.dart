@@ -8,24 +8,74 @@ import 'package:injectable/injectable.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
 
-  HomeCubit(this._homeRepo) : super(HomeInitial());
+  HomeCubit(this._homeRepo) : super(const HomeState());
 
-  Future<void> getAllData() async {
-    emit(HomeLoading());
+  Future<void> getGlobalData() async {
+    emit(state.copyWith(globalDataStatus: HomeDataStatus.loading));
     try {
-      final results = await Future.wait([
-        _homeRepo.getGlobalData(),
-        _homeRepo.getTrendingCoins(),
-        _homeRepo.getMarkets(),
-      ]);
-
-      emit(HomeSuccess(
-        globalData: results[0] as dynamic,
-        trendingData: results[1] as dynamic,
-        marketData: results[2] as dynamic,
+      final result = await _homeRepo.getGlobalData();
+      emit(state.copyWith(
+        globalDataStatus: HomeDataStatus.success,
+        globalData: result,
       ));
     } catch (e) {
-      emit(HomeError(e.toString()));
+      emit(state.copyWith(
+        globalDataStatus: HomeDataStatus.failure,
+        errorMessage: e.toString(),
+      ));
     }
+  }
+
+  Future<void> getTrendingCoins() async {
+    emit(state.copyWith(trendingDataStatus: HomeDataStatus.loading));
+    try {
+      final result = await _homeRepo.getTrendingCoins();
+      emit(state.copyWith(
+        trendingDataStatus: HomeDataStatus.success,
+        trendingData: result,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        trendingDataStatus: HomeDataStatus.failure,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
+  Future<void> getMarkets({bool loadMore = false}) async {
+    if (loadMore) {
+      if (!state.hasMoreMarkets ||
+          state.marketDataStatus == HomeDataStatus.loading) return;
+    } else {
+      emit(state.copyWith(marketDataStatus: HomeDataStatus.loading));
+    }
+
+    try {
+      final page = loadMore ? state.marketPage + 1 : 1;
+      final result = await _homeRepo.getMarkets(page: page, perPage: 20);
+
+      final hasMore = result.length >= 20;
+      final newMarkets = loadMore ? [...state.marketData, ...result] : result;
+
+      emit(state.copyWith(
+        marketDataStatus: HomeDataStatus.success,
+        marketData: newMarkets,
+        hasMoreMarkets: hasMore,
+        marketPage: page,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        marketDataStatus: HomeDataStatus.failure,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
+  Future<void> getAllData() async {
+    await Future.wait([
+      getGlobalData(),
+      getTrendingCoins(),
+      getMarkets(),
+    ]);
   }
 }
