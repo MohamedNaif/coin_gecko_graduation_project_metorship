@@ -27,4 +27,8 @@ class LoginCubit extends Cubit<LoginState> {
       });
     });
   }
+  dispose(){
+    emailController.dispose();
+    passwordController.dispose();
+  }
 }

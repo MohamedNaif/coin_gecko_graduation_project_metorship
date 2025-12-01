@@ -1,13 +1,11 @@
 import 'dart:io';
 
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
 
-// import 'package:points/config/theme/app_style.dart';
-
-// ignore: must_be_immutable
 
 class CustomButton extends StatelessWidget {
   final String? text;
@@ -51,17 +49,17 @@ class CustomButton extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 16),
       
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius ?? 8),
+        borderRadius: BorderRadius.circular(      borderRadius ?? AppDimensions.borderRadiusSmall),
         color: (isDisabled ?? false)
             ? (color ?? AppColors.primaryLight).withValues(alpha: 0.6)
             : (color ?? AppColors.primaryLight),
       ),
-      height: height ?? 40,
+     height: height ?? AppDimensions.buttonHeight,
       width: width ?? double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           
-          padding: EdgeInsets.symmetric(horizontal: widthPadding ?? 16 , ),
+          padding: EdgeInsets.symmetric(horizontal: widthPadding ?? AppDimensions.paddingButton, ),
           overlayColor: AppColors.primaryLight,
           elevation: 0,
           shadowColor: Colors.black12,
@@ -71,7 +69,7 @@ class CustomButton extends StatelessWidget {
                 ? BorderSide.none
                 : BorderSide(
                     color: borderColor ?? AppColors.primaryLight,
-                    width: 1.5,
+                  width: AppDimensions.borderWidth,
                   ),
             borderRadius: BorderRadius.circular(borderRadius ?? 8).copyWith(),
           ),
@@ -84,11 +82,11 @@ class CustomButton extends StatelessWidget {
                       ? CupertinoActivityIndicator(
                           color: loadingColor ?? AppColors.white,
 
-                          radius: 12,
+                          radius: AppDimensions.loadingIndicatorRadius
                         )
                       : CircularProgressIndicator(
                           color: loadingColor ?? AppColors.white,
-                          strokeWidth: 2.5,
+                        strokeWidth: AppDimensions.loadingIndicatorStroke,
                         ),
                 ),
               )

@@ -1,5 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
@@ -23,64 +25,72 @@ class LoginScreenBody extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            SizedBox(
-              height: 120,
+            const SizedBox(height: AppDimensions.spacingMassive),
+            
+            const CustomAuthTitle(
+              title: AppStrings.loginToYourAccount,
+              subTitle: AppStrings.loginSubtitle,
             ),
-            CustomAuthTitle(
-                title: "Login To Your Account",
-                subTitle: 'Welcome back you’ve\nbeen missed!'),
-            SizedBox(
-              height: 80,
-            ),
-            CustomLoginForms(),
-            SizedBox(
-              height: 16,
-            ),
-            RememberMeSection(),
-            SizedBox(
-              height: 30,
-            ),
+            
+            const SizedBox(height: AppDimensions.spacingHuge),
+            
+            const CustomLoginForms(),
+            
+            const SizedBox(height: AppDimensions.spacingSmall),
+            
+            const RememberMeSection(),
+            
+            const SizedBox(height: AppDimensions.spacingXLarge),
+            
             BlocListener<LoginCubit, LoginState>(
               listener: (context, state) {
                 if (state is LoginFailure) {
-                  showCherryToast(context, state.errorMessage,
-                      type: ToastType.error);
+                  showCherryToast(
+                    context,
+                    state.errorMessage,
+                    type: ToastType.error,
+                  );
                 } else if (state is LoginSuccess) {
-                  showCherryToast(context, "Login Successful",
-                      type: ToastType.success);
+                  showCherryToast(
+                    context,
+                    AppStrings.loginSuccessful,
+                    type: ToastType.success,
+                  );
                 }
               },
               child: CustomButton(
-                borderRadius: 30,
-                widthPadding: 16,
-                height: 50,
+                borderRadius: AppDimensions.borderRadiusLarge,
+                widthPadding: AppDimensions.paddingButton,
+                height: AppDimensions.buttonHeightLarge,
                 onTap: () {
                   context.read<LoginCubit>().signIn();
                 },
-                text: 'Login',
+                text: AppStrings.loginButton,
                 color: AppColors.primaryLight,
                 textStyle: context.textTheme.titleMedium?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w600),
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
-            LoginMethodsSection(),
-            SizedBox(
-              height: 20,
-            ),
-            BiometricAuthSection(),
-            SizedBox(
-              height: 15,
-            ),
+            
+            const SizedBox(height: AppDimensions.spacingXLarge),
+            
+            const LoginMethodsSection(),
+            
+            const SizedBox(height: AppDimensions.spacingMedium),
+            
+            const BiometricAuthSection(),
+            
+            const SizedBox(height: AppDimensions.spacingXSmall),
+            
             SwitchAuthText(
-              questionText: 'Don’t have an account? ',
-              actionText: 'Sign Up',
+              questionText: AppStrings.dontHaveAccount,
+              actionText: AppStrings.signUpAction,
               onTap: () {
                 Navigator.pushNamed(context, Routes.register);
               },
-            )
+            ),
           ],
         ),
       ),

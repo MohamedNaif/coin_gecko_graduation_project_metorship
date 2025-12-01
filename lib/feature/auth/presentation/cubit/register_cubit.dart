@@ -35,4 +35,12 @@ class RegisterCubit extends Cubit<RegisterState> {
       log('Error in register cubit: ${failure.errMessage}');
     }, (userModel) => emit(RegisterSuccess()));
   }
+  dispose(){
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    phoneNumberController.dispose();
+  }
 }

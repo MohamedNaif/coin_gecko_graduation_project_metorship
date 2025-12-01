@@ -1,4 +1,7 @@
+import 'package:coin_gecko_graduation_project_metorship/config/cutom_textformfield_config.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_assets.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/validator.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_text_form_field.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
@@ -7,114 +10,122 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomRegisterForm extends StatelessWidget {
-  
-  CustomRegisterForm({super.key});
+  const CustomRegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RegisterCubit>();
+    
     return Form(
-        key:context.read<RegisterCubit>().formKey,
-        child: Column(
-          children: [
-            CustomTextFormField(
-            
-              controller: context.read<RegisterCubit>(). firstNameController,
-              validator: (name) => Validator.validateName(name),
+      key: cubit.formKey,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.firstNameController,
+              validator: Validator.validateName,
               obscureText: false,
-              hintText: 'First Name',
+              hintText: AppStrings.firstNameHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.personIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.personIcon),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
+          ),
+          const SizedBox(height: AppDimensions.spacingSmall),
           
-              controller:context.read<RegisterCubit>(). lastNameController,
-              validator: (name) => Validator.validateName(name),
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.lastNameController,
+              validator: Validator.validateName,
               obscureText: false,
-              hintText: 'Last Name',
+              hintText: AppStrings.lastNameHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.personIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.personIcon),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-            
-              controller:context.read<RegisterCubit>(). emailController,
-              validator: (email) => Validator.validateEmail(email),
+          ),
+          const SizedBox(height: AppDimensions.spacingSmall),
+          
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.emailController,
+              validator: Validator.validateEmail,
               obscureText: false,
-              hintText: 'Email',
+              hintText: AppStrings.emailHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.emailIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.emailIcon),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-            
-              controller:context.read<RegisterCubit>(). passwordController,
-              validator: (password) => Validator.validatePassword(password),
+          ),
+          const SizedBox(height: AppDimensions.spacingSmall),
+          
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.passwordController,
+              validator: Validator.validatePassword,
               obscureText: true,
-              hintText: 'Password',
+              hintText: AppStrings.passwordHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.passwordIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.passwordIcon),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-              
-              controller:context.read<RegisterCubit>(). confirmPasswordController,
+          ),
+          const SizedBox(height: AppDimensions.spacingSmall),
+          
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.confirmPasswordController,
               validator: (confirmPassword) => Validator.validateConfirmPassword(
-                  confirmPassword,context.read<RegisterCubit>(). passwordController.text),
+                confirmPassword,
+                cubit.passwordController.text,
+              ),
               obscureText: true,
-              hintText: 'Confirm Password',
+              hintText: AppStrings.confirmPasswordHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.passwordIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.passwordIcon),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-            
-              controller:context.read<RegisterCubit>(). phoneNumberController,
-              validator: (phoneNumber) =>
-                  Validator.validatePhoneNumber(phoneNumber),
+          ),
+          const SizedBox(height: AppDimensions.spacingSmall),
+          
+          CustomTextFormField(
+            config: CustomTextFieldConfig(
+              controller: cubit.phoneNumberController,
+              validator: Validator.validatePhoneNumber,
               obscureText: false,
-              hintText: 'Phone Number',
+              hintText: AppStrings.phoneNumberHint,
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-                child: SvgPicture.asset(
-                  AppAssets.phoneIcon,
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.iconPaddingLeft,
+                  right: AppDimensions.iconPaddingRight,
                 ),
+                child: SvgPicture.asset(AppAssets.phoneIcon),
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
-          ],
-        ));
+          ),
+          const SizedBox(height: AppDimensions.spacingXLarge),
+        ],
+      ),
+    );
   }
 }

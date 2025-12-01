@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:flutter/material.dart';
 
@@ -13,15 +14,13 @@ class LoginMethodsSection extends StatelessWidget {
         children: [
           Expanded(
               child: Divider(
-            color: Color(
-              0xFFCBD5E1,
-            ),
+            color: AppColors.dividerColor,
             height: 5,
           )),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "Or Login with",
+            AppStrings.orLoginWith,
               style: context.textTheme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: AppColors.primaryLight,
@@ -30,9 +29,9 @@ class LoginMethodsSection extends StatelessWidget {
           ),
           Expanded(
             child: Divider(
-              color: Color(
-                0xFFCBD5E1,
-              ),
+              color: AppColors.dividerColor,
+              
+              height: 5,
             ),
           ),
         ],

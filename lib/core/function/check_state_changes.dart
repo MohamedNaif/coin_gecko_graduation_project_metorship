@@ -1,13 +1,18 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 void checkStateChanges() {
-  FirebaseAuth.instance
-  .authStateChanges()
-  .listen((User? user) {
-    if (user == null) {
-      print('User is currently signed out!');
-    } else {
-      print('User is signed in!');
-    }
-  });
+   StreamSubscription<User?>? _authSubscription;
+  _authSubscription = FirebaseAuth.instance
+    .authStateChanges()
+    .listen((user) {
+      if (user == null) {
+        log('User signed out', name: 'Auth');
+      } else {
+        log('User signed in', name: 'Auth');
+        _authSubscription?.cancel();
+      }
+    });
 }

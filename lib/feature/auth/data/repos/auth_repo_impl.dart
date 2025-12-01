@@ -29,7 +29,13 @@ class AuthRepoImpl implements AuthRepo {
       await remoteDataSource.saveUserData(userModel: userModel);
       return Success<UserModel>(userModel);
     } on FirebaseAuthException catch (e) {
-      return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
+      return FailureResult(
+        FirebaseFailure.fromFirebaseException(code: e.code),
+      );
+    } on ServerFailure catch (e) {
+      return FailureResult(e);
+    } catch (e) {
+      throw Exception('Unexpected error: $e');
     }
   }
 
@@ -45,6 +51,10 @@ class AuthRepoImpl implements AuthRepo {
       return Success<String>(userCredential);
     } on FirebaseAuthException catch (e) {
       return FailureResult(FirebaseFailure.fromFirebaseException(code: e.code));
+    } on ServerFailure catch (e) {
+      return FailureResult(e);
+    } catch (e) {
+      throw Exception('Unexpected error: $e');
     }
   }
 }
