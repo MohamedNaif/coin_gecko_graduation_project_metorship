@@ -50,7 +50,7 @@ dependencies:
   fl_chart: ^1.1.1
 
 dev_dependencies:
-  retrofit_generator: ^10.0.1
+  retrofit_generator: ^10.2.0
   injectable_generator:  
   # add build runner if not already added  
   build_runner: 
