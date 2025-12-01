@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> get _widgetOptions => <Widget>[
         BlocProvider(
-          create: (context) => getIt<HomeCubit>()..getAllData(),
+          create: (context) => getIt<HomeCubit>(),
           child: const HomeScreenBody(),
         ),
         Center(child: Text(AppStrings.marketScreenBody.tr())),
