@@ -12,7 +12,7 @@ part of 'api_services.dart';
 
 class _ApiService implements ApiService {
   _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'Constants.baseUrl';
+    baseUrl ??= 'https://api.coingecko.com/api/v3/simple/';
   }
 
   final Dio _dio;

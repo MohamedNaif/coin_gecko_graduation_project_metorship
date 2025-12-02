@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 import 'app_style.dart';
 
-class _CustomThumbShape extends SliderComponentShape {
+class CustomThumbShape extends SliderComponentShape {
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
     return const Size(24, 24);
@@ -42,11 +41,10 @@ class AppTheme {
   static ThemeData get lightTheme => ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: 'Lato',
         scaffoldBackgroundColor: AppColors.lightBackground,
         canvasColor: AppColors.lightBackground,
         primaryColor: AppColors.primaryLight,
-        shadowColor: AppColors.lightShadowColor,
         colorScheme: ColorScheme.light(
           primary: AppColors.primaryLight,
           secondary: AppColors.secondary,
@@ -118,17 +116,17 @@ class AppTheme {
             color: AppColors.primaryLight,
           ),
         ),
-        dividerColor: AppColors.gray200.withOpacity(0.5),
+        dividerColor: AppColors.gray200.withValues(alpha: 0.5),
       );
 
   static ThemeData get darkTheme => ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: 'Lato',
         scaffoldBackgroundColor: AppColors.darkBackground,
         canvasColor: AppColors.darkBackground,
         primaryColor: AppColors.primaryDark,
-        shadowColor: AppColors.darkShadowColor,
+        
         colorScheme: ColorScheme.dark(
           primary: AppColors.primaryDark,
           surface: AppColors.darkSurface,
@@ -157,7 +155,7 @@ class AppTheme {
           elevation: 20,
         ),
         textTheme: _buildTextTheme(),
-        dividerColor: AppColors.gray600.withOpacity(0.3),
+        dividerColor: AppColors.gray600.withValues(alpha: 0.3),
       );
 
   static TextTheme _buildTextTheme() {
