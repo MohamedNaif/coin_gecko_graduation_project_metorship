@@ -21,5 +21,8 @@ abstract class AppStrings {
   static const String permissions = 'permissions';
 
   //======
-  static const String appRole= 'appRole';
+  static const String appRole = 'appRole';
+  //----Portfolio----
+  static const String errorMessaga =
+      'Something Went Wrong ,Please Try Again Later !';
 }
