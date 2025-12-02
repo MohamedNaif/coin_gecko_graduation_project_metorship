@@ -4,21 +4,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PortfolioCubit extends Cubit<PortfolioState> {
   PortfolioCubit({required this.repository})
-      : super(PortfolioState(state: State.initial));
+      : super(PortfolioState(state: States.loading));
 
   final PortfolioRepository repository;
 
   void getSimplePrice({
-    required String id,
-    required String vsCurrencies,
+    String id = 'bitcoin,ethereum,solana',
+    String vsCurrencies = 'usd',
     bool includeChange = false,
   }) async {
-    emit(PortfolioState(state: State.loading));
+    emit(PortfolioState(state: States.loading));
     final response = await repository.getSimplePrice(
         id: id, vsCurrencies: vsCurrencies, includeChange: includeChange);
-    response.fold((error) => emit(PortfolioState(state: State.failure)),
-        (success) {
-      emit(PortfolioState(state: State.success));
+    response.fold(
+        (error) => emit(PortfolioState(
+            state: States.failure, errorMessaga: error.errMessage)), (success) {
+      emit(PortfolioState(state: States.success, simplePriceModel: success));
     });
   }
 }

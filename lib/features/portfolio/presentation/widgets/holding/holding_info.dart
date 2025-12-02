@@ -1,12 +1,11 @@
-import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/ui_model/holding_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/model/coin_data.dart';
 import 'package:flutter/material.dart';
 
 class HoldingInfo extends StatelessWidget {
-  const HoldingInfo({super.key, required this.holding});
+  const HoldingInfo({super.key, required this.coinsData});
 
-  final PortfolioHolding holding;
+  final CoinData coinsData;
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +13,11 @@ class HoldingInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          holding.name,
+          coinsData.name,
           style: context.textTheme.bodyLarge?.copyWith(
             fontWeight: FontWeight.w700,
             color: context.theme.colorScheme.onSurface,
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          holding.symbol,
-          style: context.textTheme.bodyLarge?.copyWith(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: AppColors.gray300),
-          // this color is static because it does not change based on the theme
         ),
       ],
     );

@@ -1,9 +1,9 @@
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/model/simple_price_model.dart';
 
-enum State { initial, loading, success, failure }
+enum States { loading, success, failure }
 
 class PortfolioState {
-  final State state;
+  final States state;
   final SimplePriceModel? simplePriceModel;
   final String? errorMessaga;
 
@@ -14,7 +14,7 @@ class PortfolioState {
   });
 
   PortfolioState copyWith({
-    State? state,
+    States? state,
     SimplePriceModel? simplePriceModel,
     String? errorMessaga,
   }) {

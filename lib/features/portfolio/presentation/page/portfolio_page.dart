@@ -1,4 +1,3 @@
-import 'package:coin_gecko_graduation_project_metorship/core/api/dio_consumer.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/data_source/portfolio_remote_data_source.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/repository/portfolio_repository.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/cubit/portfolio_cubit.dart';
@@ -27,8 +26,7 @@ class PortfolioPage extends StatelessWidget {
       lazy: false,
       create: (context) => PortfolioCubit(
           repository: PortfolioRepositoryImpl(PortfolioRemoteDataSource(dio)))
-        ..getSimplePrice(
-            id: 'bitcoin', vsCurrencies: 'usd', includeChange: true),
+        ..getSimplePrice(includeChange: true),
       child: Scaffold(
         body: PortfolioBody(),
       ),

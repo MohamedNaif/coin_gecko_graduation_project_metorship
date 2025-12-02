@@ -24,8 +24,9 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
     bool includeChange = true,
   }) async {
     try {
-      return Success(await remoteDataSource.getSimplePrice(
-          ids: id, vsCurrencies: vsCurrencies, includeChange: includeChange));
+      final response = await remoteDataSource.getSimplePrice(
+          ids: id, vsCurrencies: vsCurrencies, includeChange: includeChange);
+      return Success(response);
     } on DioException catch (error) {
       return FailureResult(ServerFailure.fromDioException(dioException: error));
     } on Exception catch (error) {
