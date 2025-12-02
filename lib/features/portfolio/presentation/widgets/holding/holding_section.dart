@@ -13,6 +13,7 @@ class HoldingsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PortfolioCubit, PortfolioState>(
+      buildWhen: (previous, current) => current.state != States.initial,
       builder: (context, state) {
         switch (state.state) {
           case States.loading:
@@ -24,8 +25,10 @@ class HoldingsSection extends StatelessWidget {
                 coins: state.simplePriceModel?.coins ?? []);
           case States.failure:
             return HoldingSectionErrorState(
-              errorMessaga: state.errorMessaga,
+              errorMessage: state.errorMessage,
             );
+          default:
+            return const SizedBox();
         }
       },
     );

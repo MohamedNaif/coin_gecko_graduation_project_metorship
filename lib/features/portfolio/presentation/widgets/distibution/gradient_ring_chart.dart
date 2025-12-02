@@ -50,20 +50,25 @@ class GradientRingChart extends StatelessWidget {
   List<PieChartSectionData> _buildSections(
       BuildContext context, double totalValue) {
     const minPercent = 3;
-    final colors = [
-      AppColors.mediumPurple,
-      AppColors.lightGreen,
+
+    // fixed 3 colors max
+    final List<Color> colors = [
       AppColors.lightRed,
+      AppColors.lightGreen,
+      AppColors.mediumPurple,
     ];
 
-    return List.generate(coins.length, (index) {
-      final coin = coins[index];
+    final visibleCoins = coins.take(3).toList(); // limit to 3 coins max
+
+    return List.generate(visibleCoins.length, (index) {
+      final coin = visibleCoins[index];
       double percent = _calculatePercentage(coin.usd, totalValue);
 
+      // enforce minimum value visually
       if (percent < minPercent) percent = minPercent.toDouble();
 
       return PieChartSectionData(
-        color: colors[index % colors.length],
+        color: colors[index % colors.length], // dynamic color assignment
         value: percent,
         radius: context.heightScale(ChartDimensions.legendRadius),
         showTitle: false,

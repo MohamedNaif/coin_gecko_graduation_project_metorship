@@ -1,19 +1,15 @@
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_constant.dart';
 
 class CoinData {
-  final String _name;
-  final double _usd;
-  final double _usdChange;
+  final String name;
+  final double usd;
+  final double usdChange;
 
-  CoinData(
-      {required String name, required double usd, required double usdChange})
-      : _name = name,
-        _usd = usd,
-        _usdChange = usdChange;
-
-  String get name => _name;
-  double get usd => _usd;
-  double get usdChange => _usdChange;
+  CoinData({
+    required this.name,
+    required this.usd,
+    required this.usdChange,
+  });
 
   factory CoinData.fromJson(String name, Map<String, dynamic> json) {
     return CoinData(
@@ -22,4 +18,15 @@ class CoinData {
       usdChange: (json[ApiConstant.usd24hChange] as num).toDouble(),
     );
   }
+
+  CoinData copyWith({String? name, double? usd, double? usdChange}) {
+    return CoinData(
+      name: name ?? this.name,
+      usd: usd ?? this.usd,
+      usdChange: usdChange ?? this.usdChange,
+    );
+  }
+
+  @override
+  String toString() => 'CoinData(name: $name, usd: $usd, change: $usdChange)';
 }

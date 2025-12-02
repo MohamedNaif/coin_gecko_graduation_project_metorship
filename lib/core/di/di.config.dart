@@ -13,6 +13,12 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../features/portfolio/data/data_source/portfolio_remote_data_source.dart'
+    as _i914;
+import '../../features/portfolio/data/repository/portfolio_repository.dart'
+    as _i11;
+import '../../features/portfolio/presentation/cubit/portfolio_cubit.dart'
+    as _i380;
 import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 
@@ -33,6 +39,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => dioModule.provideDio(gh<_i361.LogInterceptor>()));
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
+    gh.factory<_i914.PortfolioRemoteDataSource>(
+        () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
+    gh.lazySingleton<_i11.PortfolioRepository>(() =>
+        _i11.PortfolioRepositoryImpl(gh<_i914.PortfolioRemoteDataSource>()));
+    gh.factory<_i380.PortfolioCubit>(
+        () => _i380.PortfolioCubit(repository: gh<_i11.PortfolioRepository>()));
     return this;
   }
 }

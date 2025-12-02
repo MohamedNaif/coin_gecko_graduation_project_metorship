@@ -13,6 +13,9 @@ class DistributionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PortfolioCubit, PortfolioState>(
+      buildWhen: (previous, current) {
+        return current.state != States.initial;
+      },
       builder: (context, state) {
         switch (state.state) {
           case States.loading:
@@ -32,16 +35,18 @@ class DistributionCard extends StatelessWidget {
               ],
             );
           case States.failure:
-            return _buildErrorWidget(state.errorMessaga, context);
+            return _buildErrorWidget(state.errorMessage, context);
+          default:
+            return const SizedBox();
         }
       },
     );
   }
 
-  Widget _buildErrorWidget(String? errorMessaga, BuildContext context) {
+  Widget _buildErrorWidget(String? errorMessage, BuildContext context) {
     return Center(
       child: Text(
-        errorMessaga ?? AppStrings.errorMessaga,
+        errorMessage ?? AppStrings.errorMessage,
         style: context.textTheme.bodyMedium?.copyWith(
           color: context.theme.colorScheme.error,
         ),

@@ -23,6 +23,6 @@ abstract class AppStrings {
   //======
   static const String appRole = 'appRole';
   //----Portfolio----
-  static const String errorMessaga =
+  static const String errorMessage =
       'Something Went Wrong ,Please Try Again Later !';
 }

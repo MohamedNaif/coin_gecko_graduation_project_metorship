@@ -4,26 +4,44 @@ import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/
 import 'package:flutter/material.dart';
 
 class DistributionDetails extends StatelessWidget {
-  const DistributionDetails({super.key, required this.coins});
+  DistributionDetails({super.key, required this.coins});
   final List<CoinData> coins;
+
+  final List<Color> _colors = [
+    AppColors.lightRed,
+    AppColors.lightGreen,
+    AppColors.mediumPurple,
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final visibleCoins = coins.take(3).toList(); // limit 3
+
     return Column(
       children: [
-        _buildLegendItem(
-            context, AppColors.mediumPurple, coins[0].name, coins[0].usd),
-        const SizedBox(height: 15),
-        _buildLegendItem(
-            context, AppColors.lightGreen, coins[1].name, coins[1].usd),
-        const SizedBox(height: 15),
-        _buildLegendItem(
-            context, AppColors.lightRed, coins[2].name, coins[2].usd),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: visibleCoins.length,
+          itemBuilder: (context, index) {
+            final coin = visibleCoins[index];
+            final color = _colors[index % _colors.length];
+
+            return _buildLegendItem(
+              context,
+              color,
+              coin.name,
+              coin.usd,
+            );
+          },
+          separatorBuilder: (_, __) => const SizedBox(height: 15),
+        ),
       ],
     );
   }
 
-  _buildLegendItem(BuildContext context, Color color, String name, double usd) {
+  Widget _buildLegendItem(
+      BuildContext context, Color color, String name, double usd) {
     return Row(
       children: [
         Container(
