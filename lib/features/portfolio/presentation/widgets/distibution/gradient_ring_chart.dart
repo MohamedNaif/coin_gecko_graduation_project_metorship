@@ -62,7 +62,7 @@ class GradientRingChart extends StatelessWidget {
 
     return List.generate(visibleCoins.length, (index) {
       final coin = visibleCoins[index];
-      double percent = _calculatePercentage(coin.usd, totalValue);
+      double percent = _calculatePercentage(coin.usd ?? 0, totalValue);
 
       // enforce minimum value visually
       if (percent < minPercent) percent = minPercent.toDouble();
@@ -82,6 +82,6 @@ class GradientRingChart extends StatelessWidget {
   }
 
   double _calculateTotalValue() {
-    return coins.fold(0.0, (sum, coin) => sum + coin.usd);
+    return coins.fold(0.0, (sum, coin) => sum + (coin.usd ?? 0));
   }
 }

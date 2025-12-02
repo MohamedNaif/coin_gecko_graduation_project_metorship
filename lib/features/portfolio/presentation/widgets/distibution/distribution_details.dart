@@ -30,8 +30,8 @@ class DistributionDetails extends StatelessWidget {
             return _buildLegendItem(
               context,
               color,
-              coin.name,
-              coin.usd,
+              coin.name ?? 'Unknown',
+              coin.usd ?? 0,
             );
           },
           separatorBuilder: (_, __) => const SizedBox(height: 15),

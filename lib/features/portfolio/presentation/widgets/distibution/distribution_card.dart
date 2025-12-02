@@ -2,8 +2,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strin
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/cubit/portfolio_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/cubit/portfolio_state.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/distibution/distribution_details.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/distibution/gradient_ring_chart.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/distibution/states/card_distibution_success_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,19 +20,8 @@ class DistributionCard extends StatelessWidget {
           case States.loading:
             return const Center(child: CircularProgressIndicator());
           case States.success:
-            return Row(
-              children: [
-                Expanded(
-                    child: GradientRingChart(
-                  coins: state.simplePriceModel?.coins ?? [],
-                )),
-                SizedBox(width: 10),
-                Expanded(
-                    child: DistributionDetails(
-                  coins: state.simplePriceModel?.coins ?? [],
-                )),
-              ],
-            );
+            return DistributionCardSuccessState(
+                coins: state.simplePriceModel?.coins ?? []);
           case States.failure:
             return _buildErrorWidget(state.errorMessage, context);
           default:

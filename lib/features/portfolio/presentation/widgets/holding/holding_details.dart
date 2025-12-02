@@ -22,7 +22,7 @@ class HoldingDetails extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         Text(
-          coinData.usdChange.toStringAsFixed(4),
+          coinData.usdChange?.toStringAsFixed(4) ?? '0',
           style: context.textTheme.bodyMedium?.copyWith(
             overflow: TextOverflow.ellipsis,
             color: context.theme.colorScheme.tertiary,

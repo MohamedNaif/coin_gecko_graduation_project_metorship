@@ -65,6 +65,7 @@ class AppStrings {
 
   static const String errorMessage =
       'Something Went Wrong ,Please Try Again Later !';
+  static const String unknown = 'Unknown';
 
   //**************** Onboarding ****************//
   static const String welcomeToCryptoX = 'Welcome To Crypto X';
