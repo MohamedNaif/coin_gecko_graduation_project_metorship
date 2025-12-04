@@ -47,12 +47,13 @@ dependencies:
   flutter_svg: ^2.2.2
   firebase_core: ^4.2.1
   toastification: ^3.0.3
+  fl_chart:
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   retrofit_generator: ^10.0.1
   injectable_generator:  
-  # add build runner if not already added  
-  build_runner: 
+  build_runner:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
