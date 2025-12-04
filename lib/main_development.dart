@@ -18,7 +18,6 @@ void main() async {
   configureDependencies();
 
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
 
   runApp(const MyApp());
 }
@@ -48,7 +47,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.splash,
+      initialRoute: Routes.setting,
       onGenerateRoute: AppRouter().generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

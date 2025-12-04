@@ -6,5 +6,5 @@ class Routes {
   static const String splash = '/splash';
   static const String home = '/home';
   static const String onboardingScreen = '/onboarding';
-
+  static const String setting = '/setting';
 }
