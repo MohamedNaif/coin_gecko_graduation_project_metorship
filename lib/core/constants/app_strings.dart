@@ -74,4 +74,8 @@ class AppStrings {
 
   //**************** Setting page ****************//
   static const String settings = 'Settings';
+  static const String general = 'General';
+  static const String myAccount = 'My Account';
+  static const String billingPayment = 'Billing/Payment';
+  static const String fAQSupport = 'FAQ & Support';
 }
