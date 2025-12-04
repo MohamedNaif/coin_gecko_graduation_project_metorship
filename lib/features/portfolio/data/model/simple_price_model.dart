@@ -1,16 +1,27 @@
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/data/model/coin_data.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+import 'coin_data.dart';
+
+part 'simple_price_model.g.dart';
+
+@JsonSerializable()
 class SimplePriceModel {
-  final List<CoinData>? _coins;
+  final List<CoinData>? coins;
 
-  SimplePriceModel({required List<CoinData> coins}) : _coins = coins;
-  List<CoinData>? get coins => _coins;
+  SimplePriceModel({required this.coins});
 
   factory SimplePriceModel.fromJson(Map<String, dynamic> json) {
-    final coinsList = <CoinData>[];
+    final list = <CoinData>[];
+
     json.forEach((key, value) {
-      coinsList.add(CoinData.fromJson(key, value as Map<String, dynamic>));
+      final coinJson = Map<String, dynamic>.from(value);
+      coinJson['name'] = key;
+
+      list.add(CoinData.fromJson(coinJson));
     });
-    return SimplePriceModel(coins: coinsList);
+
+    return SimplePriceModel(coins: list);
   }
+
+  Map<String, dynamic> toJson() => _$SimplePriceModelToJson(this);
 }

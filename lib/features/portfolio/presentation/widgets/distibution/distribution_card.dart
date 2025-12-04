@@ -13,17 +13,17 @@ class DistributionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PortfolioCubit, PortfolioState>(
       buildWhen: (previous, current) {
-        return current.state != States.initial;
+        return current is SuccessGetHoldings || current is ErrorGetHoldings;
       },
       builder: (context, state) {
-        switch (state.state) {
-          case States.loading:
+        switch (state) {
+          case LoadingGetHoldings _:
             return const Center(child: CircularProgressIndicator());
-          case States.success:
+          case SuccessGetHoldings _:
             return DistributionCardSuccessState(
-                coins: state.simplePriceModel?.coins ?? []);
-          case States.failure:
-            return _buildErrorWidget(state.errorMessage, context);
+                coins: state.simplePriceModel.coins ?? []);
+          case ErrorGetHoldings _:
+            return _buildErrorWidget(state.message, context);
           default:
             return const SizedBox();
         }

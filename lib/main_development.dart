@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.portfolio,
+      initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

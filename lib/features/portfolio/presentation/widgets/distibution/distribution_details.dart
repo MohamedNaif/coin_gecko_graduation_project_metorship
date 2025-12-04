@@ -30,7 +30,7 @@ class DistributionDetails extends StatelessWidget {
             return _buildLegendItem(
               context,
               color,
-              coin.name ?? 'Unknown',
+              coin.name,
               coin.usd ?? 0,
             );
           },

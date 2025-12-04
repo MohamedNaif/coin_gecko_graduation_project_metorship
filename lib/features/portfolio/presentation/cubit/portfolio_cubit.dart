@@ -5,8 +5,7 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class PortfolioCubit extends Cubit<PortfolioState> {
-  PortfolioCubit({required this.repository})
-      : super(PortfolioState(state: States.initial));
+  PortfolioCubit({required this.repository}) : super(PortfolioInitial());
 
   final PortfolioRepository repository;
 
@@ -16,17 +15,16 @@ class PortfolioCubit extends Cubit<PortfolioState> {
     bool includeChange = true,
   }) async {
     //Prevent multiple requests
-    if (state.state == States.loading) return;
-    emit(PortfolioState(state: States.loading));
+    if (state is LoadingGetHoldings) return;
+    emit(LoadingGetHoldings());
+
     //if the cubit is closed, return
     if (isClosed) return;
-
     final response = await repository.getSimplePrice(
         ids: ids, vsCurrencies: vsCurrencies, includeChange: includeChange);
-    response.fold(
-        (error) => emit(PortfolioState(
-            state: States.failure, errorMessage: error.errMessage)), (success) {
-      emit(PortfolioState(state: States.success, simplePriceModel: success));
+    response.fold((error) => emit(ErrorGetHoldings(message: error.errMessage)),
+        (success) {
+      emit(SuccessGetHoldings(simplePriceModel: success));
     });
   }
 

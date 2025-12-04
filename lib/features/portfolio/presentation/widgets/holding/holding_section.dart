@@ -13,19 +13,20 @@ class HoldingsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PortfolioCubit, PortfolioState>(
-      buildWhen: (previous, current) => current.state != States.initial,
+      buildWhen: (previous, current) =>
+          current is SuccessGetHoldings || current is ErrorGetHoldings,
       builder: (context, state) {
-        switch (state.state) {
-          case States.loading:
+        switch (state) {
+          case LoadingGetHoldings _:
             return const SliverToBoxAdapter(
               child: Center(child: CircularProgressIndicator()),
             );
-          case States.success:
+          case SuccessGetHoldings _:
             return HoldingSectionSuccessState(
-                coins: state.simplePriceModel?.coins ?? []);
-          case States.failure:
+                coins: state.simplePriceModel.coins ?? []);
+          case ErrorGetHoldings _:
             return HoldingSectionErrorState(
-              errorMessage: state.errorMessage,
+              errorMessage: state.message,
             );
           default:
             return const SizedBox();
