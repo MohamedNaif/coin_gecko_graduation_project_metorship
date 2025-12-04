@@ -2,6 +2,7 @@ import 'package:coin_gecko_graduation_project_metorship/config/routing/app_route
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,6 +17,7 @@ void main() async {
   );
 
   configureDependencies();
+  await AppSharedPreferences.initialSharedPreference();
 
   Bloc.observer = MyBlocObserver();
 

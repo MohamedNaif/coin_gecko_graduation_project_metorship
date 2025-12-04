@@ -78,4 +78,6 @@ class AppStrings {
   static const String myAccount = 'My Account';
   static const String billingPayment = 'Billing/Payment';
   static const String fAQSupport = 'FAQ & Support';
+  static const String language = 'Language';
+  static const String darkMode = 'Dark Mode';
 }

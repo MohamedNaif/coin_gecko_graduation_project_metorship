@@ -1,4 +1,4 @@
-import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/widgets/setting_body.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/widgets/settings_body.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
