@@ -25,16 +25,12 @@ class RegisterScreenBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: AppDimensions.spacingXXXLarge),
-              
               const CustomAuthTitle(
                 title: AppStrings.createYourAccount,
                 subTitle: AppStrings.signUpSubtitle,
               ),
-              
               const SizedBox(height: AppDimensions.spacingXXLarge),
-              
               const CustomRegisterForm(),
-              
               BlocListener<RegisterCubit, RegisterState>(
                 listener: (context, state) {
                   if (state is RegisterFailure) {
@@ -52,7 +48,8 @@ class RegisterScreenBody extends StatelessWidget {
                   }
                 },
                 child: CustomButton(
-                  isLoading: context.read<RegisterCubit>().state is RegisterLoading,
+                  isLoading:
+                      context.read<RegisterCubit>().state is RegisterLoading,
                   borderRadius: AppDimensions.borderRadiusLarge,
                   widthPadding: AppDimensions.paddingButton,
                   height: AppDimensions.buttonHeightLarge,
@@ -67,9 +64,7 @@ class RegisterScreenBody extends StatelessWidget {
                   ),
                 ),
               ),
-              
               const SizedBox(height: AppDimensions.spacingLarge),
-              
               SwitchAuthText(
                 onTap: () {
                   Navigator.pushNamed(context, Routes.login);

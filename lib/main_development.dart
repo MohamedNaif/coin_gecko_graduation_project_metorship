@@ -23,7 +23,10 @@ void main() async {
 
   Bloc.observer = MyBlocObserver();
 
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => SettingCubit(getIt()),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -50,20 +53,25 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => SettingCubit(),
-        child: BlocBuilder<SettingCubit, SettingState>(
-          builder: (context, state) {
-            return MaterialApp(
-              initialRoute: Routes.setting,
-              onGenerateRoute: AppRouter().generateRoute,
-              title: 'Flutter Demo',
-              debugShowCheckedModeBanner: false,
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-            );
-          },
-        ));
+    return BlocBuilder<SettingCubit, SettingState>(
+      buildWhen: (context, state) {
+        return state is ToggleTheme;
+      },
+      builder: (context, state) {
+        final isDark = state.maybeWhen(
+          toggleTheme: (isDarkMode) => isDarkMode,
+          orElse: () => false,
+        );
+        return MaterialApp(
+          initialRoute: Routes.setting,
+          onGenerateRoute: AppRouter().generateRoute,
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+        );
+      },
+    );
   }
 }
