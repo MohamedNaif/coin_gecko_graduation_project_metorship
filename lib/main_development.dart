@@ -1,6 +1,7 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/cache_keys.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
@@ -60,10 +61,13 @@ class _MyAppState extends State<MyApp> {
       builder: (context, state) {
         final isDark = state.maybeWhen(
           toggleTheme: (isDarkMode) => isDarkMode,
-          orElse: () => false,
+          orElse: () =>
+              AppSharedPreferences.sharedPreferences
+                  .getBool(CacheKeys.isDarkModeKey) ??
+              false,
         );
         return MaterialApp(
-          initialRoute: Routes.setting,
+          initialRoute: Routes.splash,
           onGenerateRoute: AppRouter().generateRoute,
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,

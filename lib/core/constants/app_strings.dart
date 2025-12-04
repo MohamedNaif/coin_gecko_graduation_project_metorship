@@ -80,4 +80,10 @@ class AppStrings {
   static const String fAQSupport = 'FAQ & Support';
   static const String language = 'Language';
   static const String darkMode = 'Dark Mode';
+  static const String arabic = 'Arabic';
+  static const String english = 'English';
+  static const String selectLanguage = 'Select Language';
+  static const String chooseYourLanguage = 'Choose Your Language';
+  static const String cancel = 'Cancel';
+  static const String ok = 'OK';
 }
