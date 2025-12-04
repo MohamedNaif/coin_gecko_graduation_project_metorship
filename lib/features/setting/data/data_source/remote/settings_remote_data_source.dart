@@ -25,7 +25,7 @@ class SettingsRemoteDataSourceImpl implements SettingsRemoteDataSource {
 
     final doc = await _firebaseFirestore
         .collection(FirebaseConstants.usersCollection)
-        .doc('DpTfwvKVm4Tb06qzTPmlyrkr60O2')
+        .doc(user.uid)
         .get();
     if (!doc.exists) {
       throw FirebaseAuthException(
