@@ -1,30 +1,23 @@
-import 'package:coin_gecko_graduation_project_metorship/core/constants/cache_keys.dart';
-import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DarkModeSwitch extends StatefulWidget {
-  const DarkModeSwitch({
-    super.key,
-  });
+class DarkModeSwitch extends StatelessWidget {
+  const DarkModeSwitch({super.key});
 
-  static bool isDarkMode =
-      AppSharedPreferences.sharedPreferences.getBool(CacheKeys.isDarkModeKey) ??
-          false;
-  @override
-  State<DarkModeSwitch> createState() => _DarkModeSwitchState();
-}
-
-class _DarkModeSwitchState extends State<DarkModeSwitch> {
   @override
   Widget build(BuildContext context) {
-    return Switch(
-        value: DarkModeSwitch.isDarkMode,
-        onChanged: (value) async {
-          setState(() {
-            DarkModeSwitch.isDarkMode = value;
-            AppSharedPreferences.sharedPreferences
-                .setBool(CacheKeys.isDarkModeKey, value);
-          });
-        });
+    return BlocBuilder<SettingCubit, SettingState>(
+      builder: (context, state) {
+        return state.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Switch(
+                value: state.isDarkMode,
+                onChanged: (value) async {
+                  context.read<SettingCubit>().toggleTheme(value);
+                });
+      },
+    );
   }
 }

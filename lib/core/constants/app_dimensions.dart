@@ -22,6 +22,8 @@ abstract class AppDimensions {
   // Setting
   static const double settingBodyVerticalPadding = 20;
   static const double settingBodyHorizontalPadding = 16;
+  static const double tilePrefixIconPadding = 3;
+  static const double profileAvatarRadius = 55;
 
 // lib/core/constants/app_dimensions.dart
 

@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class SettingsHeader extends StatelessWidget {
@@ -9,9 +10,9 @@ class SettingsHeader extends StatelessWidget {
     return Column(
       children: [
         const CircleAvatar(
-          radius: 55,
+          radius: AppDimensions.profileAvatarRadius,
           backgroundImage: NetworkImage(
-            'https://i.pravatar.cc/300',
+            'https://i.pravatar.cc/400',
           ),
         ),
         const SizedBox(height: 16),

@@ -4,6 +4,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.d
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -48,14 +50,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: Routes.setting,
-      onGenerateRoute: AppRouter().generateRoute,
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-    );
+    return BlocProvider(
+        create: (context) => SettingCubit(),
+        child: BlocBuilder<SettingCubit, SettingState>(
+          builder: (context, state) {
+            return MaterialApp(
+              initialRoute: Routes.setting,
+              onGenerateRoute: AppRouter().generateRoute,
+              title: 'Flutter Demo',
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+            );
+          },
+        ));
   }
 }
