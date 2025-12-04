@@ -38,7 +38,7 @@ class OnboardingButtons extends StatelessWidget {
             height: 50,
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, Routes.signup);
+                Navigator.pushReplacementNamed(context, Routes.register);
               },
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: AppColors.primaryDark),

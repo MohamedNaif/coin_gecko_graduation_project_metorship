@@ -21,6 +21,10 @@ import '../../feature/auth/data/data_source/remote/auth_remote_data_source_impl.
     as _i586;
 import '../../feature/auth/data/repos/auth_repo.dart' as _i559;
 import '../../feature/auth/data/repos/auth_repo_impl.dart' as _i703;
+import '../../features/setting/data/data_source/remote/settings_remote_data_source.dart'
+    as _i857;
+import '../../features/setting/data/repos/settings_repo_impl.dart' as _i53;
+import '../../features/setting/presentation/cubit/setting_cubit.dart' as _i600;
 import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 import '../api/firebase_utils.dart' as _i726;
@@ -46,6 +50,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(
         () => firebaseModule.firebaseFirestore);
+    gh.factory<_i857.SettingsRemoteDataSource>(
+        () => _i857.SettingsRemoteDataSourceImpl(
+              gh<_i59.FirebaseAuth>(),
+              gh<_i974.FirebaseFirestore>(),
+            ));
+    gh.factory<_i53.SettingsRepo>(
+        () => _i53.SettingsRepoImpl(gh<_i857.SettingsRemoteDataSource>()));
+    gh.factory<_i600.SettingCubit>(
+        () => _i600.SettingCubit(gh<_i53.SettingsRepo>()));
     gh.singleton<_i726.FirebaseUtils>(() => _i726.FirebaseUtils(
           gh<_i59.FirebaseAuth>(),
           gh<_i974.FirebaseFirestore>(),

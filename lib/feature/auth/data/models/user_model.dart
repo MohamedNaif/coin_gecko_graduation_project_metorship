@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
- 
+
+import 'package:coin_gecko_graduation_project_metorship/core/constants/firebase_constant.dart';
+
 class UserModel {
   final String? _userId;
   final String? _firstName;
@@ -28,22 +30,31 @@ class UserModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'uesrId': _userId,
-      'firstname': _firstName,
-      'lastname': _lastName,
-      'email': _email,
-      'phoneNumber': _phoneNumber,
+      FirebaseConstants.uesrId: _userId,
+      FirebaseConstants.firstName: _firstName,
+      FirebaseConstants.lastName: _lastName,
+      FirebaseConstants.email: _email,
+      FirebaseConstants.phoneNumber: _phoneNumber,
     };
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      uesrId: map['uesrId'] != null ? map['uesrId'] as String : null,
-      firstName: map['firstName'] != null ? map['firstName'] as String : null,
-      lastName: map['lastName'] != null ? map['lastName'] as String : null,
-      email: map['email'] != null ? map['email'] as String : null,
-      phoneNumber:
-          map['phoneNumber'] != null ? map['phoneNumber'] as String : null,
+      uesrId: map[FirebaseConstants.uesrId] != null
+          ? map[FirebaseConstants.uesrId] as String
+          : null,
+      firstName: map[FirebaseConstants.firstName] != null
+          ? map[FirebaseConstants.firstName] as String
+          : null,
+      lastName: map[FirebaseConstants.lastName] != null
+          ? map[FirebaseConstants.lastName] as String
+          : null,
+      email: map[FirebaseConstants.email] != null
+          ? map[FirebaseConstants.email] as String
+          : null,
+      phoneNumber: map[FirebaseConstants.phoneNumber] != null
+          ? map[FirebaseConstants.phoneNumber] as String
+          : null,
     );
   }
 

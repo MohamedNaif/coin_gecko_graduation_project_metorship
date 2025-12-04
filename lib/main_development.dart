@@ -1,8 +1,12 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/cache_keys.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +20,14 @@ void main() async {
   );
 
   configureDependencies();
+  await AppSharedPreferences.initialSharedPreference();
 
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
 
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => SettingCubit(getIt()),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -47,14 +54,28 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: Routes.splash,
-      onGenerateRoute: AppRouter().generateRoute,
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+    return BlocBuilder<SettingCubit, SettingState>(
+      buildWhen: (context, state) {
+        return state is ToggleTheme;
+      },
+      builder: (context, state) {
+        final isDark = state.maybeWhen(
+          toggleTheme: (isDarkMode) => isDarkMode,
+          orElse: () =>
+              AppSharedPreferences.sharedPreferences
+                  .getBool(CacheKeys.isDarkModeKey) ??
+              false,
+        );
+        return MaterialApp(
+          initialRoute: Routes.splash,
+          onGenerateRoute: AppRouter().generateRoute,
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+        );
+      },
     );
   }
 }
