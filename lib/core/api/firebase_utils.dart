@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:developer';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/models/user_model.dart';
 
 @singleton
 class FirebaseUtils {

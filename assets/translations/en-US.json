@@ -1,0 +1,21 @@
+{
+  "home": "Home",
+  "market": "Market",
+  "portfolio": "Portfolio",
+  "settings": "Settings",
+  "marketScreenBody": "Market Screen Body",
+  "portfolioScreenBody": "Portfolio Screen Body",
+  "settingsScreenBody": "Settings Screen Body",
+  "hi": "Hi, ",
+  "marketOverview": "Market Overview",
+  "marketCap": "Market Cap",
+  "loading": "Loading...",
+  "volume24h": "24h Volume",
+  "btcDominance": "BTC Dominance",
+  "activeCoins": "Active Coins",
+  "trendingNow": "Trending Now",
+  "viewAll": "View all",
+  "topGainers": "Top Gainers",
+  "currentBalance": "Current Balance",
+  "weeklyProfit": "Weekly Profit"
+}
