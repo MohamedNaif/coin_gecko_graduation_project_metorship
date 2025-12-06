@@ -50,6 +50,7 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
 
   @override
   void dispose() {
+    _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
     super.dispose();
   }
@@ -79,7 +80,6 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
           AppStrings.trendingNow.tr(),
           style: AppTextStyles.bold20.copyWith(
             color: AppColors.primaryDark,
-            
           ),
         ),
         backgroundColor: Colors.white,
@@ -93,7 +93,8 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
           if (state.marketDataStatus == HomeDataStatus.failure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                  content: Text(state.errorMessage ?? 'An error occurred')),
+                  content:
+                      Text(state.errorMessage ?? AppStrings.errorOccurred)),
             );
           }
         },
@@ -110,7 +111,7 @@ class _TrendingScreenBodyState extends State<TrendingScreenBody> {
           if (state.marketData.isEmpty &&
               state.marketDataStatus == HomeDataStatus.failure) {
             return CustomErrorWidget(
-              errorMessage: state.errorMessage ?? 'Error loading data',
+              errorMessage: state.errorMessage ?? AppStrings.errorLoadingData,
               onRetry: () => context.read<HomeCubit>().getMarkets(),
             );
           }

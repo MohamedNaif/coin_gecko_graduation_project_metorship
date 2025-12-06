@@ -1,5 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class CustomErrorWidget extends StatelessWidget {
@@ -43,7 +44,7 @@ class CustomErrorWidget extends StatelessWidget {
 
                 // Error Title
                 Text(
-                  'Something Went Wrong',
+                  AppStrings.errorTitle,
                   style: AppTextStyles.bold20.copyWith(
                     color: AppColors.primaryDark,
                     fontSize: 22,
@@ -99,7 +100,7 @@ class CustomErrorWidget extends StatelessWidget {
                           const Icon(Icons.refresh, size: 20),
                           const SizedBox(width: 8),
                           Text(
-                            'Retry',
+                            AppStrings.retryButton,
                             style: AppTextStyles.semiBold16.copyWith(
                               fontSize: 15,
                             ),

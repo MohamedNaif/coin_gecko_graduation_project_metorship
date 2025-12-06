@@ -46,14 +46,46 @@ class TrendingCoinModel {
 
   Map<String, dynamic> toJson() => _$TrendingCoinModelToJson(this);
 
-  static Object? _readId(Map map, String key) => map['item']['id'];
-  static Object? _readName(Map map, String key) => map['item']['name'];
-  static Object? _readSymbol(Map map, String key) => map['item']['symbol'];
-  static Object? _readThumb(Map map, String key) => map['item']['thumb'];
-  static Object? _readPrice(Map map, String key) =>
-      map['item']['data']['price'];
-  static Object? _readPriceChange(Map map, String key) =>
-      map['item']['data']['price_change_percentage_24h']['usd'];
-  static Object? _readSparkline(Map map, String key) =>
-      map['item']['data']['sparkline'];
+  static Object? _readId(Map map, String key) {
+    final item = map['item'];
+    return item is Map ? item['id'] : null;
+  }
+
+  static Object? _readName(Map map, String key) {
+    final item = map['item'];
+    return item is Map ? item['name'] : null;
+  }
+
+  static Object? _readSymbol(Map map, String key) {
+    final item = map['item'];
+    return item is Map ? item['symbol'] : null;
+  }
+
+  static Object? _readThumb(Map map, String key) {
+    final item = map['item'];
+    return item is Map ? item['thumb'] : null;
+  }
+
+  static Object? _readPrice(Map map, String key) {
+    final item = map['item'];
+    if (item is! Map) return null;
+    final data = item['data'];
+    return data is Map ? data['price'] : null;
+  }
+
+  static Object? _readPriceChange(Map map, String key) {
+    final item = map['item'];
+    if (item is! Map) return null;
+    final data = item['data'];
+    if (data is! Map) return null;
+    final priceChange = data['price_change_percentage_24h'];
+    return priceChange is Map ? priceChange['usd'] : null;
+  }
+
+  static Object? _readSparkline(Map map, String key) {
+    final item = map['item'];
+    if (item is! Map) return null;
+    final data = item['data'];
+    return data is Map ? data['sparkline'] : null;
+  }
 }

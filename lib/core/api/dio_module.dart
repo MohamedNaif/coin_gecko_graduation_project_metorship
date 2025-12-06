@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -39,7 +40,8 @@ abstract class DioModule {
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
-          options.headers['x-cg-demo-api-key'] = 'CG-mQ1pYapiF5CVFiAHWraCVy7C';
+          options.headers['x-cg-demo-api-key'] =
+              dotenv.env['COINGECKO_API_KEY'] ?? '';
           if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");

@@ -96,4 +96,10 @@ class AppStrings {
   static const String topGainers = 'topGainers';
   static const String currentBalance = 'currentBalance';
   static const String weeklyProfit = 'weeklyProfit';
+
+  //**************** Error Widget ****************//
+  static const String errorTitle = 'Something Went Wrong';
+  static const String retryButton = 'Retry';
+  static const String errorOccurred = 'An error occurred';
+  static const String errorLoadingData = 'Error loading data';
 }
