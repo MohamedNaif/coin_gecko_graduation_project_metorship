@@ -5,18 +5,18 @@ import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_obser
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'config/routing/app_router.dart';
 
-void main() async{
-   WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   configureDependencies();
-  
+
   Bloc.observer = MyBlocObserver();
   configureDependencies();
   runApp(const MyApp());
@@ -37,11 +37,13 @@ class _MyAppState extends State<MyApp> {
     authStateService.checkStateChanges();
     super.initState();
   }
+
   @override
   void dispose() {
     authStateService.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

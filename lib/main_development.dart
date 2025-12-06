@@ -14,11 +14,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   configureDependencies();
 
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
 
   runApp(const MyApp());
 }
