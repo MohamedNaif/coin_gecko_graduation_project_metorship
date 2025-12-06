@@ -3,6 +3,7 @@ import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_a
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/screens/login_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/screens/register_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case Routes.fingerprintScreen:
         return MaterialPageRoute(builder: (_) => const FingerprintScreen());
-
+      case Routes.portfolio:
+        return MaterialPageRoute(builder: (_) => const PortfolioPage());
 
       default:
         return null;

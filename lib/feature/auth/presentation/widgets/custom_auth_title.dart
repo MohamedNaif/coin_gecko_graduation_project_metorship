@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomAuthTitle extends StatelessWidget {
   final String title;
