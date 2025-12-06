@@ -4,7 +4,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimen
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/validator.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_text_form_field.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

@@ -30,10 +30,11 @@ environment:
 dependencies:
   audioplayers: ^6.5.1
   bloc: ^9.1.0
-  cached_network_image: ^3.4.1
+
   cherry_toast: ^1.13.0
   cloud_firestore: ^6.1.0
   cupertino_icons: ^1.0.8
+  cached_network_image: ^3.4.1
   dio: ^5.9.0
   easy_localization: ^3.0.8
   firebase_auth: ^6.1.2
@@ -48,13 +49,11 @@ dependencies:
   injectable: ^2.6.0
   intl: ^0.20.2
   pretty_dio_logger: ^1.4.0
-  retrofit: ^4.9.1              
+  retrofit: ^4.9.1
   shimmer: ^3.0.0
   toastification: ^3.0.3
   smooth_page_indicator: ^1.2.1
   fl_chart: ^1.1.0
-  flutter_bloc: ^8.1.6
-  cached_network_image: ^3.4.1
   json_annotation: ^4.9.0
 
 dev_dependencies:

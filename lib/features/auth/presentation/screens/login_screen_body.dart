@@ -5,14 +5,14 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strin
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/custom_background.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/login_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/biometric_auth.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_auth_title.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_login_forms.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/login_methods_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/remember_me_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/switch_auth_text.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/custom_background.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/biometric_auth.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_auth_title.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_login_forms.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/login_methods_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/remember_me_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/switch_auth_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -12,7 +12,7 @@ part of 'portfolio_remote_data_source.dart';
 
 class _PortfolioRemoteDataSource implements PortfolioRemoteDataSource {
   _PortfolioRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://api.coingecko.com/api/v3/simple/';
+    baseUrl ??= 'https://api.coingecko.com/api/v3/';
   }
 
   final Dio _dio;
