@@ -35,7 +35,6 @@ class MarketOverview extends StatelessWidget {
             AppStrings.marketOverview.tr(),
             style: AppTextStyles.bold20.copyWith(
               color: AppColors.primaryDark,
-              
             ),
           ),
           const SizedBox(height: 16),
@@ -54,25 +53,25 @@ class MarketOverview extends StatelessWidget {
               _MarketItem(
                 title: AppStrings.marketCap.tr(),
                 value: data != null
-                    ? '\$${((data?.totalMarketCap?['usd'] ?? 0) / 1e12).toStringAsFixed(2)}T'
+                    ? '\$${((data?.totalMarketCap?['usd'] )! / 1e12).toStringAsFixed(2)}T'
                     : AppStrings.loading.tr(),
               ),
               _MarketItem(
                 title: AppStrings.volume24h.tr(),
                 value: data != null
-                    ? '\$${((data?.totalVolume?['usd'] ?? 0) / 1e9).toStringAsFixed(2)}B'
+                    ? '\$${((data?.totalVolume?['usd'] )! / 1e9).toStringAsFixed(2)}B'
                     : AppStrings.loading.tr(),
               ),
               _MarketItem(
                 title: AppStrings.btcDominance.tr(),
                 value: data != null
-                    ? '${(data?.btcDominance ?? 0).toStringAsFixed(1)}%'
+                    ? '${(data?.btcDominance )!.toStringAsFixed(1)}%'
                     : AppStrings.loading.tr(),
               ),
               _MarketItem(
                 title: AppStrings.activeCoins.tr(),
                 value: data != null
-                    ? (data?.activeCryptocurrencies ?? 0).toString()
+                    ? (data?.activeCryptocurrencies ).toString()
                     : AppStrings.loading.tr(),
               ),
             ],
@@ -115,7 +114,6 @@ class _MarketItem extends StatelessWidget {
             title,
             style: AppTextStyles.regular12.copyWith(
               color: AppColors.gray500,
-             
             ),
           ),
           const SizedBox(height: 8),
