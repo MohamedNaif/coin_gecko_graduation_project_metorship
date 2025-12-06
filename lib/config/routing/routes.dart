@@ -1,6 +1,8 @@
 class Routes {
   // ============== Auth routes ========================================
   static const String login = '/login';
+  static const String register = '/register';
+  static const String fingerprintScreen = '/fingerprint_screen';
   static const String signup = '/signup';
   static const String homeScreen = '/home_screen';
   static const String petDetailScreen = '/pet_detail_screen';
@@ -20,7 +22,8 @@ class Routes {
   static const String rewards = '/rewards';
   static const String rewardDetails = '/reward-details';
   static const String splash = '/splash';
-  static const String onboardingScreen = '/onboarding_screen';
+  static const String onboardingScreen = '/onboarding';
+  static const String portfolio = '/portfolio';
   static const String profileInfo = '/profile/info';
   static const String notification = '/notification';
 
