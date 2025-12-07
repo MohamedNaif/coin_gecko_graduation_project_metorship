@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -44,14 +44,14 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    final firebaseModule = _$FirebaseModule();
     final dioModule = _$DioModule();
+    final firebaseModule = _$FirebaseModule();
     gh.factory<_i977.AuthStateChangesChecker>(
         () => _i977.AuthStateChangesChecker());
+    gh.lazySingleton<_i361.LogInterceptor>(() => dioModule.provideLogger());
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(
         () => firebaseModule.firebaseFirestore);
-    gh.lazySingleton<_i361.LogInterceptor>(() => dioModule.provideLogger());
     gh.singleton<_i726.FirebaseUtils>(() => _i726.FirebaseUtils(
           gh<_i59.FirebaseAuth>(),
           gh<_i974.FirebaseFirestore>(),
@@ -61,7 +61,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
     gh.factory<_i914.PortfolioRemoteDataSource>(
-        () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()));
+        () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
     gh.factory<_i921.AuthRemoteDataSource>(
         () => _i586.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
     gh.lazySingleton<_i11.PortfolioRepository>(() =>
@@ -74,6 +74,6 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$FirebaseModule extends _i913.FirebaseModule {}
-
 class _$DioModule extends _i784.DioModule {}
+
+class _$FirebaseModule extends _i913.FirebaseModule {}
