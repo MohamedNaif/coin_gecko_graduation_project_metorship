@@ -15,12 +15,12 @@ import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../feature/auth/data/data_source/remote/auth_remote_data_source.dart'
+import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart'
     as _i921;
-import '../../feature/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
+import '../../features/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
     as _i586;
-import '../../feature/auth/data/repos/auth_repo.dart' as _i559;
-import '../../feature/auth/data/repos/auth_repo_impl.dart' as _i703;
+import '../../features/auth/data/repos/auth_repo.dart' as _i559;
+import '../../features/auth/data/repos/auth_repo_impl.dart' as _i703;
 import '../../features/portfolio/data/data_source/portfolio_remote_data_source.dart'
     as _i914;
 import '../../features/portfolio/data/repository/portfolio_repository.dart'

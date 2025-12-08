@@ -5,14 +5,14 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strin
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/custom_background.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/login_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/biometric_auth.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_auth_title.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_login_forms.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/login_methods_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/remember_me_section.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/switch_auth_text.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/custom_background.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/biometric_auth.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_auth_title.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_login_forms.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/login_methods_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/remember_me_section.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/switch_auth_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,22 +26,15 @@ class LoginScreenBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: AppDimensions.spacingMassive),
-            
             const CustomAuthTitle(
               title: AppStrings.loginToYourAccount,
               subTitle: AppStrings.loginSubtitle,
             ),
-            
             const SizedBox(height: AppDimensions.spacingHuge),
-            
             const CustomLoginForms(),
-            
             const SizedBox(height: AppDimensions.spacingSmall),
-            
             const RememberMeSection(),
-            
             const SizedBox(height: AppDimensions.spacingXLarge),
-            
             BlocListener<LoginCubit, LoginState>(
               listener: (context, state) {
                 if (state is LoginFailure) {
@@ -73,17 +66,11 @@ class LoginScreenBody extends StatelessWidget {
                 ),
               ),
             ),
-            
             const SizedBox(height: AppDimensions.spacingXLarge),
-            
             const LoginMethodsSection(),
-            
             const SizedBox(height: AppDimensions.spacingMedium),
-            
             const BiometricAuthSection(),
-            
             const SizedBox(height: AppDimensions.spacingXSmall),
-            
             SwitchAuthText(
               questionText: AppStrings.dontHaveAccount,
               actionText: AppStrings.signUpAction,
