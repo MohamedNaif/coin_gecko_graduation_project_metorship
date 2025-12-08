@@ -5,11 +5,11 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strin
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/custom_background.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_auth_title.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_register_form.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/switch_auth_text.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/custom_background.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/register_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_auth_title.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/custom_register_form.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/widgets/switch_auth_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,16 +25,12 @@ class RegisterScreenBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: AppDimensions.spacingXXXLarge),
-              
               const CustomAuthTitle(
                 title: AppStrings.createYourAccount,
                 subTitle: AppStrings.signUpSubtitle,
               ),
-              
               const SizedBox(height: AppDimensions.spacingXXLarge),
-              
               const CustomRegisterForm(),
-              
               BlocListener<RegisterCubit, RegisterState>(
                 listener: (context, state) {
                   if (state is RegisterFailure) {
@@ -52,7 +48,8 @@ class RegisterScreenBody extends StatelessWidget {
                   }
                 },
                 child: CustomButton(
-                  isLoading: context.read<RegisterCubit>().state is RegisterLoading,
+                  isLoading:
+                      context.read<RegisterCubit>().state is RegisterLoading,
                   borderRadius: AppDimensions.borderRadiusLarge,
                   widthPadding: AppDimensions.paddingButton,
                   height: AppDimensions.buttonHeightLarge,
@@ -67,9 +64,7 @@ class RegisterScreenBody extends StatelessWidget {
                   ),
                 ),
               ),
-              
               const SizedBox(height: AppDimensions.spacingLarge),
-              
               SwitchAuthText(
                 onTap: () {
                   Navigator.pushNamed(context, Routes.login);

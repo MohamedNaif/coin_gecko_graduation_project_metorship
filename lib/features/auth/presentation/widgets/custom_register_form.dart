@@ -4,7 +4,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimen
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/validator.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_text_form_field.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +15,7 @@ class CustomRegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<RegisterCubit>();
-    
+
     return Form(
       key: cubit.formKey,
       child: Column(
@@ -36,7 +36,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.lastNameController,
@@ -53,7 +52,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.emailController,
@@ -70,7 +68,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.passwordController,
@@ -87,7 +84,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.confirmPasswordController,
@@ -107,7 +103,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.phoneNumberController,

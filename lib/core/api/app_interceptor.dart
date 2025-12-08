@@ -2,8 +2,6 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:coin_gecko_graduation_project_metorship/config/routing/app_router.dart';
-import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 // import 'package:coin_gecko_graduation_project_metorship/main.dart';
 
 import '../api/status_code.dart';

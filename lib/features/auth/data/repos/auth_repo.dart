@@ -1,5 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/core/api/result.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/models/user_model.dart';
 
 abstract interface class AuthRepo {
   Future<Result<UserModel>> register({
@@ -9,7 +9,7 @@ abstract interface class AuthRepo {
     required String password,
     required String phoneNumber,
   });
-Future<Result<String>> signIn({
+  Future<Result<String>> signIn({
     required String email,
     required String password,
   });
