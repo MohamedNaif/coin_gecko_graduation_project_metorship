@@ -2,6 +2,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/di/dependency_injec
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/screens/register_screen_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

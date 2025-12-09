@@ -1,9 +1,9 @@
 import 'package:coin_gecko_graduation_project_metorship/core/errors/failures.dart';
+import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:developer';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
 
 @singleton
 class FirebaseUtils {
@@ -41,11 +41,6 @@ class FirebaseUtils {
     } on FirebaseAuthException catch (e) {
       log('FirebaseAuthException: ${e.code} - ${e.message}');
       throw FirebaseFailure.fromFirebaseException(code: e.code);
-    } on FirebaseFailure catch (e) {
-      log('Exception during createUserWithEmailAndPassword: $e');
-      throw FirebaseFailure(
-        errMessage: 'Failed to create user: ${e.errMessage}',
-      );
     }
   }
 
@@ -58,11 +53,9 @@ class FirebaseUtils {
         log('Failed to add user data: $error');
         throw Exception('Failed to add user data: $error');
       });
-    } on FirebaseFailure catch (e) {
+    } catch (e) {
       log('Exception during saveUserData: $e');
-      throw FirebaseFailure(
-        errMessage: 'Failed to save user data: ${e.errMessage}',
-      );
+      throw Exception('Failed to save user data: $e');
     }
   }
 

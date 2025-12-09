@@ -24,14 +24,14 @@ class RegisterScreenBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: AppDimensions.spacingXXXLarge),
+               SizedBox(height: context.heightScale(AppDimensions.spacingXXXLarge)),
               
               const CustomAuthTitle(
                 title: AppStrings.createYourAccount,
                 subTitle: AppStrings.signUpSubtitle,
               ),
               
-              const SizedBox(height: AppDimensions.spacingXXLarge),
+               SizedBox(height:context.heightScale (AppDimensions.spacingXXLarge)),
               
               const CustomRegisterForm(),
               
@@ -48,6 +48,11 @@ class RegisterScreenBody extends StatelessWidget {
                       context,
                       AppStrings.registerSuccessful,
                       type: ToastType.success,
+                    );
+                    // Navigate to set biometric auth screen
+                    Navigator.pushReplacementNamed(
+                      context,
+                      Routes.setFingerprintScreen,
                     );
                   }
                 },

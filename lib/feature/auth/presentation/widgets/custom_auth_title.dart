@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
@@ -20,11 +19,11 @@ class CustomAuthTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: GoogleFonts.lato(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+          style: context.textTheme.displaySmall?.copyWith(
             color: AppColors.primaryLight,
+
           ),
+          textAlign: TextAlign.center,
         ),
         SizedBox(
           height: 14,

@@ -48,10 +48,18 @@ class AppAssets {
   static const String instagramIcon = 'assets/images/instagram_icon.svg';
   static const String facebookIcon = 'assets/images/facebook_icon.svg';
   static const String twitterIcon = 'assets/images/twitter_icon.svg';
-  static const String personIcon ="assets/icons/person.svg";
+  static const String personIcon = "assets/icons/person.svg";
   static const String phoneIcon = "assets/icons/phone_icon.svg";
   static const String fingerPrintIcon = "assets/icons/fingerprint_icon.svg";
-  static const String faceId ='assets/icons/face_id_icon.svg';
+  static const String faceId = 'assets/icons/face_id_icon.svg';
+  static const String faceIdIcon =
+      'assets/icons/face_id_icon.svg'; // Alias for consistency
+  static const String checkmarkIcon =
+      'assets/icons/checkmark_icon.svg'; // Assuming we have or will need this
+  static const String faceScannerFrame =
+      'assets/icons/face_scanner_frame.svg'; // Placeholder for face scan frame
+  static const String fingerprintScanLarge =
+      'assets/icons/fingerprint_scan_large.svg'; // Large fingerprint for scanning screen
   // Onboarding
   static const String onboardingFirstPage = 'assets/onboarding/first_page.png';
   static const String onboardingSecondPage =
@@ -99,4 +107,7 @@ class AppAssets {
   static const String iconSwap = 'assets/icons/swap_icon.svg';
   static const String iconUp = 'assets/icons/up_icon.svg';
   static const String iconWallet = 'assets/icons/wallet_icon.svg';
+  static const String faceIdBackground =
+      'assets/icons/Set Face ID bachground.png';
+  static const String successIcon = "assets/icons/Right.svg";
 }
