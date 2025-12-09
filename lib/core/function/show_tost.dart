@@ -43,7 +43,7 @@ void showCherryToast(
     ),
     backgroundColor: backgroundColor,
     displayIcon: true,
-    icon: icon,
+    iconWidget: Icon(icon),
     animationType: AnimationType.fromRight,
     animationDuration: const Duration(milliseconds: 500),
     toastDuration: const Duration(seconds: 2),

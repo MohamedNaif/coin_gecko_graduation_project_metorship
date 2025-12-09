@@ -104,6 +104,10 @@ class AppStrings {
   //======
   static const String appRole = 'appRole';
 
+  static const String errorMessage =
+      'Something Went Wrong ,Please Try Again Later !';
+  static const String unknown = 'Unknown';
+
   //**************** Onboarding ****************//
   static const String welcomeToCryptoX = 'Welcome To Crypto X';
   static const String transactionSecurity = 'Transaction Security';

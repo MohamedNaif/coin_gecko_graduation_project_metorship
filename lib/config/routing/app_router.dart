@@ -15,6 +15,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/storage/secure_stor
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/cubit/biometric_cubit.dart';
 
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 
 class AppRouter {

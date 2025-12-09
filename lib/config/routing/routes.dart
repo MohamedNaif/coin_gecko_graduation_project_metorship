@@ -13,4 +13,5 @@ class Routes {
   static const String setFaceIdScreen = '/set_faceid_screen';
   static const String faceIdCameraScreen = '/faceid_camera_screen';
   static const String faceIdSuccessScreen = '/faceid_success_screen';
+    static const String portfolio = '/portfolio';
 }

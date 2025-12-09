@@ -65,11 +65,13 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+
   @override
   void dispose() {
     authStateService.dispose();
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {

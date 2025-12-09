@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_services.dart';
+part of 'portfolio_remote_data_source.dart';
 
 // dart format off
 
@@ -10,13 +10,9 @@ part of 'api_services.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
 
-class _ApiService implements ApiService {
-  _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-<<<<<<< HEAD
-    baseUrl ??= 'https://api.thecatapi.com';
-=======
+class _PortfolioRemoteDataSource implements PortfolioRemoteDataSource {
+  _PortfolioRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://api.coingecko.com/api/v3/simple/';
->>>>>>> origin/main
   }
 
   final Dio _dio;
@@ -24,6 +20,41 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   final ParseErrorLogger? errorLogger;
+
+  @override
+  Future<SimplePriceModel> getSimplePrice({
+    required String ids,
+    required String vsCurrencies,
+    bool includeChange = true,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'ids': ids,
+      r'vs_currencies': vsCurrencies,
+      r'include_24hr_change': includeChange,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<SimplePriceModel>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'price',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SimplePriceModel _value;
+    try {
+      _value = SimplePriceModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
