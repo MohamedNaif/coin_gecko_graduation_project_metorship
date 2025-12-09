@@ -4,6 +4,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/function/check_stat
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -17,7 +18,14 @@ Future<void> main() async {
   configureDependencies();
 
   Bloc.observer = MyBlocObserver();
+  if (kDebugMode) {
+    runApp(const MyApp());
+  } else {
+    await _initSentry();
+  }
+}
 
+Future<void> _initSentry() async {
   await SentryFlutter.init(
     (options) {
       options.dsn =
