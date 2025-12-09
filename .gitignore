@@ -45,3 +45,11 @@ app.*.map.json
 /android/app/release
 project_backup.txt
 
+
+.env
+.sonar/
+.scannerwork/
+.sonar_lock
+report-task.txt
+lcov.info
+tests.output
