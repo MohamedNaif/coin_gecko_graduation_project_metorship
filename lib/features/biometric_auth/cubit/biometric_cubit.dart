@@ -2,7 +2,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
 import 'package:injectable/injectable.dart';
 import 'package:local_auth/local_auth.dart';
 

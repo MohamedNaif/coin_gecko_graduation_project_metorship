@@ -1,5 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';

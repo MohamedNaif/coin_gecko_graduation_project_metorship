@@ -17,10 +17,10 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:local_auth/local_auth.dart' as _i152;
 
-import '../../feature/auth/biometric_auth/cubit/biometric_cubit.dart' as _i872;
-import '../../feature/auth/data/data_source/local/auth_local_data_source.dart'
+import '../../features/biometric_auth/cubit/biometric_cubit.dart' as _i872;
+import '../../features/auth/data/data_source/local/auth_local_data_source.dart'
     as _i288;
-import '../../feature/auth/data/data_source/local/auth_local_data_source_impl.dart'
+import '../../features/auth/data/data_source/local/auth_local_data_source_impl.dart'
     as _i878;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart'
     as _i921;

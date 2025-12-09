@@ -5,8 +5,8 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimen
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_button.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/cubit/biometric_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/face_icon.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/face_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

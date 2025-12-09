@@ -1,10 +1,6 @@
 import 'package:bloc/bloc.dart';
-<<<<<<< HEAD:lib/feature/auth/presentation/cubit/login_cubit.dart
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/login_state.dart';
-=======
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
->>>>>>> origin/main:lib/features/auth/presentation/cubit/login_cubit.dart
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 
 

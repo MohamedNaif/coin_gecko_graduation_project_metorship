@@ -1,6 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/api/result.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/errors/failures.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/data_source/local/auth_local_data_source.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/data_source/local/auth_local_data_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:local_auth/local_auth.dart';
 

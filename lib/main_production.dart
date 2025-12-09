@@ -7,9 +7,10 @@ import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/storage/secure_storage_services.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/cubit/biometric_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/screens/biometric_lock_screen.dart';
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/biometric_lock_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
+
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

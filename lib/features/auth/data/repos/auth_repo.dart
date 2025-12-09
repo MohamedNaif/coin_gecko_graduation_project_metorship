@@ -1,10 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/api/result.dart';
-<<<<<<< HEAD:lib/feature/auth/data/repos/auth_repo.dart
-import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/models/user_model.dart';
-import 'package:local_auth/local_auth.dart';
-=======
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/models/user_model.dart';
->>>>>>> origin/main:lib/features/auth/data/repos/auth_repo.dart
+import 'package:local_auth/local_auth.dart';
 
 abstract interface class AuthRepo {
   Future<Result<UserModel>> register({
@@ -18,7 +14,6 @@ abstract interface class AuthRepo {
     required String email,
     required String password,
   });
-<<<<<<< HEAD:lib/feature/auth/data/repos/auth_repo.dart
   //*check if device has biometric support
   Future<Result<bool>> checkBiometricSupport();
   //! check available biometrics
@@ -26,6 +21,3 @@ abstract interface class AuthRepo {
   //? authenticate biometric
   Future<Result<bool>> authenticateBiometric(String reason);
 }
-=======
-}
->>>>>>> origin/main:lib/features/auth/data/repos/auth_repo.dart
