@@ -6,19 +6,31 @@ import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'config/routing/app_router.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   configureDependencies();
 
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
-  runApp(const MyApp());
+
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          'https://371bf0e4728cfdfcf7ca762a9e965a2e@o4510234337214464.ingest.us.sentry.io/4510290955206656';
+
+      options.tracesSampleRate = 1.0;
+    },
+    appRunner: () => runApp(
+      SentryWidget(
+        child: MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -48,7 +60,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
-      home: const Scaffold(body: Center(child: Text('Coin Gecko Production'))),
     );
   }
 }
