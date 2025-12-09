@@ -8,6 +8,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/widgets/custom_butt
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/biometric_login_button.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/biometric_auth/widgets/custom_background.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/login_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/login_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_auth_title.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/custom_login_forms.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/widgets/login_methods_section.dart';

@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:coin_gecko_graduation_project_metorship/feature/auth/data/repos/auth_repo.dart';
+import 'package:coin_gecko_graduation_project_metorship/feature/auth/presentation/cubit/register_state.dart';
 import 'package:flutter/material.dart';
 
-part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   AuthRepo authRepo;

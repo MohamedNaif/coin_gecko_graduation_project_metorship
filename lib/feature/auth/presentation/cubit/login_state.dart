@@ -1,4 +1,6 @@
-part of 'login_cubit.dart';
+
+
+import 'package:flutter/material.dart' show immutable;
 
 @immutable
 sealed class LoginState {}
