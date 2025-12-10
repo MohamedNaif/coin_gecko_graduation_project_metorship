@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/config/lang_manager.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
@@ -9,8 +10,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/routing/app_router.dart';
 
+import 'package:easy_localization/easy_localization.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -19,7 +25,16 @@ void main() async {
   await dotenv.load(fileName: ".env");
 
   Bloc.observer = MyBlocObserver();
-  runApp(const MyApp());
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [arabicLocal, englishLocal],
+      fallbackLocale: englishLocal,
+      startLocale: englishLocal,
+      path: assetsLocalization,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -47,6 +62,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
       home: const Scaffold(body: Center(child: Text('Coin Gecko Production'))),

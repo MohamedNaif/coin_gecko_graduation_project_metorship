@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_services.dart';
+part of 'home_remote_data_source.dart';
 
 // dart format off
 
@@ -10,8 +10,8 @@ part of 'api_services.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
 
-class _ApiService implements ApiService {
-  _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
+class _HomeRemoteDataSource implements HomeRemoteDataSource {
+  _HomeRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://api.coingecko.com/api/v3/';
   }
 
@@ -22,12 +22,12 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<GlobalDataModel> getGlobalData() async {
+  Future<GlobalDataResponse> getGlobalData() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<GlobalDataModel>(
+    final _options = _setStreamType<GlobalDataResponse>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -38,9 +38,9 @@ class _ApiService implements ApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late GlobalDataModel _value;
+    late GlobalDataResponse _value;
     try {
-      _value = GlobalDataModel.fromJson(_result.data!);
+      _value = GlobalDataResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, _result);
       rethrow;
@@ -76,13 +76,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<MarketCoinModel>> getMarkets(
-    String vsCurrency,
-    String order,
-    int perPage,
-    int page,
-    bool sparkline,
-  ) async {
+  Future<List<MarketCoinModel>> getMarkets({
+    String vsCurrency = 'usd',
+    String order = 'market_cap_desc',
+    int perPage = 20,
+    int page = 1,
+    bool sparkline = false,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'vs_currency': vsCurrency,

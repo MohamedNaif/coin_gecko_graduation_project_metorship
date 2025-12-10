@@ -4,17 +4,26 @@ import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.da
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class DioModule {
   @lazySingleton
-  LogInterceptor provideLogger() {
-    return LogInterceptor(requestBody: true, responseBody: true);
+  PrettyDioLogger provideLogger() {
+    return PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90,
+    );
   }
 
   @Singleton()
   Dio provideDio(
-    LogInterceptor logInterceptor,
+    PrettyDioLogger logInterceptor,
   ) {
     final dio = Dio(
       BaseOptions(
