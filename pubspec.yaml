@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
+  sdk: ^3.8.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,10 +31,11 @@ dependencies:
   sentry_flutter: ^9.8.0
   audioplayers: ^6.5.1
   bloc: ^9.1.0
-  cached_network_image: ^3.4.1
+
   cherry_toast: ^1.13.0
   cloud_firestore: ^6.1.0
   cupertino_icons: ^1.0.8
+  cached_network_image: ^3.4.1
   dio: ^5.9.0
   easy_localization: ^3.0.8
   firebase_auth: ^6.1.2
@@ -49,25 +50,31 @@ dependencies:
   injectable: ^2.6.0
   intl: ^0.20.2
   pretty_dio_logger: ^1.4.0
-  retrofit: ^4.9.1              
+  retrofit: ^4.9.1
   shimmer: ^3.0.0
   toastification: ^3.0.3
   smooth_page_indicator: ^1.2.1
   fl_chart: ^1.1.0
-  google_fonts: ^6.3.3
   json_annotation: ^4.9.0
   shared_preferences: ^2.5.3
+  flutter_dotenv: ^6.0.0
+  freezed_annotation: ^3.1.0
+
 
 
 dev_dependencies:
   sentry_dart_plugin: ^3.2.0
-  build_runner: ^2.4.12         
+  retrofit_generator: ^10.2.0
+  injectable_generator:
+  # add build runner if not already added
+  build_runner: ^2.10.4
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  injectable_generator: ^2.6.2  
-  retrofit_generator: ^10.2.0
   json_serializable: ^6.11.2
+  freezed: ^3.2.3
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -82,7 +89,11 @@ flutter:
   assets:
     - assets/icons/
     - assets/onboarding/
+    - assets/translations/
+    - assets/translations/ar-SA.json
+    - assets/translations/en-US.json
     - assets/
+    - .env
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
