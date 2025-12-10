@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  sentry_flutter: ^9.8.0
   audioplayers: ^6.5.1
   bloc: ^9.1.0
 
@@ -62,6 +63,7 @@ dependencies:
 
 
 dev_dependencies:
+  sentry_dart_plugin: ^3.2.0
   retrofit_generator: ^10.2.0
   injectable_generator:
   # add build runner if not already added
@@ -143,3 +145,9 @@ flutter:
         - asset: assets/fonts/Lato-ThinItalic.ttf
           weight: 100
           style: italic
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: flutter
+  org: sadiomane

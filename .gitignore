@@ -57,3 +57,6 @@ project_backup.txt
 report-task.txt
 lcov.info
 tests.output
+
+
+sentry.properties
