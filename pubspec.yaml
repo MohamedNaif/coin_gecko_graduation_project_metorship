@@ -49,12 +49,14 @@ dependencies:
   toastification: ^3.0.3
   fl_chart:
   flutter_bloc: ^9.1.1
+  json_annotation:
 
 dev_dependencies:
   retrofit_generator: ^10.0.1
   injectable_generator:  
   build_runner:
   flutter_lints: ^5.0.0
+  json_serializable:
   flutter_test:
     sdk: flutter
 
@@ -72,6 +74,7 @@ flutter:
      - assets/icons/
      - assets/onboarding/
      - assets/
+     - .env
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

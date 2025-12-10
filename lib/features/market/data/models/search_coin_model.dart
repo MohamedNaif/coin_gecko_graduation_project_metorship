@@ -1,11 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'search_coin_model.g.dart';
+
+@JsonSerializable()
 class SearchCoinModel {
   final String id;
   final String name;
   final String symbol;
   final String thumb;
+
+  @JsonKey(name: 'market_cap_rank')
   final int marketCapRank;
 
-  SearchCoinModel({
+  const SearchCoinModel({
     required this.id,
     required this.name,
     required this.symbol,
@@ -13,24 +20,8 @@ class SearchCoinModel {
     required this.marketCapRank,
   });
 
-  factory SearchCoinModel.fromJson(Map<String, dynamic> json) {
-    return SearchCoinModel(
-      id: json["id"] ?? "",
-      name: json["name"] ?? "",
-      symbol: json["symbol"] ?? "",
-      thumb: json["thumb"] ?? "",
-      marketCapRank: json["market_cap_rank"] ?? 0,
+  factory SearchCoinModel.fromJson(Map<String, dynamic> json) =>
+      _$SearchCoinModelFromJson(json);
 
-    );
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      "id": id,
-      "name": name,
-      "symbol": symbol,
-      "thumb": thumb,
-      "market_cap_rank": marketCapRank,
-    };
-  }
-
+  Map<String, dynamic> toJson() => _$SearchCoinModelToJson(this);
 }

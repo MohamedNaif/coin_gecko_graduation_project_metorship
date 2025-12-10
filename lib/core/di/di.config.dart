@@ -17,20 +17,22 @@ import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 
 extension GetItInjectableX on _i174.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final gh = _i526.GetItHelper(
+      this,
+      environment,
+      environmentFilter,
+    );
     final dioModule = _$DioModule();
     gh.lazySingleton<_i361.LogInterceptor>(() => dioModule.provideLogger());
     gh.singleton<_i361.Dio>(
-      () => dioModule.provideDio(gh<_i361.LogInterceptor>()),
-    );
+        () => dioModule.provideDio(gh<_i361.LogInterceptor>()));
     gh.singleton<_i124.ApiService>(
-      () => dioModule.provideApiService(gh<_i361.Dio>()),
-    );
+        () => dioModule.provideApiService(gh<_i361.Dio>()));
     return this;
   }
 }
