@@ -14,6 +14,4 @@ SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$SearchResponseToJson(SearchResponse instance) =>
-    <String, dynamic>{
-      'coins': instance.coins,
-    };
+    <String, dynamic>{'coins': instance.coins};

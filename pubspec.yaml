@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
+  sdk: ^3.8.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -47,18 +47,25 @@ dependencies:
   flutter_svg: ^2.2.2
   firebase_core: ^4.2.1
   toastification: ^3.0.3
-  fl_chart:
+  smooth_page_indicator: ^1.2.1
+  fl_chart: ^1.1.0
+  json_annotation: ^4.9.0
+  shared_preferences: ^2.5.3
+  flutter_dotenv: ^6.0.0
+  freezed_annotation: ^3.1.0
   flutter_bloc: ^9.1.1
-  json_annotation:
 
 dev_dependencies:
-  retrofit_generator: ^10.0.1
-  injectable_generator:  
-  build_runner:
+  retrofit_generator: ^10.2.0
+  injectable_generator:
+  build_runner: ^2.10.4
   flutter_lints: ^5.0.0
-  json_serializable:
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.11.2
+  freezed: ^3.2.3
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -99,3 +106,30 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lato-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Lato-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Lato-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Lato-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Lato-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Lato-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/Lato-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Lato-ThinItalic.ttf
+          weight: 100
+          style: italic
