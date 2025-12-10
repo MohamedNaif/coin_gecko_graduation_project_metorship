@@ -14,26 +14,22 @@ GlobalDataResponse _$GlobalDataResponseFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$GlobalDataResponseToJson(GlobalDataResponse instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-    };
+    <String, dynamic>{'data': instance.data};
 
-GlobalDataModel _$GlobalDataModelFromJson(Map<String, dynamic> json) =>
-    GlobalDataModel(
-      activeCryptocurrencies:
-          (json['active_cryptocurrencies'] as num?)?.toInt(),
-      markets: (json['markets'] as num?)?.toInt(),
-      totalMarketCap: (json['total_market_cap'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, (e as num).toDouble()),
-      ),
-      totalVolume: (json['total_volume'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, (e as num).toDouble()),
-      ),
-      marketCapPercentage:
-          (json['market_cap_percentage'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, (e as num).toDouble()),
-      ),
-    );
+GlobalDataModel _$GlobalDataModelFromJson(
+  Map<String, dynamic> json,
+) => GlobalDataModel(
+  activeCryptocurrencies: (json['active_cryptocurrencies'] as num?)?.toInt(),
+  markets: (json['markets'] as num?)?.toInt(),
+  totalMarketCap: (json['total_market_cap'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, (e as num).toDouble()),
+  ),
+  totalVolume: (json['total_volume'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, (e as num).toDouble()),
+  ),
+  marketCapPercentage: (json['market_cap_percentage'] as Map<String, dynamic>?)
+      ?.map((k, e) => MapEntry(k, (e as num).toDouble())),
+);
 
 Map<String, dynamic> _$GlobalDataModelToJson(GlobalDataModel instance) =>
     <String, dynamic>{

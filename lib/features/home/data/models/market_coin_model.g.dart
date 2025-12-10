@@ -13,8 +13,8 @@ MarketCoinModel _$MarketCoinModelFromJson(Map<String, dynamic> json) =>
       symbol: json['symbol'] as String?,
       image: json['image'] as String?,
       currentPrice: (json['current_price'] as num?)?.toDouble(),
-      priceChangePercentage24h:
-          (json['price_change_percentage_24h'] as num?)?.toDouble(),
+      priceChangePercentage24h: (json['price_change_percentage_24h'] as num?)
+          ?.toDouble(),
     );
 
 Map<String, dynamic> _$MarketCoinModelToJson(MarketCoinModel instance) =>

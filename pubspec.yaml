@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
+  sdk: ^3.8.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -57,6 +57,8 @@ dependencies:
   json_annotation: ^4.9.0
   shared_preferences: ^2.5.3
   flutter_dotenv: ^6.0.0
+  freezed_annotation: ^3.1.0
+
 
 
 dev_dependencies:
@@ -68,6 +70,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.11.2
+  freezed: ^3.2.3
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -83,6 +88,8 @@ flutter:
     - assets/icons/
     - assets/onboarding/
     - assets/translations/
+    - assets/translations/ar-SA.json
+    - assets/translations/en-US.json
     - assets/
     - .env
   #   - images/a_dot_ham.jpeg
