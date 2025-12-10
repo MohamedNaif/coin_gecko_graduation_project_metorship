@@ -3,7 +3,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_asset
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

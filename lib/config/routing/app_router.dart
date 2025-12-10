@@ -11,9 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
-import 'package:coin_gecko_graduation_project_metorship/core/storage/secure_storage_services.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
-
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 
@@ -35,7 +33,6 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => BiometricCubit(
               getIt<AuthRepo>(),
-              getIt<SecureStorageServices>(),
             ),
             child: const SetFingerprintScreen(),
           ),
@@ -45,7 +42,6 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => BiometricCubit(
               getIt<AuthRepo>(),
-              getIt<SecureStorageServices>(),
             ),
             child: const FingerprintScanningScreen(),
           ),
@@ -55,7 +51,6 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => BiometricCubit(
               getIt<AuthRepo>(),
-              getIt<SecureStorageServices>(),
             ),
             child: const FingerprintSuccessScreen(),
           ),
@@ -65,7 +60,6 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => BiometricCubit(
               getIt<AuthRepo>(),
-              getIt<SecureStorageServices>(),
             ),
             child: const FaceIdCameraScreen(),
           ),
@@ -75,7 +69,6 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (_) => BiometricCubit(
               getIt<AuthRepo>(),
-              getIt<SecureStorageServices>(),
             ),
             child: const FaceIdSuccessScreen(),
           ),

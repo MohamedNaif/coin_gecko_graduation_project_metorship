@@ -8,14 +8,7 @@ class SecureStorageServices {
 
   SecureStorageServices(this._secureStorage);
 
-  Future<void> saveUserEmail(String email) async {
-    await _secureStorage.write(key: StorageKeys.userEmail, value: email);
-  }
-
-  Future<String?> getUserEmail() async {
-    return await _secureStorage.read(key: StorageKeys.userEmail);
-  }
-
+  
   Future<void> saveBiometricEnabled(bool enabled) async {
     await _secureStorage.write(
       key: StorageKeys.biometricEnabled,

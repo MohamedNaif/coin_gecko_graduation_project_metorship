@@ -1,6 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/storage/secure_storage_services.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/login_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/screens/login_screen_body.dart';
@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => BiometricCubit(
             getIt<AuthRepo>(),
-            getIt<SecureStorageServices>(),
+            // getIt<SecureStorageServices>(),
           )..checkSupport(),
         ),
       ],

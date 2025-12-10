@@ -12,11 +12,11 @@ part 'biometric_state.dart';
 @singleton
 class BiometricCubit extends Cubit<BiometricState> {
   final AuthRepo _authRepo;
-  final SecureStorageServices _secureStorageServices;
+  // final SecureStorageServices _secureStorageServices;
 
   BiometricCubit(
     this._authRepo,
-    this._secureStorageServices,
+    // this._secureStorageServices,
   ) : super(BiometricInitial());
 
   bool biometricEnabled = false;
@@ -24,7 +24,7 @@ class BiometricCubit extends Cubit<BiometricState> {
 
   Future<void> checkSupport() async {
     emit(BiometricLoading());
-    biometricEnabled = await _secureStorageServices.isBiometricEnabled();
+    // biometricEnabled = await _secureStorageServices.isBiometricEnabled();
 
     final supportResult = await _authRepo.checkBiometricSupport();
     await supportResult.fold(
@@ -87,7 +87,7 @@ class BiometricCubit extends Cubit<BiometricState> {
 
   Future<void> enableBiometric() async {
     emit(BiometricLoading());
-    await _secureStorageServices.saveBiometricEnabled(true);
+    // await _secureStorageServices.saveBiometricEnabled(true);
     biometricEnabled = true;
     emit(
       BiometricSuccess(
@@ -100,7 +100,7 @@ class BiometricCubit extends Cubit<BiometricState> {
 
   Future<void> disableBiometric() async {
     emit(BiometricLoading());
-    await _secureStorageServices.saveBiometricEnabled(false);
+    // await _secureStorageServices.saveBiometricEnabled(false);
     biometricEnabled = false;
     emit(
       BiometricSuccess(

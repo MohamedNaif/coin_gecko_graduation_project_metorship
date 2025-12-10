@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'portfolio_remote_data_source.dart';
+part of 'api_services.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'portfolio_remote_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _PortfolioRemoteDataSource implements PortfolioRemoteDataSource {
-  _PortfolioRemoteDataSource(
+class _ApiService implements ApiService {
+  _ApiService(
     this._dio, {
     this.baseUrl,
   }) {
@@ -19,41 +19,6 @@ class _PortfolioRemoteDataSource implements PortfolioRemoteDataSource {
   final Dio _dio;
 
   String? baseUrl;
-
-  @override
-  Future<SimplePriceModel> getSimplePrice({
-    required String ids,
-    required String vsCurrencies,
-    bool includeChange = true,
-  }) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'ids': ids,
-      r'vs_currencies': vsCurrencies,
-      r'include_24hr_change': includeChange,
-    };
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<SimplePriceModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              'price',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = SimplePriceModel.fromJson(_result.data!);
-    return value;
-  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
