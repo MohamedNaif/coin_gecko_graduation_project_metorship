@@ -1,4 +1,4 @@
-import 'package:coin_gecko_graduation_project_metorship/features/portfolio/widgets/portfolio_body.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/widgets/portfolio_body.dart';
 import 'package:flutter/material.dart';
 import 'package:screen_protector/screen_protector.dart';
 

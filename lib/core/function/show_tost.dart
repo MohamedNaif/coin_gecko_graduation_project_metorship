@@ -5,8 +5,6 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_style.d
 import 'package:flutter/material.dart';
 import 'package:cherry_toast/cherry_toast.dart';
 
-import 'package:audioplayers/audioplayers.dart';
-
 import 'package:toastification/toastification.dart';
 
 enum ToastType { success, error, info }
@@ -15,7 +13,6 @@ void showCherryToast(
   BuildContext context,
   String message, {
   ToastType type = ToastType.info,
-  bool playSound = true,
 }) async {
   // Define colors and icons based on type
   Color backgroundColor;
@@ -39,28 +36,18 @@ void showCherryToast(
   // Show the toast
   CherryToast(
     themeColor: Colors.white,
-    title: Text(message, style: const TextStyle(color: Colors.white)),
+    title: Text(
+      message,
+      style: const TextStyle(
+          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+    ),
     backgroundColor: backgroundColor,
     displayIcon: true,
-    icon: icon,
+    iconWidget: Icon(icon),
     animationType: AnimationType.fromRight,
     animationDuration: const Duration(milliseconds: 500),
     toastDuration: const Duration(seconds: 2),
   ).show(context);
-
-  if (playSound) {
-    try {
-      final player = AudioPlayer();
-      await player.setSource(AssetSource('sound/notification.ogg'));
-      await player.resume();
-      // Dispose the player after playing
-      Future.delayed(const Duration(seconds: 2), () {
-        player.dispose();
-      });
-    } catch (e) {
-      debugPrint('Error playing sound: $e');
-    }
-  }
 }
 
 void showSnackBar({
