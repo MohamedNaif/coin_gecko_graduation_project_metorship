@@ -49,3 +49,11 @@ app.*.map.json
 project_backup.txt
 *.env
 
+
+.env
+.sonar/
+.scannerwork/
+.sonar_lock
+report-task.txt
+lcov.info
+tests.output
