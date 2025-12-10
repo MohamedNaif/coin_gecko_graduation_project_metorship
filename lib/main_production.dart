@@ -6,6 +6,7 @@ import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/routing/app_router.dart';
 
 void main() async {
@@ -15,9 +16,9 @@ void main() async {
   );
 
   configureDependencies();
+  await dotenv.load(fileName: ".env");
 
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
   runApp(const MyApp());
 }
 
