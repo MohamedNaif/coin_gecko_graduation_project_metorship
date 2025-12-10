@@ -10,6 +10,12 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
+import 'package:coin_gecko_graduation_project_metorship/features/home/data/datasources/home_remote_data_source.dart'
+    as _i362;
+import 'package:coin_gecko_graduation_project_metorship/features/home/data/repos/home_repo.dart'
+    as _i447;
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/manager/home_cubit.dart'
+    as _i629;
 import 'package:dio/dio.dart' as _i361;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:get_it/get_it.dart' as _i174;
@@ -17,15 +23,11 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 
 import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart'
-    as _i548;
+    as _i921;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
-    as _i923;
-import '../../features/auth/data/repos/auth_repo.dart' as _i507;
-import '../../features/auth/data/repos/auth_repo_impl.dart' as _i152;
-import '../../features/home/data/datasources/home_remote_data_source.dart'
-    as _i362;
-import '../../features/home/data/repos/home_repo.dart' as _i447;
-import '../../features/home/presentation/manager/home_cubit.dart' as _i629;
+    as _i586;
+import '../../features/auth/data/repos/auth_repo.dart' as _i559;
+import '../../features/auth/data/repos/auth_repo_impl.dart' as _i703;
 import '../../features/portfolio/data/data_source/portfolio_remote_data_source.dart'
     as _i914;
 import '../../features/portfolio/data/repository/portfolio_repository.dart'
@@ -73,13 +75,13 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.lazySingleton<_i11.PortfolioRepository>(() =>
         _i11.PortfolioRepositoryImpl(gh<_i914.PortfolioRemoteDataSource>()));
-    gh.factory<_i548.AuthRemoteDataSource>(
-        () => _i923.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
+    gh.factory<_i921.AuthRemoteDataSource>(
+        () => _i586.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
     gh.factory<_i629.HomeCubit>(() => _i629.HomeCubit(gh<_i447.HomeRepo>()));
     gh.factory<_i380.PortfolioCubit>(
         () => _i380.PortfolioCubit(repository: gh<_i11.PortfolioRepository>()));
-    gh.factory<_i507.AuthRepo>(
-        () => _i152.AuthRepoImpl(gh<_i548.AuthRemoteDataSource>()));
+    gh.factory<_i559.AuthRepo>(
+        () => _i703.AuthRepoImpl(gh<_i921.AuthRemoteDataSource>()));
     return this;
   }
 }

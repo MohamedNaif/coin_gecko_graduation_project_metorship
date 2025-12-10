@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +5,8 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:coin_gecko_graduation_project_metorship/core/extension/context_extention.dart';
 
 class SwitchAuthText extends StatelessWidget {
-final String questionText;   
-  final String actionText;     
+  final String questionText;
+  final String actionText;
   final VoidCallback onTap;
   const SwitchAuthText({
     super.key,
@@ -20,15 +19,14 @@ final String questionText;
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: questionText ,
+        text: questionText,
         style: context.textTheme.labelMedium?.copyWith(
           fontSize: 18,
           color: AppColors.gray900,
         ),
         children: [
           TextSpan(
-            recognizer: TapGestureRecognizer()
-              ..onTap = onTap,
+            recognizer: TapGestureRecognizer()..onTap = onTap,
             text: actionText,
             style: context.textTheme.labelMedium?.copyWith(
               fontSize: 18,

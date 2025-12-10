@@ -26,22 +26,15 @@ class LoginScreenBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: AppDimensions.spacingMassive),
-            
             const CustomAuthTitle(
               title: AppStrings.loginToYourAccount,
               subTitle: AppStrings.loginSubtitle,
             ),
-            
             const SizedBox(height: AppDimensions.spacingHuge),
-            
             const CustomLoginForms(),
-            
             const SizedBox(height: AppDimensions.spacingSmall),
-            
             const RememberMeSection(),
-            
             const SizedBox(height: AppDimensions.spacingXLarge),
-            
             BlocListener<LoginCubit, LoginState>(
               listener: (context, state) {
                 if (state is LoginFailure) {
@@ -73,17 +66,11 @@ class LoginScreenBody extends StatelessWidget {
                 ),
               ),
             ),
-            
             const SizedBox(height: AppDimensions.spacingXLarge),
-            
             const LoginMethodsSection(),
-            
             const SizedBox(height: AppDimensions.spacingMedium),
-            
             const BiometricAuthSection(),
-            
             const SizedBox(height: AppDimensions.spacingXSmall),
-            
             SwitchAuthText(
               questionText: AppStrings.dontHaveAccount,
               actionText: AppStrings.signUpAction,

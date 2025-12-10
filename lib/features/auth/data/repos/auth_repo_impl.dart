@@ -34,7 +34,7 @@ class AuthRepoImpl implements AuthRepo {
       );
     } on ServerFailure catch (e) {
       return FailureResult(e);
-    }on Exception catch (e) {
+    } on Exception catch (e) {
       return FailureResult(GeneralFailure.fromException(e));
     }
   }

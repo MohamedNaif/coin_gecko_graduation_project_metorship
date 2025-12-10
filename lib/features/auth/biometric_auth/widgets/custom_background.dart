@@ -1,10 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomBackground extends StatelessWidget {
-  Widget child;
-   CustomBackground({
+  final Widget child;
+  const CustomBackground({
     super.key,
     required this.child,
   });
@@ -14,8 +13,8 @@ class CustomBackground extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
-      body: Stack(
-        children:[ Container(
+      body: Stack(children: [
+        Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
@@ -38,16 +37,15 @@ class CustomBackground extends StatelessWidget {
                   height: 342,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xFF1D3A70).withOpacity(0.15),
+                    color: Color(0xFF1D3A70).withValues(alpha: 0.15),
                   ),
                 ),
               ),
-        
             ],
           ),
         ),
-        child,]
-      ),
+        child,
+      ]),
     );
   }
 }

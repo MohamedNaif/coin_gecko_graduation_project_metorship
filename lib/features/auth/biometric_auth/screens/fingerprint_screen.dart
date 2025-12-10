@@ -11,6 +11,8 @@ class FingerprintScreen extends StatefulWidget {
 class _FingerprintScreenState extends State<FingerprintScreen> {
   @override
   Widget build(BuildContext context) {
-    return CustomBackground(child: Column(),);
+    return CustomBackground(
+      child: Column(),
+    );
   }
 }

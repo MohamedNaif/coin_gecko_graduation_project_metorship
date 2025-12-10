@@ -4,6 +4,5 @@ abstract interface class AuthRemoteDataSource {
   Future<String> createUserWithEmailAndPassword(
       {required String email, required String password});
   Future<void> saveUserData({required UserModel userModel});
-  Future<String> signIn(
-      {required String email, required String password});
+  Future<String> signIn({required String email, required String password});
 }

@@ -15,7 +15,7 @@ class CustomRegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<RegisterCubit>();
-    
+
     return Form(
       key: cubit.formKey,
       child: Column(
@@ -36,7 +36,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.lastNameController,
@@ -53,7 +52,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.emailController,
@@ -70,7 +68,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.passwordController,
@@ -87,7 +84,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.confirmPasswordController,
@@ -107,7 +103,6 @@ class CustomRegisterForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensions.spacingSmall),
-          
           CustomTextFormField(
             config: CustomTextFieldConfig(
               controller: cubit.phoneNumberController,

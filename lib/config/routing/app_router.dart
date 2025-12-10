@@ -1,9 +1,9 @@
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/trending_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/fingerprint_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/screens/login_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/screens/register_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/trending_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';

@@ -40,8 +40,7 @@ abstract class DioModule {
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
-          options.headers['x-cg-demo-api-key'] =
-              dotenv.env['COINGECKO_API_KEY'] ?? '';
+          options.headers['x-cg-demo-api-key'] = dotenv.env['API_HEADER'];
           if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");

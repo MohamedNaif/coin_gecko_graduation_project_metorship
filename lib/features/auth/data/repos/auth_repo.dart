@@ -9,7 +9,7 @@ abstract interface class AuthRepo {
     required String password,
     required String phoneNumber,
   });
-Future<Result<String>> signIn({
+  Future<Result<String>> signIn({
     required String email,
     required String password,
   });
