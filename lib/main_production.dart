@@ -5,14 +5,16 @@ import 'package:coin_gecko_graduation_project_metorship/core/function/check_stat
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/routing/app_router.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await dotenv.load(fileName: ".env");
@@ -20,11 +22,31 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   configureDependencies();
   await dotenv.load(fileName: ".env");
 
   Bloc.observer = MyBlocObserver();
+  if (kDebugMode) {
+    runApp(const MyApp());
+  } else {
+    await _initSentry();
+  }
+}
+
+Future<void> _initSentry() async {
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          'https://371bf0e4728cfdfcf7ca762a9e965a2e@o4510234337214464.ingest.us.sentry.io/4510290955206656';
+
+      options.tracesSampleRate = 1.0;
+    },
+    appRunner: () => runApp(
+      SentryWidget(
+        child: MyApp(),
+      ),
+    ),
+  );
 
   runApp(
     EasyLocalization(
@@ -67,7 +89,6 @@ class _MyAppState extends State<MyApp> {
       locale: context.locale,
       initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
-      home: const Scaffold(body: Center(child: Text('Coin Gecko Production'))),
     );
   }
 }
