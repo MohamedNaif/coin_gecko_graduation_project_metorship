@@ -54,13 +54,11 @@ dependencies:
   shimmer: ^3.0.0
   toastification: ^3.0.3
   smooth_page_indicator: ^1.2.1
-  fl_chart: ^1.1.0
+  fl_chart: ^0.69.0
   json_annotation: ^4.9.0
   shared_preferences: ^2.5.3
   flutter_dotenv: ^6.0.0
   freezed_annotation: ^3.1.0
-
-
 
 dev_dependencies:
   sentry_dart_plugin: ^3.2.0
@@ -73,8 +71,6 @@ dev_dependencies:
     sdk: flutter
   json_serializable: ^6.11.2
   freezed: ^3.2.3
-
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
