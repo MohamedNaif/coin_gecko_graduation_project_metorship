@@ -5,6 +5,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/auth/presentati
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/trending_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/pages/payment_method_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
-      // case Routes.home:
-      //   return MaterialPageRoute(builder: (_) => const Scaffold());
       case Routes.login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-      // case Routes.signup:
-      //   return MaterialPageRoute(builder: (_) => const Scaffold());
-
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.trendingScreen:
@@ -33,6 +29,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const FingerprintScreen());
       case Routes.portfolio:
         return MaterialPageRoute(builder: (_) => const PortfolioPage());
+      case Routes.paymentMethod:
+        return MaterialPageRoute(builder: (_) => const PaymentMethodPage());
 
       default:
         return null;

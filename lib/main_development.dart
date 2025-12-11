@@ -16,11 +16,8 @@ import 'package:easy_localization/easy_localization.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await dotenv.load(fileName: ".env");
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   configureDependencies();
   await dotenv.load(fileName: ".env");
 
@@ -65,7 +62,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      initialRoute: Routes.splash,
+      initialRoute: Routes.paymentMethod,
       onGenerateRoute: AppRouter().generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

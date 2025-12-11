@@ -102,4 +102,11 @@ class AppStrings {
   static const String retryButton = 'Retry';
   static const String errorOccurred = 'An error occurred';
   static const String errorLoadingData = 'Error loading data';
+  //**************** Payment Feature ****************//
+  static const String paymentMethod = 'Payment Method';
+  static const String sendReceipt = 'Send Receipt';
+  static const String buy = 'Buy';
+  static const String creditCard = 'Credit Card';
+  static const String googlePay = 'Google Pay';
+  static const String mobileBanking = 'Mobile Banking';
 }
