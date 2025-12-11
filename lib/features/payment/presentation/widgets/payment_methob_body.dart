@@ -1,4 +1,5 @@
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/payment/data/model/payment_body.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/widgets/buy_buttom.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/widgets/payment_haeder.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/widgets/payment_method_list.dart';
@@ -6,7 +7,8 @@ import 'package:coin_gecko_graduation_project_metorship/features/payment/present
 import 'package:flutter/material.dart';
 
 class PaymentMethodBody extends StatelessWidget {
-  const PaymentMethodBody({super.key});
+  const PaymentMethodBody({super.key, required this.paymentBody});
+  final PaymentBody paymentBody;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,9 @@ class PaymentMethodBody extends StatelessWidget {
             SizedBox(
               height: 54,
             ),
-            BuyBottom(),
+            BuyBottom(
+              paymentBody: paymentBody,
+            ),
           ],
         ),
       ),

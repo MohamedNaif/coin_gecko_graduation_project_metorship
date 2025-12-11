@@ -7,13 +7,15 @@ part of 'trending_coin_model.dart';
 // **************************************************************************
 
 TrendingData _$TrendingDataFromJson(Map<String, dynamic> json) => TrendingData(
-  coins: (json['coins'] as List<dynamic>?)
-      ?.map((e) => TrendingCoinModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
+      coins: (json['coins'] as List<dynamic>?)
+          ?.map((e) => TrendingCoinModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$TrendingDataToJson(TrendingData instance) =>
-    <String, dynamic>{'coins': instance.coins};
+    <String, dynamic>{
+      'coins': instance.coins,
+    };
 
 TrendingCoinModel _$TrendingCoinModelFromJson(Map<String, dynamic> json) =>
     TrendingCoinModel(
@@ -22,13 +24,9 @@ TrendingCoinModel _$TrendingCoinModelFromJson(Map<String, dynamic> json) =>
       symbol: TrendingCoinModel._readSymbol(json, 'symbol') as String?,
       thumb: TrendingCoinModel._readThumb(json, 'thumb') as String?,
       price: (TrendingCoinModel._readPrice(json, 'price') as num?)?.toDouble(),
-      priceChangePercentage24h:
-          (TrendingCoinModel._readPriceChange(
-                    json,
-                    'price_change_percentage_24h',
-                  )
-                  as num?)
-              ?.toDouble(),
+      priceChangePercentage24h: (TrendingCoinModel._readPriceChange(
+              json, 'price_change_percentage_24h') as num?)
+          ?.toDouble(),
       sparkline: TrendingCoinModel._readSparkline(json, 'sparkline') as String?,
     );
 

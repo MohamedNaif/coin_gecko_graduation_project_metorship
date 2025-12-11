@@ -5,6 +5,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/auth/presentati
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/trending_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/payment/data/model/payment_body.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/pages/payment_method_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
@@ -30,7 +31,12 @@ class AppRouter {
       case Routes.portfolio:
         return MaterialPageRoute(builder: (_) => const PortfolioPage());
       case Routes.paymentMethod:
-        return MaterialPageRoute(builder: (_) => const PaymentMethodPage());
+        return MaterialPageRoute(
+            builder: (_) => PaymentMethodPage(
+                  //only for test
+                  paymentBody: PaymentBody(
+                      amount: '200', name: 'Abdelrahman', currency: 'USD'),
+                ));
 
       default:
         return null;

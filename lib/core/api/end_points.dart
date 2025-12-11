@@ -5,7 +5,9 @@ abstract class EndPoints {
   static const String trending = '/search/trending';
   static const String markets = '/coins/markets';
 
- 
   //! =======Portfolio Endpoints========
   static const String portfolio = 'price';
+  //=======Payment Endpoints========
+  static const String paymentEndPoint = 'payment_intents';
+  static const String paymentBaseUrl = 'https://api.stripe.com/v1/';
 }
