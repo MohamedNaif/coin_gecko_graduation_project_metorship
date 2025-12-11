@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../config/theme/app_colors.dart';
+import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/constants/app_strings.dart';
 import '../../data/models/coin_model.dart';
 import '../cubit/market_cubit.dart';
 import '../cubit/market_state.dart';
@@ -20,7 +22,6 @@ class MarketView extends StatefulWidget {
 }
 
 class _MarketViewState extends State<MarketView> {
-  final TextEditingController searchTextController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _isLoadingMore = false;
 
@@ -46,12 +47,13 @@ class _MarketViewState extends State<MarketView> {
   @override
   void dispose() {
     _scrollController.dispose();
-    searchTextController.dispose();
     super.dispose();
   }
 
-  Widget _buildMarketList(List<CoinModel> coins,
-      {bool showLoadingIndicator = false}) {
+  Widget _buildMarketList(
+    List<CoinModel> coins, {
+    bool showLoadingIndicator = false,
+  }) {
     return ListView.builder(
       controller: _scrollController,
       itemCount: coins.length + (showLoadingIndicator ? 1 : 0),
@@ -90,18 +92,18 @@ class _MarketViewState extends State<MarketView> {
           style: TextStyle(
             color: AppColors.primaryDark,
             fontWeight: FontWeight.bold,
-            fontSize: 24,
-            fontFamily: 'lato',
+            fontSize: AppDimensions.textSizeHuge,
+            fontFamily: AppStrings.fontFamily,
           ),
         ),
-        backgroundColor: const Color(0xfff5f8fe),
+        backgroundColor: AppColors.lightBackground,
         elevation: 0,
       ),
-      backgroundColor: const Color(0xfff5f8fe),
+      backgroundColor: AppColors.lightBackground,
       body: Column(
         children: [
-          SearchSection(searchTextController: searchTextController),
-          const SizedBox(height: 8),
+          SearchSection(),
+          const SizedBox(height: AppDimensions.spacingTiny),
           Expanded(
             child: BlocBuilder<SearchCubit, SearchState>(
               builder: (context, searchState) {
@@ -110,7 +112,7 @@ class _MarketViewState extends State<MarketView> {
                 } else if (searchState is SearchResults) {
                   final results = searchState.results;
                   if (results.isEmpty) {
-                    return const Center(child: Text('No results'));
+                    return const Center(child: Text(AppStrings.noResult));
                   }
                   return ListView.builder(
                     itemCount: results.length,
@@ -125,7 +127,8 @@ class _MarketViewState extends State<MarketView> {
                   );
                 } else if (searchState is SearchError) {
                   return Center(
-                      child: Text('Search error: ${searchState.error}'));
+                    child: Text('Search error: ${searchState.error}'),
+                  );
                 }
 
                 // default: show market list
@@ -134,12 +137,15 @@ class _MarketViewState extends State<MarketView> {
                     if (state is MarketLoading) {
                       return _buildShimmers();
                     } else if (state is MarketLoaded) {
-                      return _buildMarketList(state.coins,
-                          showLoadingIndicator: !state.hasReachedEnd);
+                      return _buildMarketList(
+                        state.coins,
+                        showLoadingIndicator: !state.hasReachedEnd,
+                      );
                     } else if (state is MarketError) {
                       return ErrorRetry(
-                          message: state.message,
-                          onRetry: () => context.read<MarketCubit>().retry());
+                        message: state.message,
+                        onRetry: () => context.read<MarketCubit>().retry(),
+                      );
                     }
                     return const SizedBox.shrink();
                   },

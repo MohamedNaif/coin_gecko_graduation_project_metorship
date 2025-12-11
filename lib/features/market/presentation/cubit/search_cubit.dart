@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:coin_gecko_graduation_project_metorship/features/market/presentation/cubit/search_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import '../../data/repos/market_repository.dart';
 
+@injectable
 class SearchCubit extends Cubit<SearchState> {
   final MarketRepository repo;
   Timer? _debounce;
@@ -21,13 +23,14 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SearchLoading());
 
       try {
-        final result =await repo.searchCoins(query);
+        final result = await repo.searchCoins(query);
         emit(SearchResults(result));
       } catch (e) {
         emit(SearchError(e.toString()));
       }
     });
   }
+
   @override
   Future<void> close() {
     _debounce?.cancel();

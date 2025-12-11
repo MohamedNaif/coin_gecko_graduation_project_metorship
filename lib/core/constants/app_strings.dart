@@ -102,4 +102,9 @@ class AppStrings {
   static const String retryButton = 'Retry';
   static const String errorOccurred = 'An error occurred';
   static const String errorLoadingData = 'Error loading data';
+  static const String searchHint = 'Search...';
+  static const String noResult = 'No results';
+
+  //**************** Font  ****************//
+  static const String fontFamily = 'Lato';
 }

@@ -7,15 +7,22 @@ class ShimmerItem extends StatefulWidget {
   State<ShimmerItem> createState() => _ShimmerItemState();
 }
 
-class _ShimmerItemState extends State<ShimmerItem> with SingleTickerProviderStateMixin {
+class _ShimmerItemState extends State<ShimmerItem>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _anim;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200))..repeat();
-    _anim = Tween<double>(begin: 0.3, end: 0.9).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat();
+    _anim = Tween<double>(
+      begin: 0.3,
+      end: 0.9,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override

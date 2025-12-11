@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_dimensions.dart';
+
 class SearchListItemWidget extends StatelessWidget {
   final String name;
   final String imageUrl;
   final int marketCapRank;
-
 
   const SearchListItemWidget({
     super.key,
@@ -16,24 +17,42 @@ class SearchListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      margin: const EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingHorizontal,
+        vertical: AppDimensions.paddingVerticalSmall,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingHorizontalSmall,
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(
+          AppDimensions.containerBorderRadiusLarge,
+        ),
       ),
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         leading: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(
+            AppDimensions.containerBorderRadiusMedium,
+          ),
           child: imageUrl.isNotEmpty
-              ? Image.network(imageUrl,
-              width: 52,
-              height: 52,
-              fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) =>
-                  Container(width: 52, height: 52, color: Colors.grey[200]))
-              : Container(width: 52, height: 52, color: Colors.grey[200]),
+              ? Image.network(
+                  imageUrl,
+                  width: AppDimensions.containerWidth,
+                  height: AppDimensions.containerHeight,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Container(
+                    width: AppDimensions.containerWidth,
+                    height: AppDimensions.containerHeight,
+                    color: Colors.grey[200],
+                  ),
+                )
+              : Container(
+                  width: AppDimensions.containerWidth,
+                  height: AppDimensions.containerHeight,
+                  color: Colors.grey[200],
+                ),
         ),
         title: Text(name),
         subtitle: Text('Rank #$marketCapRank'),

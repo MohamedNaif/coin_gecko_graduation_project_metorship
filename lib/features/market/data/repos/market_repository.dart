@@ -1,26 +1,32 @@
-
-import '../../../../core/api/api_services.dart';
+import 'package:injectable/injectable.dart';
+import '../../../../core/api/api_constant.dart';
+import '../data_source/market_remote_data_source.dart';
 import '../models/coin_model.dart';
 import '../models/search_coin_model.dart';
+import '../models/search_response.dart';
 
+@lazySingleton
 class MarketRepository {
-  final ApiService api;
+  final MarketRemoteDataSource remoteDataSource;
 
-  MarketRepository({required this.api});
+  MarketRepository(this.remoteDataSource);
 
   Future<List<CoinModel>> fetchMarketCoins({
     required int page,
-    int perPage = 50,
+    int perPage = ApiConstant.defaultPerPage,
   }) {
-    return api.getMarketCoins("usd", "market_cap_desc", perPage, page);
+    return remoteDataSource.getMarketCoins(
+      ApiConstant.usd,
+      ApiConstant.defaultOrder,
+      perPage,
+      page,
+    );
   }
 
   Future<List<SearchCoinModel>> searchCoins(String query) async {
     if (query.isEmpty) return [];
 
-    final response = await api.searchCoins(query);
-
+    final SearchResponse response = await remoteDataSource.searchCoins(query);
     return response.coins;
   }
-
 }

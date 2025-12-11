@@ -13,19 +13,6 @@ part 'api_services.g.dart';
 @RestApi(baseUrl: EndPoints.baseUrl)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
-
-  @GET(EndPoints.markets)
-  Future<List<CoinModel>> getMarketCoins(
-    @Query("vs_currency") String currency,
-    @Query("order") String order,
-    @Query("per_page") int perPage,
-    @Query("page") int page,
-  );
-  @GET(EndPoints.search)
-  Future<SearchResponse> searchCoins(
-    @Query("query") String keyword,
-  );
-
   @GET(EndPoints.global)
   Future<GlobalDataModel> getGlobalData();
 

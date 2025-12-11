@@ -2,23 +2,19 @@ import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TapsBar extends StatefulWidget {
-  const TapsBar({super.key});
+import '../../../../core/constants/app_dimensions.dart';
+
+class TabsBar extends StatefulWidget {
+  const TabsBar({super.key});
 
   @override
-  State<TapsBar> createState() => _TapsBarState();
+  State<TabsBar> createState() => _TabsBarState();
 }
 
-class _TapsBarState extends State<TapsBar> {
+class _TabsBarState extends State<TabsBar> {
   int selectedIndex = 0;
 
-  final List<String> categories = [
-    'All',
-    'DeFi',
-    'NFT',
-    'Gaming',
-    'Metaverse',
-  ];
+  final List<String> categories = ['All', 'DeFi', 'NFT', 'Gaming', 'Metaverse'];
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +22,7 @@ class _TapsBarState extends State<TapsBar> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(categories.length, (index) {
-          return CategoryTap(
+          return CategoryTab(
             name: categories[index],
             isSelected: selectedIndex == index,
             onTap: () {
@@ -41,12 +37,12 @@ class _TapsBarState extends State<TapsBar> {
   }
 }
 
-class CategoryTap extends StatelessWidget {
+class CategoryTab extends StatelessWidget {
   final String name;
   final bool isSelected;
   final VoidCallback onTap;
 
-  const CategoryTap({
+  const CategoryTab({
     super.key,
     required this.name,
     required this.isSelected,
@@ -59,13 +55,20 @@ class CategoryTap extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4.0),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(
+          AppDimensions.containerBorderRadiusXLarge,
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: isSelected ? AppColors.primaryDark : AppColors.white,
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(
+              AppDimensions.containerBorderRadiusXLarge,
+            ),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+          padding: const EdgeInsets.symmetric(
+            vertical: AppDimensions.paddingVerticalXSmall,
+            horizontal: AppDimensions.paddingHorizontal,
+          ),
           child: Text(
             name,
             style: GoogleFonts.raleway(

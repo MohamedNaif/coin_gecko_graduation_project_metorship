@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/constants/app_strings.dart';
+
 class ErrorRetry extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
@@ -10,13 +13,16 @@ class ErrorRetry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(AppDimensions.errorRetryPadding),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(message, textAlign: TextAlign.center),
-            const SizedBox(height: 12),
-            ElevatedButton(onPressed: onRetry, child: const Text('Retry')),
+            const SizedBox(height: AppDimensions.spacingXSmall),
+            ElevatedButton(
+              onPressed: onRetry,
+              child: const Text(AppStrings.retryButton),
+            ),
           ],
         ),
       ),
