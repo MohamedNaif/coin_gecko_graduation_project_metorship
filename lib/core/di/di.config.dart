@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format width=80
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -62,10 +62,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => dioModule.provideApiService(gh<_i361.Dio>()),
     );
     gh.factory<_i362.HomeRemoteDataSource>(
-      () => _i362.HomeRemoteDataSource(gh<_i361.Dio>()),
+      () => _i362.HomeRemoteDataSource.new(gh<_i361.Dio>()),
     );
     gh.factory<_i914.PortfolioRemoteDataSource>(
-      () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()),
+      () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()),
     );
     gh.factory<_i447.HomeRepo>(
       () => _i447.HomeRepo(gh<_i362.HomeRemoteDataSource>()),
