@@ -1,0 +1,17 @@
+Market Screen:
+- GET /coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1 - Coin list with pagination
+- GET /search?query={keyword} - Search coins
+Coin Details Screen:
+- GET /coins/{id} - Detailed coin information
+- GET /coins/{id}/market_chart?vs_currency=usd&days={1|7|30|365|max} - Price chart data
+
+
+API KEY: CG-mQ1pYapiF5CVFiAHWraCVy7C
+
+
+
+// Source - https://stackoverflow.com/a
+// Posted by VasilKanev
+// Retrieved 2025-11-30, License - CC BY-SA 4.0
+
+flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs

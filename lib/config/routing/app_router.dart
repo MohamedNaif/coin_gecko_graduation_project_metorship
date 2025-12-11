@@ -8,10 +8,14 @@ import 'package:coin_gecko_graduation_project_metorship/features/onboarding/pres
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
+import '../../features/market/presentation/pages/market_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.market:
+        return MaterialPageRoute(builder: (_) => const MarketScreen());
+
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onboardingScreen:
