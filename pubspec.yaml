@@ -54,28 +54,26 @@ dependencies:
   shimmer: ^3.0.0
   toastification: ^3.0.3
   smooth_page_indicator: ^1.2.1
-  fl_chart: ^1.1.0
+  fl_chart: ^0.69.0
   json_annotation: ^4.9.0
   shared_preferences: ^2.5.3
   flutter_dotenv: ^6.0.0
   freezed_annotation: ^3.1.0
   flutter_stripe: ^12.1.1
 
-
-
 dev_dependencies:
   sentry_dart_plugin: ^3.2.0
   retrofit_generator: ^10.0.0
   injectable_generator:
   # add build runner if not already added
-  build_runner: ^2.10.4
+  build_runner: ^2.7.1
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  json_serializable: ^6.11.2
+  json_serializable: ^6.9.0
   freezed: ^3.2.3
-
-
+  mockito: ^5.4.4
+  bloc_test: ^10.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
