@@ -3,4 +3,6 @@ abstract class ApiQueryParameter {
   static const String ids = 'ids';
   static const String vsCurrencies = 'vs_currencies';
   static const String include24hrChange = 'include_24hr_change';
+  static const String amount = 'amount';
+  static const String currency = 'currency';
 }

@@ -75,4 +75,38 @@ class AppStrings {
   static const String getStartedNow = 'Get Started Now!';
   static const String skip = 'Skip';
   static const String register = 'Register';
+
+  //**************** Home Feature ****************//
+  static const String home = 'home';
+  static const String market = 'market';
+  static const String portfolio = 'portfolio';
+  static const String settings = 'settings';
+  static const String marketScreenBody = 'marketScreenBody';
+  static const String portfolioScreenBody = 'portfolioScreenBody';
+  static const String settingsScreenBody = 'settingsScreenBody';
+  static const String hi = 'hi';
+  static const String marketOverview = 'marketOverview';
+  static const String marketCap = 'marketCap';
+  static const String loading = 'loading';
+  static const String volume24h = 'volume24h';
+  static const String btcDominance = 'btcDominance';
+  static const String activeCoins = 'activeCoins';
+  static const String trendingNow = 'trendingNow';
+  static const String viewAll = 'viewAll';
+  static const String topGainers = 'topGainers';
+  static const String currentBalance = 'currentBalance';
+  static const String weeklyProfit = 'weeklyProfit';
+
+  //**************** Error Widget ****************//
+  static const String errorTitle = 'Something Went Wrong';
+  static const String retryButton = 'Retry';
+  static const String errorOccurred = 'An error occurred';
+  static const String errorLoadingData = 'Error loading data';
+  //**************** Payment Feature ****************//
+  static const String paymentMethod = 'Payment Method';
+  static const String sendReceipt = 'Send Receipt';
+  static const String buy = 'Buy';
+  static const String creditCard = 'Credit Card';
+  static const String googlePay = 'Google Pay';
+  static const String mobileBanking = 'Mobile Banking';
 }
