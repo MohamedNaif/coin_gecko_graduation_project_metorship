@@ -43,28 +43,36 @@ class MockHomeRepo extends _i1.Mock implements _i2.HomeRepo {
   @override
   _i3.Future<_i4.Result<_i5.GlobalDataModel>> getGlobalData() =>
       (super.noSuchMethod(
-            Invocation.method(#getGlobalData, []),
-            returnValue: _i3.Future<_i4.Result<_i5.GlobalDataModel>>.value(
-              _i6.dummyValue<_i4.Result<_i5.GlobalDataModel>>(
-                this,
-                Invocation.method(#getGlobalData, []),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.Result<_i5.GlobalDataModel>>);
+        Invocation.method(
+          #getGlobalData,
+          [],
+        ),
+        returnValue: _i3.Future<_i4.Result<_i5.GlobalDataModel>>.value(
+            _i6.dummyValue<_i4.Result<_i5.GlobalDataModel>>(
+          this,
+          Invocation.method(
+            #getGlobalData,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i4.Result<_i5.GlobalDataModel>>);
 
   @override
   _i3.Future<_i4.Result<_i7.TrendingData>> getTrendingCoins() =>
       (super.noSuchMethod(
-            Invocation.method(#getTrendingCoins, []),
-            returnValue: _i3.Future<_i4.Result<_i7.TrendingData>>.value(
-              _i6.dummyValue<_i4.Result<_i7.TrendingData>>(
-                this,
-                Invocation.method(#getTrendingCoins, []),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.Result<_i7.TrendingData>>);
+        Invocation.method(
+          #getTrendingCoins,
+          [],
+        ),
+        returnValue: _i3.Future<_i4.Result<_i7.TrendingData>>.value(
+            _i6.dummyValue<_i4.Result<_i7.TrendingData>>(
+          this,
+          Invocation.method(
+            #getTrendingCoins,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i4.Result<_i7.TrendingData>>);
 
   @override
   _i3.Future<_i4.Result<List<_i8.MarketCoinModel>>> getMarkets({
@@ -75,26 +83,31 @@ class MockHomeRepo extends _i1.Mock implements _i2.HomeRepo {
     bool? sparkline = false,
   }) =>
       (super.noSuchMethod(
-            Invocation.method(#getMarkets, [], {
+        Invocation.method(
+          #getMarkets,
+          [],
+          {
+            #vsCurrency: vsCurrency,
+            #order: order,
+            #perPage: perPage,
+            #page: page,
+            #sparkline: sparkline,
+          },
+        ),
+        returnValue: _i3.Future<_i4.Result<List<_i8.MarketCoinModel>>>.value(
+            _i6.dummyValue<_i4.Result<List<_i8.MarketCoinModel>>>(
+          this,
+          Invocation.method(
+            #getMarkets,
+            [],
+            {
               #vsCurrency: vsCurrency,
               #order: order,
               #perPage: perPage,
               #page: page,
               #sparkline: sparkline,
-            }),
-            returnValue:
-                _i3.Future<_i4.Result<List<_i8.MarketCoinModel>>>.value(
-                  _i6.dummyValue<_i4.Result<List<_i8.MarketCoinModel>>>(
-                    this,
-                    Invocation.method(#getMarkets, [], {
-                      #vsCurrency: vsCurrency,
-                      #order: order,
-                      #perPage: perPage,
-                      #page: page,
-                      #sparkline: sparkline,
-                    }),
-                  ),
-                ),
-          )
-          as _i3.Future<_i4.Result<List<_i8.MarketCoinModel>>>);
+            },
+          ),
+        )),
+      ) as _i3.Future<_i4.Result<List<_i8.MarketCoinModel>>>);
 }

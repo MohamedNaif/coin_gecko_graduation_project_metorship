@@ -14,4 +14,6 @@ SimplePriceModel _$SimplePriceModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$SimplePriceModelToJson(SimplePriceModel instance) =>
-    <String, dynamic>{'coins': instance.coins};
+    <String, dynamic>{
+      'coins': instance.coins,
+    };
