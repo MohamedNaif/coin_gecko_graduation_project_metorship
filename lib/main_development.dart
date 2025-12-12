@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      initialRoute: Routes.paymentMethod,
+      initialRoute: Routes.splash,
       onGenerateRoute: AppRouter().generateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
