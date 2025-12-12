@@ -107,6 +107,12 @@ class AppAssets {
   static const String iconSwap = 'assets/icons/swap_icon.svg';
   static const String iconUp = 'assets/icons/up_icon.svg';
   static const String iconWallet = 'assets/icons/wallet_icon.svg';
+
+  static const String iconArowUpRight = 'assets/icons/arow_up_right_icon.svg';
+  static const String iconArowCurved = 'assets/icons/arow_curved_icon.svg';
+  static const String iconArowCurvedRight =
+      'assets/icons/arow_curved_right_icon.svg';
+  static const String iconArowCurvedUp = 'assets/icons/arow_curved_up_icon.svg';
   static const String applePayIcon = 'assets/images/apple-pay-logo.png';
   static const String visaLogo = 'assets/images/vise-logo.png';
   static const String visaCreditCard = 'assets/images/visa-frame.png';

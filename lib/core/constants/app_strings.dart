@@ -44,7 +44,7 @@ class AppStrings {
       'Place your face in the scanner to set up Face ID authentication';
   static const String placeFaceUntilFills =
       'Place your face inside scanner\nuntil the icon completely fills';
-static const String biometricNotSupported =
+  static const String biometricNotSupported =
       'Biometric authentication is not supported on this device.';
   // Auth Subtitles
   static const String signUpSubtitle =
@@ -159,6 +159,11 @@ static const String biometricNotSupported =
   static const String retryButton = 'Retry';
   static const String errorOccurred = 'An error occurred';
   static const String errorLoadingData = 'Error loading data';
+  static const String searchHint = 'Search...';
+  static const String noResult = 'No results';
+
+  //**************** Font  ****************//
+  static const String fontFamily = 'Lato';
   //**************** Payment Feature ****************//
   static const String paymentMethod = 'Payment Method';
   static const String sendReceipt = 'Send Receipt';

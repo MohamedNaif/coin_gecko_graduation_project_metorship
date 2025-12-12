@@ -73,4 +73,9 @@ abstract class AppColors {
     end: Alignment.bottomCenter,
     colors: [Color(0xFF1E1F4B), Color(0xFF4766F9)],
   );
+
+  // Search Section
+  static const Color searchHint= Color(0xFF8F8F8F);
+
+
 }

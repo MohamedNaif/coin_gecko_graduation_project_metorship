@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -32,6 +32,11 @@ import '../../features/home/data/datasources/home_remote_data_source.dart'
     as _i362;
 import '../../features/home/data/repos/home_repo.dart' as _i447;
 import '../../features/home/presentation/manager/home_cubit.dart' as _i629;
+import '../../features/market/data/data_source/market_remote_data_source.dart'
+    as _i54;
+import '../../features/market/data/repos/market_repository.dart' as _i480;
+import '../../features/market/presentation/cubit/market_cubit.dart' as _i599;
+import '../../features/market/presentation/cubit/search_cubit.dart' as _i646;
 import '../../features/payment/data/data_source/payment_remote_data_source.dart'
     as _i957;
 import '../../features/payment/di/payment_dio_module.dart' as _i345;
@@ -82,14 +87,16 @@ extension GetItInjectableX on _i174.GetIt {
             ));
     gh.singleton<_i361.Dio>(
         () => dioModule.provideDio(gh<_i528.PrettyDioLogger>()));
+    gh.lazySingleton<_i54.MarketRemoteDataSource>(
+        () => _i54.MarketRemoteDataSource(gh<_i361.Dio>()));
     gh.lazySingleton<_i957.PaymentRemoteDataSource>(
-        () => _i957.PaymentRemoteDataSource.new(gh<_i361.Dio>()));
+        () => _i957.PaymentRemoteDataSource(gh<_i361.Dio>()));
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
     gh.factory<_i362.HomeRemoteDataSource>(
-        () => _i362.HomeRemoteDataSource.new(gh<_i361.Dio>()));
+        () => _i362.HomeRemoteDataSource(gh<_i361.Dio>()));
     gh.factory<_i914.PortfolioRemoteDataSource>(
-        () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()));
+        () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
     gh.factory<_i447.HomeRepo>(
         () => _i447.HomeRepo(gh<_i362.HomeRemoteDataSource>()));
     gh.factory<_i53.SettingsRepo>(
@@ -104,11 +111,19 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i46.AuthLocalDataSourceImpl(gh<_i152.LocalAuthentication>()));
     gh.lazySingleton<_i11.PortfolioRepository>(() =>
         _i11.PortfolioRepositoryImpl(gh<_i914.PortfolioRemoteDataSource>()));
+    gh.lazySingleton<_i480.MarketRepository>(
+        () => _i480.MarketRepository(gh<_i54.MarketRemoteDataSource>()));
     gh.factory<_i548.AuthRemoteDataSource>(
         () => _i923.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
+    gh.factory<_i599.MarketCubit>(() => _i599.MarketCubit(
+          repo: gh<_i480.MarketRepository>(),
+          perPage: gh<int>(),
+        ));
     gh.factory<_i629.HomeCubit>(() => _i629.HomeCubit(gh<_i447.HomeRepo>()));
     gh.factory<_i380.PortfolioCubit>(
         () => _i380.PortfolioCubit(repository: gh<_i11.PortfolioRepository>()));
+    gh.factory<_i646.SearchCubit>(
+        () => _i646.SearchCubit(gh<_i480.MarketRepository>()));
     gh.factory<_i507.AuthRepo>(() => _i152.AuthRepoImpl(
           gh<_i548.AuthRemoteDataSource>(),
           gh<_i755.AuthLocalDataSource>(),

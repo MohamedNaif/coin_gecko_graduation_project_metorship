@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/api/end_points.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
@@ -28,7 +29,7 @@ abstract class DioModule {
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 60),
-        baseUrl: "https://api.coingecko.com/api/v3",
+        baseUrl: EndPoints.baseUrl,
       ),
     );
     dio.options.headers["Content-Type"] = "multipart/form-data";
