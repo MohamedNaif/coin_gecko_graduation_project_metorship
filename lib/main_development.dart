@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     authStateService.checkStateChanges();
-    // _setupPrivacyScreen();
+    _setupPrivacyScreen();
   }
 
   void _setupPrivacyScreen() {
