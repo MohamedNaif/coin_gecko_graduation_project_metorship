@@ -68,13 +68,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i361.Dio>(
         () => dioModule.provideDio(gh<_i528.PrettyDioLogger>()));
     gh.lazySingleton<_i957.PaymentRemoteDataSource>(
-        () => _i957.PaymentRemoteDataSource(gh<_i361.Dio>()));
+        () => _i957.PaymentRemoteDataSource.new(gh<_i361.Dio>()));
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
     gh.factory<_i362.HomeRemoteDataSource>(
-        () => _i362.HomeRemoteDataSource(gh<_i361.Dio>()));
+        () => _i362.HomeRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i914.PortfolioRemoteDataSource>(
-        () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
+        () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i447.HomeRepo>(
         () => _i447.HomeRepo(gh<_i362.HomeRemoteDataSource>()));
     gh.singleton<_i726.FirebaseUtils>(() => _i726.FirebaseUtils(

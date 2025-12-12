@@ -31,13 +31,23 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeGlobalDataResponse_0 extends _i1.SmartFake
     implements _i2.GlobalDataResponse {
-  _FakeGlobalDataResponse_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeGlobalDataResponse_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeTrendingData_1 extends _i1.SmartFake implements _i3.TrendingData {
-  _FakeTrendingData_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeTrendingData_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 /// A class which mocks [HomeRemoteDataSource].
@@ -50,30 +60,35 @@ class MockHomeRemoteDataSource extends _i1.Mock
   }
 
   @override
-  _i5.Future<_i2.GlobalDataResponse> getGlobalData() =>
-      (super.noSuchMethod(
-            Invocation.method(#getGlobalData, []),
-            returnValue: _i5.Future<_i2.GlobalDataResponse>.value(
-              _FakeGlobalDataResponse_0(
-                this,
-                Invocation.method(#getGlobalData, []),
-              ),
-            ),
-          )
-          as _i5.Future<_i2.GlobalDataResponse>);
+  _i5.Future<_i2.GlobalDataResponse> getGlobalData() => (super.noSuchMethod(
+        Invocation.method(
+          #getGlobalData,
+          [],
+        ),
+        returnValue:
+            _i5.Future<_i2.GlobalDataResponse>.value(_FakeGlobalDataResponse_0(
+          this,
+          Invocation.method(
+            #getGlobalData,
+            [],
+          ),
+        )),
+      ) as _i5.Future<_i2.GlobalDataResponse>);
 
   @override
-  _i5.Future<_i3.TrendingData> getTrendingCoins() =>
-      (super.noSuchMethod(
-            Invocation.method(#getTrendingCoins, []),
-            returnValue: _i5.Future<_i3.TrendingData>.value(
-              _FakeTrendingData_1(
-                this,
-                Invocation.method(#getTrendingCoins, []),
-              ),
-            ),
-          )
-          as _i5.Future<_i3.TrendingData>);
+  _i5.Future<_i3.TrendingData> getTrendingCoins() => (super.noSuchMethod(
+        Invocation.method(
+          #getTrendingCoins,
+          [],
+        ),
+        returnValue: _i5.Future<_i3.TrendingData>.value(_FakeTrendingData_1(
+          this,
+          Invocation.method(
+            #getTrendingCoins,
+            [],
+          ),
+        )),
+      ) as _i5.Future<_i3.TrendingData>);
 
   @override
   _i5.Future<List<_i6.MarketCoinModel>> getMarkets({
@@ -84,16 +99,18 @@ class MockHomeRemoteDataSource extends _i1.Mock
     bool? sparkline = false,
   }) =>
       (super.noSuchMethod(
-            Invocation.method(#getMarkets, [], {
-              #vsCurrency: vsCurrency,
-              #order: order,
-              #perPage: perPage,
-              #page: page,
-              #sparkline: sparkline,
-            }),
-            returnValue: _i5.Future<List<_i6.MarketCoinModel>>.value(
-              <_i6.MarketCoinModel>[],
-            ),
-          )
-          as _i5.Future<List<_i6.MarketCoinModel>>);
+        Invocation.method(
+          #getMarkets,
+          [],
+          {
+            #vsCurrency: vsCurrency,
+            #order: order,
+            #perPage: perPage,
+            #page: page,
+            #sparkline: sparkline,
+          },
+        ),
+        returnValue: _i5.Future<List<_i6.MarketCoinModel>>.value(
+            <_i6.MarketCoinModel>[]),
+      ) as _i5.Future<List<_i6.MarketCoinModel>>);
 }

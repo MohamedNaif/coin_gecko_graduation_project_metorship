@@ -367,12 +367,11 @@ class _Error implements PaymentState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Error &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @override
   String toString() {
@@ -400,10 +399,10 @@ class __$ErrorCopyWithImpl<$Res> implements _$ErrorCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
     return _then(_Error(
-      freezed == failure
+      null == failure
           ? _self.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failures,
