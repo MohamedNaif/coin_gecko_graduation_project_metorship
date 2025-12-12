@@ -107,6 +107,10 @@ class AppAssets {
   static const String iconSwap = 'assets/icons/swap_icon.svg';
   static const String iconUp = 'assets/icons/up_icon.svg';
   static const String iconWallet = 'assets/icons/wallet_icon.svg';
+  static const String applePayIcon = 'assets/images/apple-pay-logo.png';
+  static const String visaLogo = 'assets/images/vise-logo.png';
+  static const String visaCreditCard = 'assets/images/visa-frame.png';
+  static const String masterCard = 'assets/images/master-card.png';
   static const String faceIdBackground =
       'assets/icons/Set Face ID bachground.png';
   static const String successIcon = "assets/icons/Right.svg";

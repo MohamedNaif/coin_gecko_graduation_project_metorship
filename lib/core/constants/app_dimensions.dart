@@ -21,7 +21,11 @@ abstract class AppDimensions {
   // Portfolio header section
   static const double portfolioHeaderSectionPadding = 22;
   static const double portfolioHeaderSectionTopPadding = 20;
-
+  // Setting
+  static const double settingBodyVerticalPadding = 20;
+  static const double settingBodyHorizontalPadding = 16;
+  static const double tilePrefixIconPadding = 3;
+  static const double profileAvatarRadius = 55;
   // Biometric - Updated for better design
   static const double biometricPaddingHorizontal = 24.0;
   static const double biometricIconSize = 140.0; // زودتها شوية

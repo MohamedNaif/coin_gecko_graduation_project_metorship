@@ -49,6 +49,8 @@ static const String biometricNotSupported =
   // Auth Subtitles
   static const String signUpSubtitle =
       "Sign up to enjoy the best managing \nexperience!";
+  // static const String signUpSubtitle =
+  //     "Sign up to enjoy the best managing \nexperience!";
   static const String loginSubtitle = "Welcome back you've\nbeen missed!";
 
   // Form Field Hints
@@ -116,4 +118,52 @@ static const String biometricNotSupported =
       'Fast And Reliable Market Updated';
   static const String getStartedNow = 'Get Started Now!';
   static const String register = 'Register';
+
+  //**************** Setting page ****************//
+  static const String settings = 'Settings';
+  static const String general = 'General';
+  static const String myAccount = 'My Account';
+  static const String billingPayment = 'Billing/Payment';
+  static const String fAQSupport = 'FAQ & Support';
+  static const String language = 'Language';
+  static const String darkMode = 'Dark Mode';
+  static const String arabic = 'Arabic';
+  static const String english = 'English';
+  static const String selectLanguage = 'Select Language';
+  static const String chooseYourLanguage = 'Choose Your Language';
+  static const String cancel = 'Cancel';
+  static const String ok = 'OK';
+
+  //**************** Home Feature ****************//
+  static const String home = 'home';
+  static const String market = 'market';
+  static const String portfolio = 'portfolio';
+  static const String marketScreenBody = 'marketScreenBody';
+  static const String portfolioScreenBody = 'portfolioScreenBody';
+  static const String settingsScreenBody = 'settingsScreenBody';
+  static const String hi = 'hi';
+  static const String marketOverview = 'marketOverview';
+  static const String marketCap = 'marketCap';
+  static const String loading = 'loading';
+  static const String volume24h = 'volume24h';
+  static const String btcDominance = 'btcDominance';
+  static const String activeCoins = 'activeCoins';
+  static const String trendingNow = 'trendingNow';
+  static const String viewAll = 'viewAll';
+  static const String topGainers = 'topGainers';
+  static const String currentBalance = 'currentBalance';
+  static const String weeklyProfit = 'weeklyProfit';
+
+  //**************** Error Widget ****************//
+  static const String errorTitle = 'Something Went Wrong';
+  static const String retryButton = 'Retry';
+  static const String errorOccurred = 'An error occurred';
+  static const String errorLoadingData = 'Error loading data';
+  //**************** Payment Feature ****************//
+  static const String paymentMethod = 'Payment Method';
+  static const String sendReceipt = 'Send Receipt';
+  static const String buy = 'Buy';
+  static const String creditCard = 'Credit Card';
+  static const String googlePay = 'Google Pay';
+  static const String mobileBanking = 'Mobile Banking';
 }

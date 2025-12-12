@@ -23,6 +23,7 @@ import '../../features/auth/data/data_source/local/auth_local_data_source_impl.d
     as _i46;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart'
     as _i548;
+    as _i548;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
     as _i923;
 import '../../features/auth/data/repos/auth_repo.dart' as _i507;
@@ -33,6 +34,10 @@ import '../../features/portfolio/data/repository/portfolio_repository.dart'
     as _i11;
 import '../../features/portfolio/presentation/cubit/portfolio_cubit.dart'
     as _i380;
+import '../../features/setting/data/data_source/remote/settings_remote_data_source.dart'
+    as _i857;
+import '../../features/setting/data/repos/settings_repo_impl.dart' as _i53;
+import '../../features/setting/presentation/cubit/setting_cubit.dart' as _i600;
 import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 import '../api/firebase_utils.dart' as _i726;
@@ -50,6 +55,7 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    final dioModule = _$DioModule();
     final dioModule = _$DioModule();
     final firebaseModule = _$FirebaseModule();
     gh.factory<_i977.AuthStateChangesChecker>(
@@ -70,6 +76,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i923.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
+    gh.factory<_i362.HomeRemoteDataSource>(
+        () => _i362.HomeRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i914.PortfolioRemoteDataSource>(
         () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
     gh.lazySingleton<_i11.PortfolioRepository>(() =>
@@ -85,6 +93,8 @@ extension GetItInjectableX on _i174.GetIt {
     return this;
   }
 }
+
+class _$DioModule extends _i784.DioModule {}
 
 class _$DioModule extends _i784.DioModule {}
 

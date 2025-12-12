@@ -56,6 +56,7 @@ abstract class AppColors {
   static const Color lightGreen = Color(0xff3CC3DF);
   static const Color lightRed = Color(0xffFF928A);
   static const Color smokyBlack = Color(0xff0D0D0D);
+  static const Color davyGrey = Color(0xff5E5E5E);
 
 // used in container shadow
   static const Color lightShadowColor = Color(0x14344BC1);
