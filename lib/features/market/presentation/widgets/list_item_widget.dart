@@ -1,11 +1,10 @@
 import 'dart:math';
-
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../config/theme/app_colors.dart';
 import '../../../../core/constants/app_assets.dart';
+import '../../../coinDetails/presentation/screens/coin_details_page.dart';
 
 class ListItemWidget extends StatelessWidget {
   final String name;
@@ -13,6 +12,7 @@ class ListItemWidget extends StatelessWidget {
   final double changePercent;
   final int marketCapRank;
   final double price;
+  final String coinId;
 
   const ListItemWidget({
     super.key,
@@ -21,12 +21,13 @@ class ListItemWidget extends StatelessWidget {
     required this.changePercent,
     required this.marketCapRank,
     required this.price,
+    required this.coinId,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
+      margin: EdgeInsets.symmetric(
         horizontal: AppDimensions.paddingHorizontal,
         vertical: AppDimensions.paddingVerticalSmall,
       ),
@@ -125,6 +126,14 @@ class ListItemWidget extends StatelessWidget {
             ),
           ],
         ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CoinDetailsPage(coinId: coinId),
+            ),
+          );
+        },
       ),
     );
   }

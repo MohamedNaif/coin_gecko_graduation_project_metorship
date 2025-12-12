@@ -4,8 +4,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/home/data/model
 import 'package:dio/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-import '../../features/market/data/models/coin_model.dart';
-import '../../features/market/data/models/search_response.dart';
+
 import 'end_points.dart';
 
 part 'api_services.g.dart';

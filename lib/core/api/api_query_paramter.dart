@@ -10,3 +10,4 @@ abstract class ApiQueryParameter {
   static const String sparkline = 'sparkline';
   static const String query = 'query';
 }
+

@@ -66,6 +66,7 @@ class _MarketViewState extends State<MarketView> {
         }
         final coin = coins[index];
         return ListItemWidget(
+          coinId: coin.id,
           price: coin.currentPrice,
           name: coin.name,
           imageUrl: coin.imageUrl,

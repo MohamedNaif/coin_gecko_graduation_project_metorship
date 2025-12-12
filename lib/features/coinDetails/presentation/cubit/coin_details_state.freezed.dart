@@ -280,12 +280,12 @@ _$LoadedCopyWith<_Loaded> get copyWith => __$LoadedCopyWithImpl<_Loaded>(this, _
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&const DeepCollectionEquality().equals(other.coinDetails, coinDetails)&&const DeepCollectionEquality().equals(other._chartData, _chartData)&&(identical(other.selectedTimeframe, selectedTimeframe) || other.selectedTimeframe == selectedTimeframe));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&(identical(other.coinDetails, coinDetails) || other.coinDetails == coinDetails)&&const DeepCollectionEquality().equals(other._chartData, _chartData)&&(identical(other.selectedTimeframe, selectedTimeframe) || other.selectedTimeframe == selectedTimeframe));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(coinDetails),const DeepCollectionEquality().hash(_chartData),selectedTimeframe);
+int get hashCode => Object.hash(runtimeType,coinDetails,const DeepCollectionEquality().hash(_chartData),selectedTimeframe);
 
 @override
 String toString() {
@@ -317,9 +317,9 @@ class __$LoadedCopyWithImpl<$Res>
 
 /// Create a copy of CoinDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? coinDetails = freezed,Object? chartData = null,Object? selectedTimeframe = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? coinDetails = null,Object? chartData = null,Object? selectedTimeframe = null,}) {
   return _then(_Loaded(
-coinDetails: freezed == coinDetails ? _self.coinDetails : coinDetails // ignore: cast_nullable_to_non_nullable
+coinDetails: null == coinDetails ? _self.coinDetails : coinDetails // ignore: cast_nullable_to_non_nullable
 as CoinDetails,chartData: null == chartData ? _self._chartData : chartData // ignore: cast_nullable_to_non_nullable
 as List<ChartDataPoint>,selectedTimeframe: null == selectedTimeframe ? _self.selectedTimeframe : selectedTimeframe // ignore: cast_nullable_to_non_nullable
 as String,
