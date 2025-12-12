@@ -28,12 +28,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  sentry_flutter: ^9.8.0
   audioplayers: ^6.5.1
   bloc: ^9.1.0
-  cached_network_image: ^3.4.1
+
   cherry_toast: ^1.13.0
   cloud_firestore: ^6.1.0
   cupertino_icons: ^1.0.8
+  cached_network_image: ^3.4.1
   dio: ^5.9.0
   easy_localization: ^3.0.8
   firebase_auth: ^6.1.2
@@ -47,26 +49,34 @@ dependencies:
   go_router: ^17.0.0
   injectable: ^2.6.0
   intl: ^0.20.2
-  # local_auth: ^3.0.0
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.9.1
   shimmer: ^3.0.0
   toastification: ^3.0.3
   smooth_page_indicator: ^1.2.1
-  fl_chart: ^1.1.0
-  google_fonts: ^6.3.3
+  fl_chart: ^0.69.0
+  json_annotation: ^4.9.0
+  # mockito: ^5.6.1
+  bloc_test: ^10.0.0
   equatable: ^2.0.7
+  shared_preferences: ^2.5.3
+  flutter_dotenv: ^6.0.0
   freezed_annotation: ^3.1.0
+  flutter_stripe: ^12.1.1
 
 dev_dependencies:
-  build_runner: null
+  sentry_dart_plugin: ^3.2.0
+  retrofit_generator: ^10.0.0
+  injectable_generator:
+  # add build runner if not already added
+  build_runner: ^2.7.1
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  injectable_generator: null
-  retrofit_generator: ^10.0.1
+  json_serializable: ^6.9.0
   freezed: ^3.2.3
-
+  mockito: ^5.4.4
+  bloc_test: ^10.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -81,7 +91,12 @@ flutter:
   assets:
     - assets/icons/
     - assets/onboarding/
+    - assets/translations/
+    - assets/translations/ar-SA.json
+    - assets/translations/en-US.json
     - assets/
+    - assets/images/
+    - .env
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -133,3 +148,9 @@ flutter:
         - asset: assets/fonts/Lato-ThinItalic.ttf
           weight: 100
           style: italic
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: flutter
+  org: sadiomane
