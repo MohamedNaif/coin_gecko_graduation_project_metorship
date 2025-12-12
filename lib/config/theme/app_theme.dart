@@ -127,7 +127,6 @@ class AppTheme {
         scaffoldBackgroundColor: AppColors.darkBackground,
         canvasColor: AppColors.darkBackground,
         primaryColor: AppColors.primaryDark,
-        
         colorScheme: ColorScheme.dark(
           primary: AppColors.primaryDark,
           surface: AppColors.darkSurface,

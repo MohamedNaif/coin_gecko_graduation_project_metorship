@@ -23,6 +23,15 @@ class Routes {
   static const String rewardDetails = '/reward-details';
   static const String splash = '/splash';
   static const String onboardingScreen = '/onboarding';
+  static const String faceIdScreen = '/face_id_screen';
+  static const String setBiometricAuthScreen = '/set_biometric_auth_screen';
+  static const String setFingerprintScreen = '/set_fingerprint_screen';
+  static const String fingerprintScanningScreen =
+      '/fingerprint_scanning_screen';
+  static const String fingerprintSuccessScreen = '/fingerprint_success_screen';
+  static const String setFaceIdScreen = '/set_faceid_screen';
+  static const String faceIdCameraScreen = '/faceid_camera_screen';
+  static const String faceIdSuccessScreen = '/faceid_success_screen';
   static const String portfolio = '/portfolio';
   static const String profileInfo = '/profile/info';
   static const String notification = '/notification';
@@ -43,4 +52,6 @@ class Routes {
   static const String location = '/location';
   static const String trendingScreen = '/trending_screen';
   static const String market = '/market';
+  static const String paymentMethod = '/payment_method';
+  static const String setting = '/setting';
 }

@@ -9,5 +9,6 @@ abstract class ApiQueryParameter {
   static const String page = 'page';
   static const String sparkline = 'sparkline';
   static const String query = 'query';
+  static const String amount = 'amount';
+  static const String currency = 'currency';
 }
-
