@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     authStateService.checkStateChanges();
-    _setupPrivacyScreen();
+    // _setupPrivacyScreen();
   }
 
   void _setupPrivacyScreen() {
@@ -70,30 +70,35 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      initialRoute: Routes.setFingerprintScreen,
-      onGenerateRoute: AppRouter().generateRoute,
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-      builder: (_, child) {
-        return PrivacyGate(
-          navigatorKey: navigatorKey,
-          lockBuilder: (ctx) => BlocProvider(
-            create: (context) => BiometricCubit(
-                getIt<AuthRepo>(), 
-                ),
-            child: const BiometricLockScreen(),
-          ),
-          onLifeCycleChanged: (v) => log("Lifecycle: $v"),
-          onLock: () => log("App Locked"),
-          onUnlock: () => log("App Unlocked"),
-          child: child!,
-        );
-      },
+    return BlocProvider(
+      create: (context) => BiometricCubit(
+                getIt<AuthRepo>(),
+              ),
+      child: MaterialApp(
+        navigatorKey: navigatorKey,
+        initialRoute: Routes.register,
+        onGenerateRoute: AppRouter().generateRoute,
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.light,
+        builder: (_, child) {
+          return PrivacyGate(
+            navigatorKey: navigatorKey,
+            lockBuilder: (ctx) => BlocProvider(
+              create: (context) => BiometricCubit(
+                getIt<AuthRepo>(),
+              ),
+              child: const BiometricLockScreen(),
+            ),
+            onLifeCycleChanged: (v) => log("Lifecycle: $v"),
+            onLock: () => log("App Locked"),
+            onUnlock: () => log("App Unlocked"),
+            child: child!,
+          );
+        },
+      ),
     );
   }
 }

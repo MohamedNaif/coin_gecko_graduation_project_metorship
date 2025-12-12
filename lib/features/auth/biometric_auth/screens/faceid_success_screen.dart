@@ -13,11 +13,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FaceIdSuccessScreen extends StatelessWidget {
   const FaceIdSuccessScreen({super.key});
 
-  Future<void> _onContinue(BuildContext context) async {
-    await context.read<BiometricCubit>().enableBiometric();
-    Navigator.pushReplacementNamed(context, Routes.home);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -45,18 +40,24 @@ class FaceIdSuccessScreen extends StatelessWidget {
                   ),
             ),
             SizedBox(height: context.heightScale(AppDimensions.spacingXSmall)),
-            CustomButton(
-              borderRadius: AppDimensions.borderRadiusLarge,
-              widthPadding: AppDimensions.paddingButton,
-              height: AppDimensions.buttonHeightLarge,
-              text: AppStrings.continueToHome,
-              onTap: () => _onContinue(context),
-              color: AppColors.primaryLight,
-              textStyle: context.textTheme.titleMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomButton(
+                borderRadius: AppDimensions.borderRadiusLarge,
+                widthPadding: AppDimensions.paddingButton,
+                height: AppDimensions.buttonHeightLarge,
+                text: AppStrings.continueToHome,
+                onTap: () {
+                  context.read<BiometricCubit>().enableBiometric();
+                  Navigator.pushReplacementNamed(context, Routes.home);
+                },
+                color: AppColors.primaryLight,
+                textStyle: context.textTheme.titleMedium?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
+            ), 
           ],
         ),
       ],

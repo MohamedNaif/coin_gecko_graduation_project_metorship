@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final AuthRepo _authRepo;
-  LoginCubit(this._authRepo) : super(LoginInitial());
+  LoginCubit(this._authRepo) : super(const LoginState.initial());
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   signIn() {
     if (!(formKey.currentState?.validate() ?? true)) return;
-    emit(LoginLoading());
+    emit(const LoginState.loading());
     _authRepo
         .signIn(
       email: emailController.text,
@@ -20,9 +20,9 @@ class LoginCubit extends Cubit<LoginState> {
     )
         .then((result) {
       result.fold((failure) {
-        emit(LoginFailure(errorMessage: failure.errMessage));
+        emit(LoginState.failure(failure.errMessage));
       }, (userModel) {
-        emit(LoginSuccess());
+        emit(const LoginState.success());
       });
     });
   }

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -9,14 +10,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
-import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart' as _i163;
 import 'package:dio/dio.dart' as _i361;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:local_auth/local_auth.dart' as _i152;
 
+import '../../features/auth/biometric_auth/cubit/biometric_cubit.dart' as _i618;
 import '../../features/auth/data/data_source/local/auth_local_data_source.dart'
     as _i755;
 import '../../features/auth/data/data_source/local/auth_local_data_source_impl.dart'
@@ -37,7 +37,6 @@ import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 import '../api/firebase_utils.dart' as _i726;
 import '../function/check_state_changes.dart' as _i977;
-import '../storage/secure_storage_services.dart' as _i506;
 import 'di.dart' as _i913;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -59,8 +58,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(
         () => firebaseModule.firebaseFirestore);
-    gh.singleton<_i506.SecureStorageServices>(
-        () => _i506.SecureStorageServices(gh<_i558.FlutterSecureStorage>()));
     gh.singleton<_i726.FirebaseUtils>(() => _i726.FirebaseUtils(
           gh<_i59.FirebaseAuth>(),
           gh<_i974.FirebaseFirestore>(),
@@ -83,8 +80,8 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i380.PortfolioCubit>(
         () => _i380.PortfolioCubit(repository: gh<_i11.PortfolioRepository>()));
-    gh.singleton<_i163.BiometricCubit>(
-        () => _i163.BiometricCubit(gh<_i507.AuthRepo>()));
+    gh.singleton<_i618.BiometricCubit>(
+        () => _i618.BiometricCubit(gh<_i507.AuthRepo>()));
     return this;
   }
 }

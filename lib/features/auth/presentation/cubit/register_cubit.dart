@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   AuthRepo authRepo;
-  RegisterCubit(this.authRepo) : super(RegisterInitial());
+  RegisterCubit(this.authRepo) : super(const RegisterState.initial());
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -21,7 +21,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   register() async {
     if (!(formKey.currentState?.validate() ?? true)) return;
 
-    emit(RegisterLoading());
+    emit(const RegisterState.loading());
     final result = await authRepo.register(
       firstName: firstNameController.text,
       lastName: lastNameController.text,
@@ -30,9 +30,9 @@ class RegisterCubit extends Cubit<RegisterState> {
       phoneNumber: phoneNumberController.text,
     );
     result.fold((failure) {
-      emit(RegisterFailure(errorMessage: failure.errMessage));
+      emit(RegisterState.failure(failure.errMessage));
       log('Error in register cubit: ${failure.errMessage}');
-    }, (userModel) => emit(RegisterSuccess()));
+    }, (userModel) => emit(const RegisterState.success()));
   }
 
   dispose() {

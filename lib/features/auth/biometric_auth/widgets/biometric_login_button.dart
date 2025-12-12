@@ -4,6 +4,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimen
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_strings.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/show_tost.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,30 +17,42 @@ class BiometricLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<BiometricCubit, BiometricState>(
       listener: (context, state) {
-        if (state is BiometricFailure) {
-          showCherryToast(
-            context,
-            state.errorMessage,
-            type: ToastType.error,
-          );
-        } else if (state is BiometricUnsupported) {
-          showCherryToast(
-            context,
-            AppStrings.fingerPrintVerify,
-            type: ToastType.error,
-          );
-        } else if (state is BiometricSuccess && state.authenticated == true) {
-          showCherryToast(
-            context,
-            AppStrings.loginSuccessful,
-            type: ToastType.success,
-          );
-          Navigator.pushReplacementNamed(context, Routes.home);
-        }
+        state.when(
+          initial: () {},
+          loading: () {},
+          unsupported: () {
+            showCherryToast(
+              context,
+              AppStrings.fingerPrintVerify,
+              type: ToastType.error,
+            );
+          },
+          success: (_, __, authenticated, ___) {
+            if (authenticated == true) {
+              showCherryToast(
+                context,
+                AppStrings.loginSuccessful,
+                type: ToastType.success,
+              );
+              Navigator.pushReplacementNamed(context, Routes.home);
+            }
+          },
+          cancelled: () {},
+          failure: (errorMessage, _) {
+            showCherryToast(
+              context,
+              errorMessage,
+              type: ToastType.error,
+            );
+          },
+        );
       },
       builder: (context, state) {
         final cubit = context.read<BiometricCubit>();
-        final isLoading = state is BiometricLoading;
+        final isLoading = state.maybeWhen(
+          loading: () => true,
+          orElse: () => false,
+        );
 
         return Padding(
           padding: const EdgeInsets.all(AppDimensions.paddingLarge),

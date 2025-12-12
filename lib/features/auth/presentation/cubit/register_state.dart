@@ -1,13 +1,12 @@
 
-import 'package:flutter/material.dart' show immutable;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-sealed class RegisterState {}
+part 'register_state.freezed.dart';
 
-final class RegisterInitial extends RegisterState {}
-final class RegisterLoading extends RegisterState {}
-final class RegisterSuccess extends RegisterState {}
-final class RegisterFailure extends RegisterState {
-  final String errorMessage;  
-  RegisterFailure({required this.errorMessage});
+@freezed
+class RegisterState with _$RegisterState {
+  const factory RegisterState.initial() = _RegisterInitial;
+  const factory RegisterState.loading() = _RegisterLoading;
+  const factory RegisterState.success() = _RegisterSuccess;
+  const factory RegisterState.failure(String errorMessage) = _RegisterFailure;
 }

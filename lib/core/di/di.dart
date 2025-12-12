@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:local_auth/local_auth.dart';
@@ -15,15 +14,7 @@ final getIt = GetIt.instance;
   asExtension: true,  
 )  
 void configureDependencies() {
-    getIt.registerLazySingleton<FlutterSecureStorage>(
-    () => FlutterSecureStorage(
-      aOptions: AndroidOptions(
-        encryptedSharedPreferences: true,
-      ),
-    ),
-  );
 
-  // Register LocalAuthentication
   getIt.registerLazySingleton<LocalAuthentication>(
     () => LocalAuthentication(),
   );

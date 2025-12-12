@@ -1,5 +1,6 @@
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
@@ -61,11 +62,18 @@ class _BiometricLockScreenState extends State<BiometricLockScreen> {
               else
                 BlocListener<BiometricCubit, BiometricState>(
                   listener: (context, state) {
-                    if (state is BiometricSuccess) {
-                      if (state.authenticated == true) {
-                         PrivacyScreen.instance.unlock();
-                      }
-                    }
+                    state.when(
+                      initial: () {},
+                      loading: () {},
+                      unsupported: () {},
+                      success: (_, __, authenticated, ___) {
+                        if (authenticated == true) {
+                          PrivacyScreen.instance.unlock();
+                        }
+                      },
+                      cancelled: () {},
+                      failure: (_, __) {},
+                    );
                   },
                   child: ElevatedButton.icon(
                     onPressed: () {

@@ -1,29 +1,22 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:local_auth/local_auth.dart';
 
-part of 'biometric_cubit.dart';
+part 'biometric_state.freezed.dart';
 
-sealed class BiometricState {}
-
-class BiometricInitial extends BiometricState {}
-
-class BiometricLoading extends BiometricState {}
-
-class BiometricUnsupported extends BiometricState {}
-
-class BiometricSuccess extends BiometricState {
-  final List<BiometricType> availableBiometrics;
-  final bool isEnabled;
-  final bool? authenticated;
-  final String? message;
-
-  BiometricSuccess({
-    this.availableBiometrics = const [],
-    this.isEnabled = false,
-    this.authenticated,
-    this.message,
-  });
-}
-
-class BiometricFailure extends BiometricState {
-  final String errorMessage;
-  BiometricFailure(this.errorMessage);
+@freezed
+class BiometricState with _$BiometricState {
+  const factory BiometricState.initial() = _BiometricInitial;
+  const factory BiometricState.loading() = _BiometricLoading;
+  const factory BiometricState.unsupported() = _BiometricUnsupported;
+  const factory BiometricState.success({
+    @Default([]) List<BiometricType> availableBiometrics,
+    @Default(false) bool isEnabled,
+    bool? authenticated,
+    String? message,
+  }) = _BiometricSuccess;
+  const factory BiometricState.cancelled() = _BiometricCancelled;
+  const factory BiometricState.failure(
+    String errorMessage, {
+    @Default(false) bool isCancellation,
+  }) = _BiometricFailure;
 }

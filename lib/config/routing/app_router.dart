@@ -2,7 +2,6 @@
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/faceid_camera_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/faceid_success_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/fingerprint_scanning_screen.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/fingerprint_success_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/set_fingerprint_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/screens/login_screen.dart';
@@ -44,15 +43,6 @@ class AppRouter {
               getIt<AuthRepo>(),
             ),
             child: const FingerprintScanningScreen(),
-          ),
-        );
-      case Routes.fingerprintSuccessScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => BiometricCubit(
-              getIt<AuthRepo>(),
-            ),
-            child: const FingerprintSuccessScreen(),
           ),
         );
       case Routes.faceIdCameraScreen:

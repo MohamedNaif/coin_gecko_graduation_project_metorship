@@ -44,7 +44,8 @@ class AppStrings {
       'Place your face in the scanner to set up Face ID authentication';
   static const String placeFaceUntilFills =
       'Place your face inside scanner\nuntil the icon completely fills';
-
+static const String biometricNotSupported =
+      'Biometric authentication is not supported on this device.';
   // Auth Subtitles
   static const String signUpSubtitle =
       "Sign up to enjoy the best managing \nexperience!";

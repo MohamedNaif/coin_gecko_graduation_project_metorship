@@ -53,7 +53,7 @@ abstract class AppDimensions {
   static const double buttonHeightLarge = 50.0;
 
   // Border Widths
-  static const double borderWidth = 1.5;
+  static const double borderWidth = 1;
   static const double errorBorderWidth = 1.0;
 
   // Loading Indicators

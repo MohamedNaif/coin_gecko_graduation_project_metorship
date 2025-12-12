@@ -1,14 +1,11 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'login_state.freezed.dart';
 
-import 'package:flutter/material.dart' show immutable;
-
-@immutable
-sealed class LoginState {}
-
-final class LoginInitial extends LoginState {}
-final class LoginLoading extends LoginState {}
-final class LoginSuccess extends LoginState {}
-final class LoginFailure extends LoginState {
-  final String errorMessage;  
-  LoginFailure({required this.errorMessage});
+@freezed
+class LoginState with _$LoginState {
+  const factory LoginState.initial() = _LoginInitial;
+  const factory LoginState.loading() = _LoginLoading;
+  const factory LoginState.success() = _LoginSuccess;
+  const factory LoginState.failure(String errorMessage) = _LoginFailure;
 }
