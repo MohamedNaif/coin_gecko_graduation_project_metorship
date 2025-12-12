@@ -6,6 +6,8 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Why is my app authenticating using face id?</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Scan your card to add it automatically</string>
 	<key>CFBundleDisplayName</key>

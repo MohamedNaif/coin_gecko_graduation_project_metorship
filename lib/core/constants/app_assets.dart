@@ -52,6 +52,14 @@ class AppAssets {
   static const String phoneIcon = "assets/icons/phone_icon.svg";
   static const String fingerPrintIcon = "assets/icons/fingerprint_icon.svg";
   static const String faceId = 'assets/icons/face_id_icon.svg';
+  static const String faceIdIcon =
+      'assets/icons/face_id_icon.svg'; // Alias for consistency
+  static const String checkmarkIcon =
+      'assets/icons/checkmark_icon.svg'; // Assuming we have or will need this
+  static const String faceScannerFrame =
+      'assets/icons/face_scanner_frame.svg'; // Placeholder for face scan frame
+  static const String fingerprintScanLarge =
+      'assets/icons/fingerprint_scan_large.svg'; // Large fingerprint for scanning screen
   // Onboarding
   static const String onboardingFirstPage = 'assets/onboarding/first_page.png';
   static const String onboardingSecondPage =
@@ -103,4 +111,7 @@ class AppAssets {
   static const String visaLogo = 'assets/images/vise-logo.png';
   static const String visaCreditCard = 'assets/images/visa-frame.png';
   static const String masterCard = 'assets/images/master-card.png';
+  static const String faceIdBackground =
+      'assets/icons/Set Face ID bachground.png';
+  static const String successIcon = "assets/icons/Right.svg";
 }

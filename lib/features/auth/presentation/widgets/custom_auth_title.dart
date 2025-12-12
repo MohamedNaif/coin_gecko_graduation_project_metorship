@@ -19,11 +19,11 @@ class CustomAuthTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+          style: context.textTheme.displaySmall?.copyWith(
             color: AppColors.primaryLight,
+
           ),
+          textAlign: TextAlign.center,
         ),
         SizedBox(
           height: 14,

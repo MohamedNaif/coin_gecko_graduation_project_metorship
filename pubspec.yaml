@@ -28,55 +28,58 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  sentry_flutter: ^9.8.0
   audioplayers: ^6.5.1
   bloc: ^9.1.0
-
+  bloc_test: ^10.0.0
+  cached_network_image: ^3.4.1
   cherry_toast: ^1.13.0
   cloud_firestore: ^6.1.0
   cupertino_icons: ^1.0.8
-  cached_network_image: ^3.4.1
   dio: ^5.9.0
   easy_localization: ^3.0.8
+  equatable: ^2.0.7
   firebase_auth: ^6.1.2
   firebase_core: ^4.2.1
+  fl_chart: ^0.69.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_dotenv: ^6.0.0
   flutter_secure_storage: ^9.2.4
+  flutter_stripe: ^12.1.1
   flutter_svg: ^2.2.2
+  freezed: ^3.2.3
+  freezed_annotation: 3.1.0
   get_it: ^9.1.0
   go_router: ^17.0.0
+  google_fonts: ^6.3.3
   injectable: ^2.6.0
   intl: ^0.20.2
-  pretty_dio_logger: ^1.4.0
-  retrofit: ^4.9.1
-  shimmer: ^3.0.0
-  toastification: ^3.0.3
-  smooth_page_indicator: ^1.2.1
-  fl_chart: ^0.69.0
   json_annotation: ^4.9.0
-  # mockito: ^5.6.1
-  bloc_test: ^10.0.0
-  equatable: ^2.0.7
+  local_auth: ^3.0.0
+  mockito: ^5.5.0
+  pretty_dio_logger: ^1.4.0
+  privacy_screen: ^0.0.8
+  retrofit: ^4.0.1
+  secure_application: ^4.1.0
+  sentry_flutter: ^9.8.0
   shared_preferences: ^2.5.3
-  flutter_dotenv: ^6.0.0
-  freezed_annotation: ^3.1.0
-  flutter_stripe: ^12.1.1
+  shimmer: ^3.0.0
+  smooth_page_indicator: ^1.2.1
+  toastification: ^3.0.3
 
 dev_dependencies:
-  sentry_dart_plugin: ^3.2.0
-  retrofit_generator: ^10.0.0
-  injectable_generator:
   # add build runner if not already added
   build_runner: ^2.7.1
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  json_serializable: ^6.9.0
   freezed: ^3.2.3
+  injectable_generator: null
+  json_serializable: ^6.9.0
   mockito: ^5.4.4
-
+  retrofit_generator: ^10.0.0
+  sentry_dart_plugin: ^3.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -87,7 +90,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-
   assets:
     - assets/icons/
     - assets/onboarding/
@@ -121,7 +123,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-
   fonts:
     - family: Lato
       fonts:
