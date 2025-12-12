@@ -107,40 +107,35 @@ class _MyAppState extends State<MyApp> {
                   .getBool(CacheKeys.isDarkModeKey) ??
               false,
         );
-        return BlocProvider(
-      create: (context) => BiometricCubit(
-                getIt<AuthRepo>(),
-              ),
-      child: MaterialApp(
-        navigatorKey: navigatorKey,
-            localizationsDelegates: context.localizationDelegates,
+        return MaterialApp(
+          navigatorKey: navigatorKey,
+          localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           initialRoute: Routes.register,
-            onGenerateRoute: AppRouter().generateRoute,
-            title: 'Flutter Demo',
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+          onGenerateRoute: AppRouter().generateRoute,
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+          builder: (_, child) {
+            return PrivacyGate(
+              navigatorKey: navigatorKey,
+              lockBuilder: (ctx) => BlocProvider(
+                create: (context) => BiometricCubit(
+                  getIt<AuthRepo>(),
+                ),
+                child: const BiometricLockScreen(),
+              ),
+              onLifeCycleChanged: (v) => log("Lifecycle: $v"),
+              onLock: () => log("App Locked"),
+              onUnlock: () => log("App Unlocked"),
+              child: child!,
+            );
+          },
         );
       },
-        builder: (_, child) {
-          return PrivacyGate(
-            navigatorKey: navigatorKey,
-            lockBuilder: (ctx) => BlocProvider(
-              create: (context) => BiometricCubit(
-                getIt<AuthRepo>(),
-              ),
-              child: const BiometricLockScreen(),
-            ),
-            onLifeCycleChanged: (v) => log("Lifecycle: $v"),
-            onLock: () => log("App Locked"),
-            onUnlock: () => log("App Unlocked"),
-            child: child!,
-          );
-        },
-      ),
     );
   }
 }
