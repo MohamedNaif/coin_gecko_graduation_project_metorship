@@ -8,6 +8,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/onboarding/pres
 import 'package:coin_gecko_graduation_project_metorship/features/payment/data/model/payment_body.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/payment/presentation/pages/payment_method_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/portfolio/presentation/page/portfolio_page.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/page/settings_page.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case Routes.fingerprintScreen:
         return MaterialPageRoute(builder: (_) => const FingerprintScreen());
-      case Routes.portfolio:
+      case Routes.setting:
+        return MaterialPageRoute(builder: (_) => const SettingsPage());      case Routes.portfolio:
         return MaterialPageRoute(builder: (_) => const PortfolioPage());
       case Routes.paymentMethod:
         return MaterialPageRoute(

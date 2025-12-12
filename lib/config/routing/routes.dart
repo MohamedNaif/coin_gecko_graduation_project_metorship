@@ -42,5 +42,5 @@ class Routes {
   static const String orderReview = '/order_review';
   static const String location = '/location';
   static const String trendingScreen = '/trending_screen';
-  static const String paymentMethod = '/payment_method';
+  static const String paymentMethod = '/payment_method';  static const String setting = '/setting';
 }

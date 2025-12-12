@@ -16,6 +16,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 
+import '../../feature/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
+    as _i586;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source.dart'
     as _i548;
 import '../../features/auth/data/data_source/remote/auth_remote_data_source_impl.dart'
@@ -35,6 +37,10 @@ import '../../features/portfolio/data/repository/portfolio_repository.dart'
     as _i11;
 import '../../features/portfolio/presentation/cubit/portfolio_cubit.dart'
     as _i380;
+import '../../features/setting/data/data_source/remote/settings_remote_data_source.dart'
+    as _i857;
+import '../../features/setting/data/repos/settings_repo_impl.dart' as _i53;
+import '../../features/setting/presentation/cubit/setting_cubit.dart' as _i600;
 import '../api/api_services.dart' as _i124;
 import '../api/dio_module.dart' as _i784;
 import '../api/firebase_utils.dart' as _i726;
@@ -65,6 +71,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => paymentDioModule.providePaymentDio(gh<_i528.PrettyDioLogger>()),
       instanceName: 'paymentDio',
     );
+    gh.factory<_i857.SettingsRemoteDataSource>(
+        () => _i857.SettingsRemoteDataSourceImpl(
+              gh<_i59.FirebaseAuth>(),
+              gh<_i974.FirebaseFirestore>(),
+            ));
     gh.singleton<_i361.Dio>(
         () => dioModule.provideDio(gh<_i528.PrettyDioLogger>()));
     gh.lazySingleton<_i957.PaymentRemoteDataSource>(
@@ -77,6 +88,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i447.HomeRepo>(
         () => _i447.HomeRepo(gh<_i362.HomeRemoteDataSource>()));
+    gh.factory<_i53.SettingsRepo>(
+        () => _i53.SettingsRepoImpl(gh<_i857.SettingsRemoteDataSource>()));
+    gh.factory<_i600.SettingCubit>(
+        () => _i600.SettingCubit(gh<_i53.SettingsRepo>()));
     gh.singleton<_i726.FirebaseUtils>(() => _i726.FirebaseUtils(
           gh<_i59.FirebaseAuth>(),
           gh<_i974.FirebaseFirestore>(),
@@ -85,6 +100,8 @@ extension GetItInjectableX on _i174.GetIt {
         _i11.PortfolioRepositoryImpl(gh<_i914.PortfolioRemoteDataSource>()));
     gh.factory<_i548.AuthRemoteDataSource>(
         () => _i923.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
+    gh.factory<_i586.AuthRemoteDataSourceImpl>(
+        () => _i586.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
     gh.factory<_i629.HomeCubit>(() => _i629.HomeCubit(gh<_i447.HomeRepo>()));
     gh.factory<_i380.PortfolioCubit>(
         () => _i380.PortfolioCubit(repository: gh<_i11.PortfolioRepository>()));

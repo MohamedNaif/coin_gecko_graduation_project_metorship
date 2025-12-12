@@ -49,6 +49,7 @@ class LoginScreenBody extends StatelessWidget {
                     AppStrings.loginSuccessful,
                     type: ToastType.success,
                   );
+                  Navigator.pushNamed(context, Routes.setting);
                 }
               },
               child: CustomButton(

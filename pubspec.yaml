@@ -76,7 +76,7 @@ dev_dependencies:
   json_serializable: ^6.9.0
   freezed: ^3.2.3
   mockito: ^5.4.4
-  bloc_test: ^10.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
