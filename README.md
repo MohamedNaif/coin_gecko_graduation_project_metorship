@@ -34,6 +34,18 @@ A comprehensive cryptocurrency tracking application built with Flutter, featurin
 <img src="https://github.com/user-attachments/assets/74dbeb3b-8b2a-4241-afd4-e34f3094d7b6" width="19%" />
 <img src="https://github.com/user-attachments/assets/404f638f-7281-4ecb-a830-4cc544b9b116" width="19%" />
 
+
+### 🌊 Auth
+
+<img src="https://github.com/user-attachments/assets/fedd4821-3f2b-4d3b-a475-618dcacf0cef" width="24%" />
+<img src="https://github.com/user-attachments/assets/ef361215-5167-4b58-af8d-617e40c59a29" width="24%" />
+<img src="https://github.com/user-attachments/assets/e82984c3-a053-44f7-bb16-e547b47517ba" width="24%" />
+<img src="https://github.com/user-attachments/assets/5b724b5b-bc92-4407-bb58-7cb9a180d9f7" width="24%" />
+<img src="https://github.com/user-attachments/assets/f8b5c224-f8c3-478e-bfbb-320bc7715abf" width="24%" />
+<img src="https://github.com/user-attachments/assets/94e93fe7-5eac-477f-b48a-0e5dcd1ac0cf" width="24%" />
+<img src="https://github.com/user-attachments/assets/a214a893-4da8-4d8c-89ce-b50d81241ae1" width="24%" />
+
+
 ### 🏠 Home Dashboard
 
 <img src="https://github.com/user-attachments/assets/af4db798-adaf-4997-abd2-d0d20b06f23a" width="24%" />
