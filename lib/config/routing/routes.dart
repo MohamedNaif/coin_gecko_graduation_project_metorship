@@ -54,4 +54,5 @@ class Routes {
   static const String market = '/market';
   static const String paymentMethod = '/payment_method';
   static const String setting = '/setting';
+
 }

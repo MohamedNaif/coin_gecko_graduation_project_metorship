@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/di.dart';
+import '../../data/repos/market_repository.dart';
 import '../cubit/market_cubit.dart';
 import '../cubit/search_cubit.dart';
 import 'market_page.dart';
@@ -12,8 +13,10 @@ class MarketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => getIt<MarketCubit>()..loadInitial()),
-        BlocProvider(create: (_) => getIt<SearchCubit>()),
+        BlocProvider(
+          create: (_) => MarketCubit(repo: getIt<MarketRepository>()),
+        ),
+        BlocProvider(create: (_) => SearchCubit(getIt<MarketRepository>())),
       ],
       child: MarketView(),
     );

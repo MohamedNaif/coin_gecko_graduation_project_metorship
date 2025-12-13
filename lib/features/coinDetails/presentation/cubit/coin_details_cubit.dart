@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/usecase/get_chart_details.dart';
 import '../../domain/usecase/get_coin_details.dart';
 import 'coin_details_state.dart';
