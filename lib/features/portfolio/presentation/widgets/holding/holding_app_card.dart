@@ -13,7 +13,7 @@ class HoldingAppCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimensions.holdingAppCardRadius),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor,
+            color:  Theme.of(context).shadowColor.withValues(alpha: 0.15),
             blurRadius: 40,
             offset: const Offset(0, 10),
           ),

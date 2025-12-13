@@ -36,7 +36,7 @@ class PaymentMethodPage extends StatelessWidget {
       connectTimeout: const Duration(seconds: 30),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': dotenv.env['STRIPE_SECRET_KEY']!,
+        'Authorization': 'Bearer ${dotenv.env['STRIPE_SECRET_KEY']} ',
       },
     ));
 
