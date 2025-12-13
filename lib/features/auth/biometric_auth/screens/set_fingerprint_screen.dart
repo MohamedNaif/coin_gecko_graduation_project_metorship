@@ -14,6 +14,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/fingerprint_setup_header.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/fingerprint_setup_instructions.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/fingerprint_skip_button.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
@@ -79,7 +80,7 @@ class _SetFingerprintScreenState extends State<SetFingerprintScreen> {
             child: FingerprintSkipButton(
               onPressed: () => Navigator.of(context).pushReplacement(
                 PageSlideTransition(
-                  page: const Scaffold(),
+                  page: const HomeScreen(),
                   direction: AxisDirection.left,
                 ),
               ),
@@ -102,7 +103,7 @@ class _SetFingerprintScreenState extends State<SetFingerprintScreen> {
           type: ToastType.error,
         );
         Navigator.of(context).pushReplacement(
-          PageFadeTransition(page: const Scaffold()),
+          PageFadeTransition(page: const HomeScreen()),
         );
       },
       success: (_, __, authenticated, ___) {

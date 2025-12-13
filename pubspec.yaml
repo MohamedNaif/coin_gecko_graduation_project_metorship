@@ -44,6 +44,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_dotenv: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
   flutter_secure_storage: ^9.2.4
   flutter_stripe: ^12.1.1
   flutter_svg: ^2.2.2
@@ -52,7 +53,6 @@ dependencies:
   get_it: ^9.1.0
   go_router: ^17.0.0
   google_fonts: ^6.3.2
-
   injectable: ^2.6.0
   intl: ^0.20.2
   json_annotation: ^4.9.0
@@ -69,7 +69,6 @@ dependencies:
   toastification: ^3.0.3
 
 dev_dependencies:
-  # add build runner if not already added
   build_runner: ^2.7.1
   flutter_lints: ^5.0.0
   flutter_test:
@@ -156,3 +155,24 @@ sentry:
   upload_source_maps: true
   project: flutter
   org: sadiomane
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/onboarding/forth_page.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/onboarding/forth_page.png"
+  remove_alpha_ios: true
+  windows:
+    generate: true
+    image_path: "assets/onboarding/forth_page.png"
+  web:
+    generate: true
+    image_path: "assets/onboarding/forth_page.png"
+  macos:
+    generate: true
+    image_path: "assets/onboarding/forth_page.png"
+  linux:
+    generate: true
+    image_path: "assets/onboarding/forth_page.png"
