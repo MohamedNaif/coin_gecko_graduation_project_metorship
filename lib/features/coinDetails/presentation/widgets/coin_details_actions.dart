@@ -10,7 +10,7 @@ class CoinDetailsActions extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
