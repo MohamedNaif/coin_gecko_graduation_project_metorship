@@ -33,9 +33,9 @@ class _SearchSectionState extends State<SearchSection> {
           onChanged: (value) => context.read<SearchCubit>().search(value),
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColors.white,
+            fillColor: Theme.of(context).colorScheme.surface,
             hintText: AppStrings.searchHint,
-            hintStyle: const TextStyle(color: AppColors.searchHint),
+            hintStyle: TextStyle(color: Theme.of(context).dividerColor),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide.none,

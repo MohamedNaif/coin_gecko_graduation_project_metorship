@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../config/theme/app_colors.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../coinDetails/presentation/screens/coin_details_page.dart';
 

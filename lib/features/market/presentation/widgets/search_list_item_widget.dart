@@ -25,7 +25,7 @@ class SearchListItemWidget extends StatelessWidget {
         horizontal: AppDimensions.paddingHorizontalSmall,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(
           AppDimensions.containerBorderRadiusLarge,
         ),
@@ -45,13 +45,13 @@ class SearchListItemWidget extends StatelessWidget {
                   errorBuilder: (_, __, ___) => Container(
                     width: AppDimensions.containerWidth,
                     height: AppDimensions.containerHeight,
-                    color: Colors.grey[200],
+                    color: Theme.of(context).dividerColor,
                   ),
                 )
               : Container(
                   width: AppDimensions.containerWidth,
                   height: AppDimensions.containerHeight,
-                  color: Colors.grey[200],
+                  color: Theme.of(context).dividerColor,
                 ),
         ),
         title: Text(name),

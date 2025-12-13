@@ -86,16 +86,18 @@ class _MarketViewState extends State<MarketView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Crypto Market',
-          style: TextStyle(
-            color: AppColors.primaryDark,
-            fontWeight: FontWeight.bold,
-            fontSize: AppDimensions.textSizeHuge,
-            fontFamily: AppStrings.fontFamily,
-          ),
+           style: theme.textTheme.headlineLarge,
+          // TextStyle(
+          //   color: AppColors.primaryDark,
+          //   fontWeight: FontWeight.bold,
+          //   fontSize: AppDimensions.textSizeHuge,
+          //   fontFamily: AppStrings.fontFamily,
+          // ),
         ),
         // backgroundColor: AppColors.lightBackground,
         elevation: 0,
