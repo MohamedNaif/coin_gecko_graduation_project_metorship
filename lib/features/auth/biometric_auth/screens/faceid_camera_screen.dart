@@ -73,7 +73,7 @@ class _FaceIdCameraScreenState extends State<FaceIdCameraScreen> {
             duration: const Duration(milliseconds: 1200),
             child: FaceIdSkipButton(
               onPressed: () =>
-                  Navigator.pushReplacementNamed(context, Routes.home),
+                  Navigator.pushReplacementNamed(context, Routes.homeScreen),
             ),
           ),
           SizedBox(height: context.heightScale(AppDimensions.spacingXSmall)),

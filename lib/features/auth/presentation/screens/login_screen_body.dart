@@ -55,7 +55,7 @@ class LoginScreenBody extends StatelessWidget {
                     success: () {
                       showCherryToast(context, AppStrings.loginSuccessful, type: ToastType.success);
                     
-                        Navigator.of(context).pushReplacementNamed(Routes.home);
+                        Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
                       
                     },
                     failure: (errorMessage) {

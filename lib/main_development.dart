@@ -12,7 +12,7 @@ import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_obser
 import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
-import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/biometric_lock_screen.dart';
+// import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/biometric_lock_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +22,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:privacy_screen/privacy_screen.dart';
+// import 'package:privacy_screen/privacy_screen.dart';
 import 'config/routing/app_router.dart';
 
 void main() async {
@@ -45,8 +45,17 @@ void main() async {
       fallbackLocale: englishLocal,
       startLocale: englishLocal,
       path: assetsLocalization,
-      child: BlocProvider(
-        create: (context) => SettingCubit(getIt()),
+      child: MultiBlocProvider(providers: [
+        BlocProvider<BiometricCubit>(
+          create: (context) => BiometricCubit(
+            getIt<AuthRepo>(),
+          ),
+        ),
+        BlocProvider<SettingCubit>(
+          create: (context) => SettingCubit(getIt()),
+        ),
+        
+      ],
         child: const MyApp(),
       ),
     ),
@@ -68,24 +77,24 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     authStateService.checkStateChanges();
-    _setupPrivacyScreen();
+    // _setupPrivacyScreen();
   }
 
-  void _setupPrivacyScreen() {
-    PrivacyScreen.instance.enable(
-      iosOptions: const PrivacyIosOptions(
-        enablePrivacy: true,
-        autoLockAfterSeconds: 10,
-        lockTrigger: IosLockTrigger.didEnterBackground,
-      ),
-      androidOptions: const PrivacyAndroidOptions(
-        enableSecure: true,
-        autoLockAfterSeconds: 10,
-      ),
-      backgroundColor: AppColors.deepBlue.withValues(alpha: 0.3),
-      blurEffect: PrivacyBlurEffect.light,
-    );
-  }
+  // void _setupPrivacyScreen() {
+  //   PrivacyScreen.instance.enable(
+  //     iosOptions: const PrivacyIosOptions(
+  //       enablePrivacy: true,
+  //       autoLockAfterSeconds: 10,
+  //       lockTrigger: IosLockTrigger.didEnterBackground,
+  //     ),
+  //     androidOptions: const PrivacyAndroidOptions(
+  //       enableSecure: true,
+  //       autoLockAfterSeconds: 10,
+  //     ),
+  //     backgroundColor: AppColors.deepBlue.withValues(alpha: 0.3),
+  //     blurEffect: PrivacyBlurEffect.light,
+  //   );
+  // }
 
   @override
   void dispose() {
@@ -107,38 +116,21 @@ class _MyAppState extends State<MyApp> {
                   .getBool(CacheKeys.isDarkModeKey) ??
               false,
         );
-        return BlocProvider(
-          create: (context) => BiometricCubit(
-            getIt<AuthRepo>(),
-          ),
-          child: MaterialApp(
-            navigatorKey: navigatorKey,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            initialRoute: Routes.register,
-            onGenerateRoute: AppRouter().generateRoute,
-            title: 'Fintech App',
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-            builder: (_, child) {
-              return PrivacyGate(
-                navigatorKey: navigatorKey,
-                lockBuilder: (ctx) => BlocProvider(
-                  create: (context) => BiometricCubit(
-                    getIt<AuthRepo>(),
-                  ),
-                  child: const BiometricLockScreen(),
-                ),
-                onLifeCycleChanged: (v) => log("Lifecycle: $v"),
-                onLock: () => log("App Locked"),
-                onUnlock: () => log("App Unlocked"),
-                child: child!,
-              );
-            },
-          ),
+        return MaterialApp(
+          navigatorKey: navigatorKey,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          initialRoute: Routes.splash,
+          onGenerateRoute: AppRouter().generateRoute,
+          title: 'Fintech App',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+          // builder: (_, child) {
+          //   return child!;
+          // },
         );
       },
     );
