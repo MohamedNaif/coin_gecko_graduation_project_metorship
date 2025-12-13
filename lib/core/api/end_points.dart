@@ -13,4 +13,8 @@ abstract class EndPoints {
   //=======Payment Endpoints========
   static const String paymentEndPoint = 'payment_intents';
   static const String paymentBaseUrl = 'https://api.stripe.com/v1/';
+
+  static const String marketChart = '/market_chart';
+  static const String coinDetails = '/coins/{id}';
+
 }

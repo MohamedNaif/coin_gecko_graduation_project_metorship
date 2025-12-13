@@ -1,8 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../domain/entities/coin_details.dart';
-
-
 part 'coin_details_model.g.dart';
 
 @JsonSerializable()
@@ -11,52 +8,62 @@ class CoinDetailsModel {
   final String name;
   final String symbol;
 
-  @JsonKey(name: 'market_data')
-  final Map<String, dynamic> marketData;
+  @JsonKey(fromJson: _priceFromJson)
+  final double currentPrice;
 
-  final Map<String, dynamic> description;
+  @JsonKey(fromJson: _priceChangeFromJson)
+  final double priceChange24h;
+
+  @JsonKey(fromJson: _marketCapFromJson)
+  final double marketCap;
+
+  @JsonKey(fromJson: _volumeFromJson)
+  final double volume24h;
+
+  @JsonKey(fromJson: _circulatingSupplyFromJson)
+  final double circulatingSupply;
+
+  @JsonKey(fromJson: _maxSupplyFromJson)
+  final double maxSupply;
+
+  @JsonKey(fromJson: _descriptionFromJson)
+  final String description;
 
   CoinDetailsModel({
     required this.id,
     required this.name,
     required this.symbol,
-    required this.marketData,
+    required this.currentPrice,
+    required this.priceChange24h,
+    required this.marketCap,
+    required this.volume24h,
+    required this.circulatingSupply,
+    required this.maxSupply,
     required this.description,
   });
 
   factory CoinDetailsModel.fromJson(Map<String, dynamic> json) =>
       _$CoinDetailsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CoinDetailsModelToJson(this);
+  // --------- Custom JSON extractors ----------
+  static double _priceFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['current_price']['usd'] as num).toDouble();
 
-  CoinDetails toEntity() {
-    // Safely parse nested fields and default to 0 or empty strings when missing
-    double _toDouble(dynamic v) {
-      if (v == null) return 0.0;
-      if (v is num) return v.toDouble();
-      if (v is String) return double.tryParse(v) ?? 0.0;
-      return 0.0;
-    }
+  static double _priceChangeFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['price_change_percentage_24h'] as num).toDouble();
 
-    final currentPrice =
-    _toDouble(marketData['current_price']?['usd'] ?? marketData['current_price']);
-    final priceChange24h = _toDouble(marketData['price_change_percentage_24h']);
-    final marketCap = _toDouble(marketData['market_cap']?['usd']);
-    final volume24h = _toDouble(marketData['total_volume']?['usd']);
-    final circulatingSupply = _toDouble(marketData['circulating_supply']);
-    final maxSupply = _toDouble(marketData['max_supply']);
+  static double _marketCapFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['market_cap']['usd'] as num).toDouble();
 
-    return CoinDetails(
-      id: id,
-      name: name,
-      symbol: symbol.toUpperCase(),
-      currentPrice: currentPrice,
-      priceChange24h: priceChange24h,
-      marketCap: marketCap,
-      volume24h: volume24h,
-      circulatingSupply: circulatingSupply,
-      maxSupply: maxSupply,
-      description: description['en'] ?? '',
-    );
-  }
+  static double _volumeFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['total_volume']['usd'] as num).toDouble();
+
+  static double _circulatingSupplyFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['circulating_supply'] as num).toDouble();
+
+  static double _maxSupplyFromJson(Map<String, dynamic> json) =>
+      (json['market_data']['max_supply'] as num?)?.toDouble() ?? 0;
+
+  static String _descriptionFromJson(Map<String, dynamic> json) =>
+      json['description']['en'] ?? '';
 }
