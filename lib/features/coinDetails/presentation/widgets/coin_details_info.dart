@@ -20,21 +20,17 @@ class CoinDetailsInfo extends StatelessWidget {
               color: Colors.orange.shade100,
               shape: BoxShape.circle,
             ),
-            child: const Center(
+            child: Center(
               child: Text(
-                '₿',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange,
-                ),
+                coin.symbol,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
           ),
           const SizedBox(width: 12),
           Text(
             coin.name,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ],
       ),

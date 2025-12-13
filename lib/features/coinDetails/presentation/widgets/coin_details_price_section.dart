@@ -20,7 +20,7 @@ class CoinDetailsPriceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).colorScheme.surface,
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
@@ -44,23 +44,23 @@ class CoinDetailsPriceSection extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   color: coin.priceChange24h >= 0
-                      ? const Color(0xFF1E3A8A)
+                      ? Theme.of(context).primaryColor
                       : Colors.red,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.trending_up, color: Colors.white, size: 16),
+                    Icon(Icons.trending_up,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        size: 16),
                     const SizedBox(width: 4),
                     Text(
                       '${coin.priceChange24h.abs().toStringAsFixed(1)}%',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                   ],
                 ),

@@ -9,14 +9,14 @@ class CoinDetailsStatistics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).colorScheme.surface,
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             'Statistics',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style:Theme.of(context).textTheme.titleLarge ,
           ),
           const SizedBox(height: 8),
           _statRow('Current Price', '${_format(coin.currentPrice)} \$'),
@@ -46,7 +46,7 @@ class CoinDetailsStatistics extends StatelessWidget {
           ),
           Text(value,
               style:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ],
       ),
     );

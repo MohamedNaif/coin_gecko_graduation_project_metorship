@@ -14,15 +14,11 @@ class CoinDetailsHeader extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
             onPressed: () => Navigator.pop(context),
           ),
-          const Expanded(
+          Expanded(
             child: Text(
               'Coin Details',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1E3A8A),
-              ),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ),
           const SizedBox(width: 48),
