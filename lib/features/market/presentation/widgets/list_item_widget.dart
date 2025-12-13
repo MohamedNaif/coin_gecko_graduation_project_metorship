@@ -35,7 +35,7 @@ class ListItemWidget extends StatelessWidget {
         horizontal: AppDimensions.paddingHorizontalSmall,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(
           AppDimensions.containerBorderRadiusLarge,
         ),
@@ -55,13 +55,13 @@ class ListItemWidget extends StatelessWidget {
                   errorBuilder: (_, __, ___) => Container(
                     width: AppDimensions.containerWidth,
                     height: AppDimensions.containerHeight,
-                    color: Colors.grey[200],
+                    color: Theme.of(context).dividerColor,
                   ),
                 )
               : Container(
                   width: AppDimensions.containerWidth,
                   height: AppDimensions.containerHeight,
-                  color: Colors.grey[200],
+                  color: Theme.of(context).dividerColor,
                 ),
         ),
         title: Text(name),
@@ -89,8 +89,8 @@ class ListItemWidget extends StatelessWidget {
                   AppDimensions.containerBorderRadiusSmall,
                 ),
                 color: changePercent >= 0
-                    ? AppColors.success
-                    : AppColors.secondary,
+                    ? Theme.of(context).colorScheme.tertiary
+                    : Theme.of(context).colorScheme.secondary,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -116,7 +116,7 @@ class ListItemWidget extends StatelessWidget {
                       '${changePercent.abs().toStringAsFixed(2)}%',
                       style: TextStyle(
                         fontSize: AppDimensions.textSizeXSmall,
-                        color: AppColors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
