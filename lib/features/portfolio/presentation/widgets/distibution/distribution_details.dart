@@ -40,7 +40,8 @@ class DistributionDetails extends StatelessWidget {
     );
   }
 
-  Widget _buildLegendItem(
+
+Widget _buildLegendItem(
       BuildContext context, Color color, String name, double usd) {
     return Row(
       children: [
@@ -53,9 +54,13 @@ class DistributionDetails extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 8),
-        Text(
-          '\$ $usd ${name.toUpperCase()}',
-          style: context.textTheme.displayMedium?.copyWith(fontSize: 15),
+        Flexible(
+          child: Text(
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            '\$ $usd ${name.toUpperCase()}',
+            style: context.textTheme.displayMedium?.copyWith(fontSize: 15),
+          ),
         ),
       ],
     );

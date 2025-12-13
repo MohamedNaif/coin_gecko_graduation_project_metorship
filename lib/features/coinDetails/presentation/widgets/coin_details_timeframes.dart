@@ -17,25 +17,28 @@ class CoinDetailsTimeframes extends StatelessWidget {
       {'label': '1y', 'value': '365'},
     ];
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: timeframes.map((tf) {
-        final isSelected = tf['value'] == selected;
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
-          child: ElevatedButton(
-            onPressed: () {
-              context.read<CoinDetailsCubit>().changeTimeframe('bitcoin', tf['value']!);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-              isSelected ? const Color(0xFF1E3A8A) : Colors.grey.shade200,
-              foregroundColor: isSelected ? Colors.white : Colors.black,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: timeframes.map((tf) {
+          final isSelected = tf['value'] == selected;
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: ElevatedButton(
+              onPressed: () {
+                context.read<CoinDetailsCubit>().changeTimeframe('bitcoin', tf['value']!);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                isSelected ? const Color(0xFF1E3A8A) : Colors.grey.shade200,
+                foregroundColor: isSelected ? Colors.white : Colors.black,
+              ),
+              child: Text(tf['label']!),
             ),
-            child: Text(tf['label']!),
-          ),
-        );
-      }).toList(),
+          );
+        }).toList(),
+      ),
     );
   }
 }

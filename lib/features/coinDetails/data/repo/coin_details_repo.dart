@@ -1,9 +1,9 @@
+import 'package:coin_gecko_graduation_project_metorship/core/api/api_constant.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/coinDetails/data/data_source/coin_details_remote_data_source.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/coinDetails/domain/entities/coin_data_point.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/coinDetails/domain/entities/coin_details.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/coinDetails/domain/repo/coin_repo.dart';
 import 'package:injectable/injectable.dart';
-import '../../domain/entities/coin_data_point.dart';
-import '../../domain/entities/coin_details.dart';
-import '../../../../core/api/api_constant.dart';
-import '../../domain/repo/coin_repo.dart';
-import '../data_source/coin_details_remote_data_source.dart';
 
 @LazySingleton(as: CoinRepository)
 class CoinRepositoryImpl implements CoinRepository {
@@ -19,7 +19,7 @@ class CoinRepositoryImpl implements CoinRepository {
       id: model.id,
       name: model.name,
       symbol: model.symbol,
-      currentPrice: model.currentPrice,
+      currentPrice: model.currentPrice ?? 0,
       priceChange24h: model.priceChange24h,
       marketCap: model.marketCap,
       volume24h: model.volume24h,
@@ -31,9 +31,9 @@ class CoinRepositoryImpl implements CoinRepository {
 
   @override
   Future<List<ChartDataPoint>> getChartData(
-      String coinId,
-      String days,
-      ) async {
+    String coinId,
+    String days,
+  ) async {
     final response = await remoteDataSource.getMarketChart(
       coinId,
       ApiConstant.usd,
@@ -42,8 +42,7 @@ class CoinRepositoryImpl implements CoinRepository {
 
     return response.prices.map((point) {
       return ChartDataPoint(
-        timestamp:
-        DateTime.fromMillisecondsSinceEpoch(point[0].toInt()),
+        timestamp: DateTime.fromMillisecondsSinceEpoch(point[0].toInt()),
         price: point[1].toDouble(),
       );
     }).toList();

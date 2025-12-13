@@ -1,3 +1,5 @@
+import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/payment/data/model/payment_body.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetailsActions extends StatelessWidget {
@@ -34,7 +36,14 @@ class CoinDetailsActions extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.paymentMethod,
+                      arguments: PaymentBody(
+                        amount: '200',
+                        name: 'Abdelrahman',
+                        currency: 'USD',
+                      ));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF1E3A8A),
                   foregroundColor: Colors.white,

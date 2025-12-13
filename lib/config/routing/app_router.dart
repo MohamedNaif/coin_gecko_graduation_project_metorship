@@ -67,16 +67,15 @@ class AppRouter {
             child: const FaceIdSuccessScreen(),
           ),
         );
-      case Routes.paymentMethod:
+    
+case Routes.paymentMethod:
         return MaterialPageRoute(
-          builder: (_) => PaymentMethodPage(
-            //only for test
-            paymentBody: PaymentBody(
-              amount: '200',
-              name: 'Abdelrahman',
-              currency: 'USD',
-            ),
-          ),
+          builder: (_) {
+            final args = settings.arguments as PaymentBody;
+            return PaymentMethodPage(
+              paymentBody: args,
+            );
+          },
         );
 
       default:
