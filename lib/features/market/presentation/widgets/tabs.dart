@@ -1,4 +1,3 @@
-import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -60,7 +59,9 @@ class CategoryTab extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: isSelected ? AppColors.primaryDark : AppColors.white,
+            color: isSelected
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(
               AppDimensions.containerBorderRadiusXLarge,
             ),
@@ -74,7 +75,9 @@ class CategoryTab extends StatelessWidget {
             style: GoogleFonts.raleway(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: isSelected ? AppColors.white : AppColors.primaryDark,
+              color: isSelected
+                  ? Theme.of(context).colorScheme.surface
+                  : Theme.of(context).primaryColor,
             ),
           ),
         ),
