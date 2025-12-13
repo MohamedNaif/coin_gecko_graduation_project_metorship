@@ -4,9 +4,17 @@ abstract class AppColors {
   static const Color primaryDark = Color(0xFF1E1F4B);
   static const Color primaryLight = Color(0xFF1D3A70);
   static const Color secondary = Color(0xFFF26666);
-
+  static const Color darkText = Color(0xff18191F);
   static const Color success = Color(0xFF00CB6A);
   static const Color successLight = Color(0xFF69D895);
+
+  // Biometric Colors
+  static const Color biometricBlue =
+      Color(0xFF1D3A70); // Deep Blue for buttons/icons
+  static const Color biometricLightBlue =
+      Color(0xFFE8F1FF); // Light background for icons
+  static const Color biometricTextPrimary = Color(0xFF1D3A70); // Dark Blue text
+  static const Color biometricTextSecondary = Color(0xFF7B8BB2); // Greyish text
 
   static const Color darkBackground = Color(0xFF000000);
   static const Color darkSurface = Color(0xFF121212);
@@ -48,6 +56,7 @@ abstract class AppColors {
   static const Color lightGreen = Color(0xff3CC3DF);
   static const Color lightRed = Color(0xffFF928A);
   static const Color smokyBlack = Color(0xff0D0D0D);
+  static const Color davyGrey = Color(0xff5E5E5E);
 
 // used in container shadow
   static const Color lightShadowColor = Color(0x14344BC1);
@@ -64,4 +73,9 @@ abstract class AppColors {
     end: Alignment.bottomCenter,
     colors: [Color(0xFF1E1F4B), Color(0xFF4766F9)],
   );
+
+  // Search Section
+  static const Color searchHint= Color(0xFF8F8F8F);
+
+
 }

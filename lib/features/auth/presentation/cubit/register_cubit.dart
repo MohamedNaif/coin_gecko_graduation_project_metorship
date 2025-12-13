@@ -1,0 +1,46 @@
+import 'dart:developer';
+
+import 'package:bloc/bloc.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/presentation/cubit/register_state.dart';
+import 'package:flutter/material.dart';
+
+
+class RegisterCubit extends Cubit<RegisterState> {
+  AuthRepo authRepo;
+  RegisterCubit(this.authRepo) : super(const RegisterState.initial());
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  register() async {
+    if (!(formKey.currentState?.validate() ?? true)) return;
+
+    emit(const RegisterState.loading());
+    final result = await authRepo.register(
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+      phoneNumber: phoneNumberController.text,
+    );
+    result.fold((failure) {
+      emit(RegisterState.failure(failure.errMessage));
+      log('Error in register cubit: ${failure.errMessage}');
+    }, (userModel) => emit(const RegisterState.success()));
+  }
+
+  dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    phoneNumberController.dispose();
+  }
+}

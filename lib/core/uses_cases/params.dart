@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:equatable/equatable.dart';
 
 // class NoParams extends Equatable {

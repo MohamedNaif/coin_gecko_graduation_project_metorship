@@ -2,5 +2,9 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.words": [
         "metorship"
-    ]
+    ],
+    "files.exclude": {
+        "**/*.g.dart": true,
+        "**/*.freezed.dart": true
+    }
 }

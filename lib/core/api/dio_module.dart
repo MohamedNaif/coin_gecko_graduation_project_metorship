@@ -1,24 +1,35 @@
 import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/core/api/api_services.dart';
+import 'package:coin_gecko_graduation_project_metorship/core/api/end_points.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class DioModule {
   @lazySingleton
-  LogInterceptor provideLogger() {
-    return LogInterceptor(requestBody: true, responseBody: true);
+  PrettyDioLogger provideLogger() {
+    return PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90,
+    );
   }
 
   @Singleton()
   Dio provideDio(
-    LogInterceptor logInterceptor,
+    PrettyDioLogger logInterceptor,
   ) {
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 60),
-        baseUrl: "https://api.coingecko.com/api/v3",
+        baseUrl: EndPoints.baseUrl,
       ),
     );
     dio.options.headers["Content-Type"] = "multipart/form-data";
@@ -30,6 +41,7 @@ abstract class DioModule {
 
           log("token : $token");
           options.headers['Authorization'] = 'Bearer $token';
+          options.headers['x-cg-demo-api-key'] = dotenv.env['API_HEADER'];
           if (token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
             log("token : $token");
