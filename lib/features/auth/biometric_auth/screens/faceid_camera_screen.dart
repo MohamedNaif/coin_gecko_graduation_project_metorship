@@ -10,6 +10,7 @@ import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/faceid_success_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/widgets/index.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/home/presentation/page/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
@@ -93,7 +94,7 @@ class _FaceIdCameraScreenState extends State<FaceIdCameraScreen> {
         );
         Navigator.of(context).pushReplacement(
           PageSlideTransition(
-            page: const Scaffold(),
+            page: const HomeScreen(),
             direction: AxisDirection.left,
           ),
         );
