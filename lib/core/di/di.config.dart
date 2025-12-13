@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format width=80
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -28,6 +28,10 @@ import '../../features/auth/data/data_source/remote/auth_remote_data_source_impl
     as _i923;
 import '../../features/auth/data/repos/auth_repo.dart' as _i507;
 import '../../features/auth/data/repos/auth_repo_impl.dart' as _i152;
+import '../../features/coinDetails/data/data_source/coin_details_remote_data_source.dart'
+    as _i531;
+import '../../features/coinDetails/data/repo/coin_details_repo.dart' as _i811;
+import '../../features/coinDetails/domain/repo/coin_repo.dart' as _i581;
 import '../../features/home/data/datasources/home_remote_data_source.dart'
     as _i362;
 import '../../features/home/data/repos/home_repo.dart' as _i447;
@@ -87,16 +91,18 @@ extension GetItInjectableX on _i174.GetIt {
             ));
     gh.singleton<_i361.Dio>(
         () => dioModule.provideDio(gh<_i528.PrettyDioLogger>()));
+    gh.lazySingleton<_i531.CoinRemoteDataSource>(
+        () => _i531.CoinRemoteDataSource.new(gh<_i361.Dio>()));
     gh.lazySingleton<_i54.MarketRemoteDataSource>(
-        () => _i54.MarketRemoteDataSource(gh<_i361.Dio>()));
+        () => _i54.MarketRemoteDataSource.new(gh<_i361.Dio>()));
     gh.lazySingleton<_i957.PaymentRemoteDataSource>(
-        () => _i957.PaymentRemoteDataSource(gh<_i361.Dio>()));
+        () => _i957.PaymentRemoteDataSource.new(gh<_i361.Dio>()));
     gh.singleton<_i124.ApiService>(
         () => dioModule.provideApiService(gh<_i361.Dio>()));
     gh.factory<_i362.HomeRemoteDataSource>(
-        () => _i362.HomeRemoteDataSource(gh<_i361.Dio>()));
+        () => _i362.HomeRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i914.PortfolioRemoteDataSource>(
-        () => _i914.PortfolioRemoteDataSource(gh<_i361.Dio>()));
+        () => _i914.PortfolioRemoteDataSource.new(gh<_i361.Dio>()));
     gh.factory<_i447.HomeRepo>(
         () => _i447.HomeRepo(gh<_i362.HomeRemoteDataSource>()));
     gh.factory<_i53.SettingsRepo>(
@@ -113,6 +119,8 @@ extension GetItInjectableX on _i174.GetIt {
         _i11.PortfolioRepositoryImpl(gh<_i914.PortfolioRemoteDataSource>()));
     gh.lazySingleton<_i480.MarketRepository>(
         () => _i480.MarketRepository(gh<_i54.MarketRemoteDataSource>()));
+    gh.lazySingleton<_i581.CoinRepository>(
+        () => _i811.CoinRepositoryImpl(gh<_i531.CoinRemoteDataSource>()));
     gh.factory<_i548.AuthRemoteDataSource>(
         () => _i923.AuthRemoteDataSourceImpl(gh<_i726.FirebaseUtils>()));
     gh.factory<_i599.MarketCubit>(() => _i599.MarketCubit(
