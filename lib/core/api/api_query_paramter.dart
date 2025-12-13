@@ -11,4 +11,6 @@ abstract class ApiQueryParameter {
   static const String query = 'query';
   static const String amount = 'amount';
   static const String currency = 'currency';
+  static const String days = 'days';
+  static const String interval = 'interval';
 }
