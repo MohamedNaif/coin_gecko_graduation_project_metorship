@@ -1,3 +1,4 @@
+import 'package:coin_gecko_graduation_project_metorship/features/market/data/repos/market_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/di.dart';
@@ -12,8 +13,10 @@ class MarketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => getIt<MarketCubit>()..loadInitial()),
-        BlocProvider(create: (_) => getIt<SearchCubit>()),
+        BlocProvider(
+            create: (_) =>
+                MarketCubit(repo: getIt<MarketRepository>())..loadInitial()),
+        BlocProvider(create: (_) => SearchCubit(getIt<MarketRepository>())),
       ],
       child: MarketView(),
     );

@@ -46,20 +46,23 @@ class LoginScreenBody extends StatelessWidget {
                 duration: const Duration(milliseconds: 1000),
                 child: const RememberMeSection(),
               ),
-              SizedBox(height: context.heightScale(AppDimensions.spacingXLarge)),
+              SizedBox(
+                  height: context.heightScale(AppDimensions.spacingXLarge)),
               BlocListener<LoginCubit, LoginState>(
                 listener: (context, state) {
                   state.when(
                     initial: () {},
                     loading: () {},
                     success: () {
-                      showCherryToast(context, AppStrings.loginSuccessful, type: ToastType.success);
-                    
-                        Navigator.of(context).pushReplacementNamed(Routes.home);
-                      
+                      showCherryToast(context, AppStrings.loginSuccessful,
+                          type: ToastType.success);
+
+                      Navigator.of(context)
+                          .pushReplacementNamed(Routes.homeScreen);
                     },
                     failure: (errorMessage) {
-                      showCherryToast(context, errorMessage, type: ToastType.error);
+                      showCherryToast(context, errorMessage,
+                          type: ToastType.error);
                     },
                   );
                 },
@@ -79,7 +82,8 @@ class LoginScreenBody extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: context.heightScale(AppDimensions.spacingXLarge)),
+              SizedBox(
+                  height: context.heightScale(AppDimensions.spacingXLarge)),
               AnimatedSlideInWidget(
                 duration: const Duration(milliseconds: 1200),
                 child: const LoginMethodsSection(),

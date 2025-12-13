@@ -34,7 +34,7 @@ class BiometricLoginButton extends StatelessWidget {
                 AppStrings.loginSuccessful,
                 type: ToastType.success,
               );
-              Navigator.pushReplacementNamed(context, Routes.home);
+              Navigator.pushReplacementNamed(context, Routes.homeScreen);
             }
           },
           cancelled: () {},

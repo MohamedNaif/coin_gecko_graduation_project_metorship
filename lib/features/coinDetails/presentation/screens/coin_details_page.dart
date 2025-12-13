@@ -1,3 +1,5 @@
+import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/coinDetails/domain/repo/coin_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/usecase/get_chart_details.dart';
@@ -14,12 +16,10 @@ class CoinDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CoinDetailsCubit(
-        getCoinDetails: context.read<GetCoinDetails>(),
-        getChartData: context.read<GetChartData>(),
+        getCoinDetails: GetCoinDetails(getIt<CoinRepository>()),
+        getChartData: GetChartData(getIt<CoinRepository>()),
       )..loadCoinDetails(coinId),
       child: const CoinDetailsView(),
     );
   }
 }
-
-

@@ -49,7 +49,7 @@ class FaceIdSuccessScreen extends StatelessWidget {
                 text: AppStrings.continueToHome,
                 onTap: () {
                   context.read<BiometricCubit>().enableBiometric();
-                  Navigator.pushReplacementNamed(context, Routes.home);
+                  Navigator.pushReplacementNamed(context, Routes.homeScreen);
                 },
                 color: AppColors.primaryLight,
                 textStyle: context.textTheme.titleMedium?.copyWith(
@@ -57,7 +57,7 @@ class FaceIdSuccessScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-            ), 
+            ),
           ],
         ),
       ],

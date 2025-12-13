@@ -97,10 +97,10 @@ class _MarketViewState extends State<MarketView> {
             fontFamily: AppStrings.fontFamily,
           ),
         ),
-        backgroundColor: AppColors.lightBackground,
+        // backgroundColor: AppColors.lightBackground,
         elevation: 0,
       ),
-      backgroundColor: AppColors.lightBackground,
+      // backgroundColor: AppColors.lightBackground,
       body: Column(
         children: [
           SearchSection(),

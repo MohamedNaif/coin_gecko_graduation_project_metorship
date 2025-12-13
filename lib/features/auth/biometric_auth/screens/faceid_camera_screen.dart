@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
 
-
 class FaceIdCameraScreen extends StatefulWidget {
   const FaceIdCameraScreen({super.key});
 
@@ -72,7 +71,7 @@ class _FaceIdCameraScreenState extends State<FaceIdCameraScreen> {
             duration: const Duration(milliseconds: 1200),
             child: FaceIdSkipButton(
               onPressed: () =>
-                  Navigator.pushReplacementNamed(context, Routes.home),
+                  Navigator.pushReplacementNamed(context, Routes.homeScreen),
             ),
           ),
           SizedBox(height: context.heightScale(AppDimensions.spacingXSmall)),
