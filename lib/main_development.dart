@@ -2,17 +2,16 @@ import 'package:coin_gecko_graduation_project_metorship/config/lang_manager.dart
 import 'dart:developer';
 
 import 'package:coin_gecko_graduation_project_metorship/config/routing/routes.dart';
-import 'package:coin_gecko_graduation_project_metorship/config/theme/app_colors.dart';
 import 'package:coin_gecko_graduation_project_metorship/config/theme/app_theme.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/constants/cache_keys.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/di/di.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/function/check_state_changes.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/storage/cache_helper.dart';
 import 'package:coin_gecko_graduation_project_metorship/core/utils/my_bloc_observer.dart';
+import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/biometric_lock_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_cubit.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/setting/presentation/cubit/setting_state.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/cubit/biometric_cubit.dart';
-// import 'package:coin_gecko_graduation_project_metorship/features/auth/biometric_auth/screens/biometric_lock_screen.dart';
 import 'package:coin_gecko_graduation_project_metorship/features/auth/data/repos/auth_repo.dart';
 import 'package:coin_gecko_graduation_project_metorship/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,6 +21,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:privacy_screen/privacy_screen.dart';
 // import 'package:privacy_screen/privacy_screen.dart';
 import 'config/routing/app_router.dart';
 
@@ -128,9 +128,22 @@ class _MyAppState extends State<MyApp> {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-          // builder: (_, child) {
-          //   return child!;
-          // },
+        builder: (_, child) {
+              return PrivacyGate(
+                navigatorKey: navigatorKey,
+                lockBuilder: (ctx) => BlocProvider(
+                  create: (context) => BiometricCubit(
+                    getIt<AuthRepo>(),
+                  ),
+                  child: const BiometricLockScreen(),
+                ),
+                onLifeCycleChanged: (v) => log("Lifecycle: $v"),
+                onLock: () => log("App Locked"),
+                onUnlock: () => log("App Unlocked"),
+                child: child!,
+              );
+            },
+          
         );
       },
     );

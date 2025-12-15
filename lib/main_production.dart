@@ -14,7 +14,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:privacy_screen/privacy_screen.dart';
+import 'package:privacy_screen/privacy_screen.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/routing/app_router.dart';
@@ -78,24 +78,24 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     authStateService.checkStateChanges();
-    // _setupPrivacyScreen();
+    _setupPrivacyScreen();
   }
 
-  // void _setupPrivacyScreen() {
-  //   PrivacyScreen.instance.enable(
-  //     iosOptions: const PrivacyIosOptions(
-  //       enablePrivacy: true,
-  //       autoLockAfterSeconds: 10,
-  //       lockTrigger: IosLockTrigger.didEnterBackground,
-  //     ),
-  //     androidOptions: const PrivacyAndroidOptions(
-  //       enableSecure: true,
-  //       autoLockAfterSeconds: 10,
-  //     ),
-  //     backgroundColor: AppColors.deepBlue.withValues(alpha: 0.3),
-  //     blurEffect: PrivacyBlurEffect.light,
-  //   );
-  // }
+  void _setupPrivacyScreen() {
+    PrivacyScreen.instance.enable(
+      iosOptions: const PrivacyIosOptions(
+        enablePrivacy: true,
+        autoLockAfterSeconds: 10,
+        lockTrigger: IosLockTrigger.didEnterBackground,
+      ),
+      androidOptions: const PrivacyAndroidOptions(
+        enableSecure: true,
+        autoLockAfterSeconds: 10,
+      ),
+      backgroundColor: AppColors.deepBlue.withValues(alpha: 0.3),
+      blurEffect: PrivacyBlurEffect.light,
+    );
+  }
   @override
   void dispose() {
     authStateService.dispose();
@@ -117,9 +117,22 @@ class _MyAppState extends State<MyApp> {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      builder: (_, child) {
-        return child!;
-      },
+    builder: (_, child) {
+              return PrivacyGate(
+                navigatorKey: navigatorKey,
+                lockBuilder: (ctx) => BlocProvider(
+                  create: (context) => BiometricCubit(
+                    getIt<AuthRepo>(),
+                  ),
+                  child: const BiometricLockScreen(),
+                ),
+                onLifeCycleChanged: (v) => log("Lifecycle: $v"),
+                onLock: () => log("App Locked"),
+                onUnlock: () => log("App Unlocked"),
+                child: child!,
+              );
+            },
+          
     );
   }
 }

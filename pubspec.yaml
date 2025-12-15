@@ -59,7 +59,7 @@ dependencies:
   local_auth: ^3.0.0
   mockito: ^5.5.0
   pretty_dio_logger: ^1.4.0
-  # privacy_screen: ^0.0.8
+  privacy_screen: ^0.0.8
   retrofit: ^4.0.1
   secure_application: ^4.1.0
   sentry_flutter: ^9.8.0
